@@ -1,0 +1,154 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.s-contacts {
+  padding: 140px 0;
+  background: rgba(244, 244, 244, 1);
+  @media (max-width: $breakpoint-md) {
+    padding: 100px 0;
+  }
+
+  & .map-info {
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    padding: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 55px;
+      top: -45px;
+      width: 38px;
+      height: 56px;
+      z-index: 3;
+      object-fit: contain;
+
+    }
+
+    &__location {
+      margin-bottom: 32px;
+      font-size: 14px;
+
+      &:after {
+        content: '';
+        width: 80%;
+        height: 1px;
+        background: rgba(238, 238, 253, 1);
+        position: absolute;
+        top: calc(100% + 16px);
+        left: 0;
+        @media (max-width: $breakpoint-md) {
+          width: 100%;
+        }
+      }
+    }
+
+    &__more {
+      @include fontSize(14, 18);
+      color: rgba(232, 16, 16, 1);
+      cursor: pointer;
+
+      & i {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  &__inner {
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $breakpoint-md) {
+      min-height: 500px;
+    }
+
+    &--wrap {
+      position: relative;
+      padding-bottom: 70%;
+      //  -webkit-mask-image: -webkit-gradient(radial, 500px 50%, 30, 50% 50%, 90, from(#f4f4f4), to(rgba(0, 0, 0, 0)));
+
+      -webkit-mask-image: radial-gradient(radial, 90% 80% at 48% 78%, black 40%, transparent 50%);
+      mask-image: radial-gradient(radial, 90% 80% at 48% 78%, black 40%, transparent 50%);
+
+      & .mask {
+        position: absolute;
+        top: -25%;
+        left: -25%;
+        width: 150%;
+        height: 150%;
+
+      }
+    }
+  }
+
+  & .heading {
+    margin-bottom: 48px;
+  }
+
+  & .description {
+    margin-bottom: 32px;
+  }
+
+  & .social {
+    &__item {
+      a {
+        width: 32px;
+        height: 32px;
+        box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+        border-radius: 0;
+
+        & i {
+          color: $accent-color;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  & .contact {
+    &__wrap {
+      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+      background: #FFFFFF;
+      padding: 32px;
+    }
+
+    &__item {
+      &:not(&:last-child) {
+        margin-bottom: 24px;
+      }
+
+      & .icon {
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+
+      & .text {
+        @include fontSize(12, 14);
+        color: rgba(27, 27, 27, 1);
+        margin-top: 8px;
+      }
+
+      & .social {
+        margin-top: 15px;
+      }
+
+    }
+  }
+}

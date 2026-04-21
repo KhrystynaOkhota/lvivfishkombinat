@@ -1,0 +1,132 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.product {
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+  position: relative;
+  &__title {
+    font-size: fluid(14, 18);
+    margin-bottom: 11px;
+  }
+
+  &__img {
+    &-wrap {
+      margin-bottom: 11px;
+
+      &:after {
+        content: '';
+        width: calc(100% - 20px);
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 10px;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__label {
+    padding: 6.5px 12px;
+    font-size: 15px;
+    color: #fff;
+
+    &-wrap {
+      position: absolute;
+      top: 10px;
+      left: 0;
+    }
+
+    &--discount {
+      background: #B81313;
+    }
+
+    &--new {
+      background: #359517;
+    }
+
+    &--promo {
+      background: #0F0E68;
+    }
+  }
+
+  &__meta {
+    margin-bottom: 18px;
+    padding: 0 10px;
+  }
+
+  &__sku, &__status {
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  &__sku {
+    color: #5A5A5A;
+  }
+
+  &__status {
+    color: #359517;
+  }
+
+  &__price {
+    &-wrap {
+      padding: 0 10px;
+      margin-bottom: 25px;
+
+      & .amount {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      & .price {
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+        gap: 10px;
+
+        & > ins {
+          color: #FF3C00;
+          text-decoration: none;
+        }
+
+        & > del {
+          color: #1B1B1B;
+
+          & .amount {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+
+  &__actions {
+    & .btn {
+      &-fav {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: rgba(200, 198, 229, 1);
+
+        &:hover {
+          color: #FF3C00;
+        }
+      }
+
+      &-cart {
+        width: calc(100% - 50px);
+        background: rgba(200, 198, 229, 0.2);
+        border-radius: 0;
+        font-weight: 600;
+        padding: 14px 0 13px 0;
+
+        & .icon-bag {
+          font-size: 20px;
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+}

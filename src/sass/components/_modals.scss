@@ -1,0 +1,488 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+/*------------------------------------------*/
+/* - POPUPS */
+/*------------------------------------------*/
+/*.popup {
+  &-form {
+    &__heading, &__description {
+      color: $white-color;
+    }
+
+    &__heading {
+      @include fontSize(30, 35);
+      margin-bottom: 18px;
+    }
+
+    &__description {
+      @include fontSize(16, 18);
+      margin-bottom: 25px;
+    }
+
+    & .btn-primary {
+      width: 100%;
+      max-width: 304px;
+    }
+
+    & .form-control {
+      margin-bottom: 20px;
+    }
+  }
+
+
+  &-wrapper {
+    position: fixed;
+    z-index: 33;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    -webkit-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s;
+
+    &.active {
+      left: 0;
+      -webkit-transition-delay: 0s;
+      -o-transition-delay: 0s;
+      transition-delay: 0s;
+
+      & .bg-layer {
+        opacity: 1;
+      }
+    }
+
+
+    & .bg-layer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -6.25rem;
+      bottom: -6.25rem;
+      background: rgba(51, 51, 49, 0.7);
+      -webkit-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+      opacity: 0;
+    }
+
+    & .btn-close {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+      background: transparent;
+      @media (max-width: $breakpoint-md) {
+        font-size: 24px;
+        top: -54px;
+        right: 15px;
+      }
+
+      & i {
+        font-size: 18px;
+        font-weight: normal;
+        color: rgba(224, 217, 208, 1);
+        @include transition(.4);
+        @media (max-width: $breakpoint-md) {
+          font-size: 24px;
+
+        }
+      }
+
+      &:hover {
+        & i {
+          color: $white-color;
+        }
+      }
+    }
+  }
+
+  &-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 50rem;
+    background: #ffff;
+
+    text-align: left;
+
+
+    @media (max-width: $breakpoint-md) {
+
+      padding: 40px 16px;
+      max-width: 500px;
+
+    }
+    @media (max-width: $breakpoint-sm) {
+
+      max-width: 90%;
+
+    }
+
+
+  }
+
+  &-content {
+    position: absolute;
+    top: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+
+    -webkit-transition: opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+    transition: opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+    -o-transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s;
+    transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s;
+    transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    opacity: 0;
+    left: -10000px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      opacity: 1;
+      left: 0;
+      -webkit-transition: opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+      transition: opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+      -o-transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s;
+      transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s;
+      transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+      position: relative;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0 15px;
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    & .layer-close {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 10000px;
+    }
+
+    & .btn-primary {
+      @media (max-width: $breakpoint-md) {
+        display: block;
+        font-size: 18px;
+        max-width: 295px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+
+    &[data-rel="inspection"] {
+      & .popup {
+        &-container {
+          padding: 91px 101px 156px 91px;
+          max-width: 830px;
+          background: rgba(44, 56, 55, 1);
+          @media (max-width: $breakpoint-md) {
+            padding: 22px 10px 54px 10px;
+
+          }
+        }
+
+        &-info {
+          & .heading {
+            margin-bottom: 40px;
+            @include fontSize(30, 60);
+            @media (max-width: $breakpoint-md) {
+              margin-bottom: 25px;
+            }
+          }
+        }
+      }
+    }
+
+
+    & .form-control {
+      &:not(&.no-margin) {
+        margin-bottom: 20px;
+
+      }
+
+      &__input {
+        padding: 17px 20px 16px 20px;
+
+      }
+    }
+
+    & .btn-primary {
+      margin: 0 auto;
+
+      display: block;
+      width: 100%;
+      max-width: 304px;
+    }
+
+    &[data-rel="cottagee"] {
+      & .heading {
+        font-size: fluid(27, 80);
+        margin-bottom: fluid(23, 50);
+      }
+
+      & .btn-primary {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 30px;
+      }
+
+      & .popup-container {
+        padding: fluid(10, 50) fluid(20, 60);
+        background: #2C3837;
+        @media (min-width: $breakpoint-md) {
+          max-width: 1400px;
+
+        }
+        @media (max-width: $breakpoint-md) {
+          max-width: 505px;
+
+        }
+      }
+
+    }
+  }
+}
+
+.cottagee {
+
+}
+
+*/
+
+
+.popup-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  transition-delay: 0.3s;
+
+  visibility: hidden;
+
+  &.active {
+    left: 0;
+    transition-delay: 0s;
+
+    visibility: visible;
+
+    & .bg-layer {
+      opacity: 1;
+    }
+  }
+
+  .bg-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -6.25rem;
+    bottom: -6.25rem;
+    background: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transition: opacity ease-out .3s;
+  }
+}
+
+
+.popup-content {
+  position: absolute;
+  inset: 0;
+  font-size: 0;
+  text-align: center;
+  letter-spacing: 0;
+  padding: 0.9375rem calc(var(--bs-gutter-x) / 2);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+  transition: opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+  -o-transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s;
+  transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s;
+  transition: transform .3s ease-out, opacity .3s ease-out, left 0s .3s, -webkit-transform .3s ease-out;
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  opacity: 0;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  &.active {
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+    left: 0;
+    -webkit-transition: opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+    transition: opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+    -o-transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s;
+    transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s;
+    transition: transform .3s ease-out, opacity .3s ease-out, left 0s 0s, -webkit-transform .3s ease-out;
+    z-index: 5;
+  }
+
+  & .layer-close {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 625rem;
+  }
+
+  &[data-rel="inspection"] {
+    & .popup {
+      &-container {
+        padding: fluid(20, 90) fluid(10, 120);
+        max-width: fluid(355, 830);
+        background: rgba(44, 56, 55, 1);
+      }
+
+      &-info {
+        & .heading {
+          margin-bottom: 40px;
+          @include fontSize(30, 60);
+          @media (max-width: $breakpoint-md) {
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+
+
+  & .form-control {
+    &:not(&.no-margin) {
+      margin-bottom: 20px;
+
+    }
+
+    &__input {
+      padding: 17px 20px 16px 20px;
+
+    }
+  }
+
+  & .btn-primary {
+    margin: 0 auto;
+
+    display: block;
+    width: 100%;
+    max-width: 304px;
+  }
+
+  &[data-rel="cottagee"] {
+    & .popup-container {
+      max-width: 1400px;
+      background: #2C3837;
+      padding: 60px;
+      @media (max-width: $breakpoint-md) {
+        padding: 50px 20px 20px 20px;
+      }
+
+      & .swiper-thumbs {
+        &-top {
+          margin-bottom: 30px;
+          @media (max-width: $breakpoint-md) {
+            margin-bottom: 20px;
+          }
+
+          & img {
+            aspect-ratio: 4 / 2;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.popup-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  max-width: 50rem;
+  background: var(--clr-white);
+  border-radius: var(--rd-2);
+  text-align: left;
+}
+
+
+.popup-container .btn-close {
+  position: absolute;
+  z-index: 10;
+  top: 30px;
+  right: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  @media (max-width: $breakpoint-md) {
+    top: 10px;
+    right: 20px;
+  }
+
+  & i {
+    transition: color ease-in-out .3s;
+    font-size: 20px;
+  }
+
+  &:hover {
+    & i {
+      color: rgba(255, 255, 255, .7);
+    }
+  }
+}
+
+/*
+.popup-align {
+  position: relative;
+  z-index: 1;
+  padding: var(--sp-md);
+}
+
+.popup-info > * + * {
+  margin-top: 0.75rem;
+}
+
+.open-popup {
+  cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .popup-container .btn-close {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+  .popup-align {
+    padding: 2rem calc(var(--bs-gutter-x) / 2);
+  }
+}
+
+*/
+
+

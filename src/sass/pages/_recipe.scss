@@ -1,0 +1,360 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #EEEEFD;
+  margin: 24px 0;
+}
+
+.recipe {
+  &__item {
+    margin-bottom: 20px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 16px;
+    }
+
+    & .btn-more {
+      @include fontSize(14, 18);
+    }
+  }
+
+  &__info {
+    background: $whiteColor;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 4px 16px 0px #0000000F;
+    @media (max-width: $breakpoint-md) {
+      width: calc(100% - 24px);
+      padding: 18px;
+    }
+  }
+
+  &__time {
+    margin-bottom: 24px;
+    @include fontSize(12, 14);
+    color: rgba(23, 4, 88, .44);
+
+    & i {
+      padding-right: 12px;
+      font-size: 16px;
+    }
+  }
+
+  &__heading {
+    @include fontSize(16, 20);
+    color: #1B1B1B;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    &-wrap {
+      position: relative;
+      padding-bottom: 74%;
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(89.97deg, rgba(0, 0, 0, 0.75) 13.77%, rgba(0, 0, 0, 0.15) 53.49%, rgba(0, 0, 0, 0) 99.98%);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.s-recipes {
+  margin: 56px 0 140px 0;
+
+  & .recipes__filter {
+    box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2);
+    margin-bottom: 24px;
+    padding: 40px;
+    @media (max-width: $breakpoint-md) {
+      padding: 0;
+    }
+  }
+
+  & .pagination {
+    margin-top: 12px;
+  }
+
+  &.bg {
+    margin: 36px 0 140px 0;
+  }
+
+  & .decor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}
+
+.s-recommended-recipes {
+  padding: 140px 0;
+  @media (max-width: $breakpoint-md) {
+    padding: 100px 0;
+  }
+
+  & .heading {
+    @include fontSize(28, 45);
+    width: calc(100% - 132px);
+    @media (max-width: 380px) {
+      font-size: 20px;
+      width: calc(100% - 92px);
+    }
+  }
+
+  & .decor {
+    position: absolute;
+    bottom: -140px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.s-recipe-detail {
+  padding: 56px 0 0 0;
+
+
+  & .meta {
+    box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2);
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 40px;
+
+    &__inner {
+      @media (max-width: $breakpoint-xl) {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: $breakpoint-xl) {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    @media (max-width: $breakpoint-md) {
+      padding: 32px;
+    }
+
+    & .share {
+
+      padding: 21.5px 24px;
+      border: 1px solid rgba(232, 16, 16, 1);
+
+      cursor: pointer;
+      @media (max-width: $breakpoint-xl) {
+        margin: 24px auto 0 auto;
+        width: 100%;
+      }
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+        margin-top: 24px;
+
+        text-align: center;
+      }
+
+      & span {
+        font-size: 18px;
+        color: rgba(232, 16, 16, 1);
+      }
+
+      & img {
+        width: 24px;
+        height: 24px;
+        margin-left: 16px;
+      }
+    }
+
+    & .time, & .servings {
+      font-size: 16px;
+
+      & i {
+        margin-right: 12px;
+        color: rgba(232, 16, 16, 1);
+
+      }
+    }
+  }
+
+  &__inner {
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  & .recipe {
+    &__img {
+      &-wrap {
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 24px;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  & .recommended-product {
+    margin: 18px 0;
+    @media (max-width: $breakpoint-md) {
+      margin: 10px 0;
+    }
+
+    .swiper {
+      &-button-prev, &-button-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &-button-prev {
+        left: -80px;
+      }
+
+      &-button-next {
+        right: -80px;
+      }
+
+      &-slide {
+        padding: 30px 0;
+      }
+    }
+
+    & .product {
+      &__info {
+        padding: 24px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        @media (max-width: $breakpoint-md) {
+          padding: 14px 12px;
+        }
+      }
+
+      &__item {
+        box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2);
+        height: 100%;
+      }
+
+      &__img {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        height: 90%;
+        width: 90%;
+        object-fit: contain;
+
+        &-wrap {
+          padding-bottom: 100%;
+        }
+      }
+
+      &__heading {
+        @include fontSize(14, 20);
+      }
+    }
+  }
+
+  & .recipe-detail {
+
+    &__heading {
+      @include fontSize(20, 24);
+      margin-bottom: 32px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+
+.select-box select {
+  opacity: 0;
+}
+
+.SumoSelect {
+  width: auto;
+  max-width: 250px;
+}
+
+.SumoSelect.open > .optWrapper {
+  background: rgba(244, 244, 244, 1);
+}
+
+.SumoSelect > .optWrapper {
+  border-radius: 0;
+  max-width: 210px;
+}
+
+.SumoSelect > .optWrapper > .options > li.opt:first-child {
+  border-radius: 0;
+}
+
+.SumoSelect > .optWrapper > .options {
+  border-radius: 0;
+  padding: 24px;
+  max-height: max-content;
+}
+
+.SumoSelect > .optWrapper > .options li.opt {
+  padding: 0;
+
+  &:not(&:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.SumoSelect > .optWrapper > .options li.opt:hover {
+  background-color: transparent;
+}
+
+.SumoSelect > .CaptionCont {
+  position: relative;
+  border: none;
+  min-height: 14px;
+  background-color: #fff;
+  border-radius: 0;
+  margin: 0;
+}
+
+.SumoSelect.open>.CaptionCont, .SumoSelect:focus>.CaptionCont, .SumoSelect:hover>.CaptionCont {
+  box-shadow: none;
+  border-color: transparent;
+  cursor: pointer;
+}
+.SumoSelect>.CaptionCont>span{
+  cursor: pointer;
+}
+
+.select-box{
+  &:not(&:last-child){
+    margin-right:40px;
+  }
+}

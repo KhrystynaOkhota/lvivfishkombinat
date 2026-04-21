@@ -1,0 +1,84 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.s-about {
+  &.home {
+    padding: fluid(50, 100) 0 fluid(40, 100) 0;
+
+    & .heading {
+      margin-bottom: fluid(10, 35);
+    }
+
+    & .description {
+      margin-bottom: fluid(30, 50);
+    }
+
+    & .awards {
+      display: grid;
+      grid-template-columns: 53px 1fr;
+      gap: 13px;
+
+      &:not(&:last-child) {
+        margin-bottom: 20px;
+      }
+
+      &__title {
+        font-size: fluid(15, 18);
+      }
+
+      &:nth-child(2) {
+        & .awards__title {
+          font-size: fluid(15, 20);
+        }
+      }
+
+      &__wrap {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  & .img {
+    &__wrap {
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 22px;
+      }
+    }
+  }
+}
+
+.s-trust {
+  padding: fluid(0,20) 0 fluid(50,100) 0;
+
+  & .heading {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 22px;
+    }
+  }
+
+  & .trust {
+    border: 1px solid rgba(234, 234, 234, 1);
+    min-height: 175px;
+    padding: 30px 15px 25px 15px;
+
+    &__wrap {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 20px;
+      @media (max-width: $breakpoint-md) {
+
+        gap: 0;
+      }
+    }
+
+    &__title {
+      font-size: fluid(14, 20);
+    }
+
+    &__icon {
+      &-wrap {
+        margin-bottom: fluid(20, 28);
+      }
+    }
+  }
+}

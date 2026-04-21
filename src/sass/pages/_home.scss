@@ -1,0 +1,246 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.media {
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-md) {
+    height: 85vh;
+    padding-bottom: 50%;
+  }
+  @media (max-width: $breakpoint-md) {
+    padding-bottom: 110%;
+    min-height: 500px;
+
+  }
+
+  &::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &__video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    content-visibility: auto;
+  }
+
+  &__btn {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: fluid(50, 90);
+    height: fluid(50, 90);
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-image-source: radial-gradient(69.43% 69.43% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    ,
+    radial-gradient(60% 51.57% at 50% 50%, #FDD66D 0%, #FCF6BD 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    ,
+    radial-gradient(54.8% 53% at 50% 50%, #151515 0%, rgba(21, 21, 21, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  ;
+
+
+    & img {
+      width: 30%;
+      height: 30%;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+}
+
+.s-banner {
+  min-height: 370px;
+  padding: 32px 0 100px 0;
+
+  @media (max-width: $breakpoint-md) {
+    min-height: 140px;
+    padding: 24px 0 56px 0;
+  }
+
+  &.article {
+    margin-bottom: 56px;
+  }
+
+  & .heading, & .description {
+    color: $whiteColor;
+  }
+
+  & .heading {
+    margin-bottom: 40px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 32px;
+    }
+  }
+
+  & .description {
+    font-size: fluid(14, 16);
+    line-height: 1.6875;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+
+    &-wrap {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      right: 0;
+      top: 0;
+
+      &:after {
+        content: '';
+        background: linear-gradient(89.97deg, rgba(0, 0, 0, 0.75) 13.77%, rgba(0, 0, 0, 0.15) 53.49%, rgba(0, 0, 0, 0) 99.98%), linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  & .kama_breadcrumbs {
+    margin-bottom: 60px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 56px;
+    }
+  }
+}
+
+.s-benefit {
+  padding: fluid(40, 86) 0 fluid(50, 100) 0;
+
+  & .heading {
+    margin-bottom: fluid(20, 34);
+  }
+
+  & .description {
+    margin-bottom: fluid(20, 37);
+  }
+
+  &:after {
+    content: '';
+    height: 1px;
+    background: rgba(179, 176, 216, .4);
+    width: calc(100% - 20px);
+    max-width: 1270px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  & .benefit {
+    &__wrap {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 20px;
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, auto);
+        gap: 30px;
+      }
+    }
+
+    display: grid;
+    grid-template-columns: fluid(59, 90) 1fr;
+    gap: 20px;
+    align-items: center;
+
+    &__title {
+      max-width: 140px;
+    }
+
+    &__icon {
+      &-wrap {
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+        width: fluid(59, 90);
+        height: fluid(59, 90);
+      }
+
+    }
+  }
+}
+
+.s-production {
+  padding: fluid(50, 100) 0;
+
+  & .heading {
+    margin-bottom: fluid(20, 38);
+  }
+
+  & .production-gallery {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: fluid(5, 20);
+    }
+
+    &__img {
+      max-width: 100%;
+      width: 100%;
+      object-fit: cover;
+      height: auto;
+      aspect-ratio: 16 / 9
+    }
+  }
+}
+
+.s-popular-products {
+
+  padding: fluid(50, 100) 0 fluid(50, 110) 0;
+
+  & .heading {
+    margin-bottom: fluid(20, 30);
+  }
+
+  & .description {
+    font-size: fluid(14, 18);
+    max-width: 90%;
+    margin: 0 auto fluid(20, 50) auto;
+  }
+
+  .swiper-wrapper {
+    padding: 25px;
+    width: calc(100% + 50px);
+    left: -25px;
+  }
+}
+
+.s-popular-recipes {
+  & .heading {
+    margin-bottom: fluid(20, 30);
+  }
+
+  & .description {
+    font-size: fluid(14, 18);
+    max-width: 90%;
+    margin: 0 auto fluid(20, 50) auto;
+  }
+}
