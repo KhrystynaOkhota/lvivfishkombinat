@@ -69,11 +69,11 @@ jQuery(function ($) {
   });
 
   // Thumbs Swiper
-  $(".swiper-thumbs").each(function () {
-    if ($(".swiper-thumbs-top").length && $(".swiper-thumbs-bottom").length) {
+  $(".product-gallery").each(function () {
+    if ($(".product-gallery__main").length && $(".product-gallery__thumbs").length) {
       let t = $(this);
-      let top = t.find(".swiper-thumbs-top>.swiper-container")[0].swiper,
-          bottom = t.find(".swiper-thumbs-bottom>.swiper-container")[0].swiper;
+      let top = t.find(".product-gallery__main>.swiper-container")[0].swiper,
+          bottom = t.find(".product-gallery__thumbs>.swiper-container")[0].swiper;
       top.thumbs.swiper = bottom;
       top.thumbs.init();
       top.thumbs.update();
