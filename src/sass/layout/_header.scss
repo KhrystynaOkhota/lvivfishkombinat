@@ -1,404 +1,442 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
-.header {
-  will-change: transform;
-}
-:root {
-  --container-width: 90.3vw;
-  --container-pd: calc((100vw - var(--container-width)) / 2);
-}
+// Змінні проєкту
+
+$secondary: #222222; // Основний текст
+$gray: #828282; // Другорядний текст
+$light-bg: #F9F9F9; // Фон верхньої панелі
+
+$white: #ffffff;
 
 .header {
-  top: 0;
-  left: 0;
+  position: fixed;
   width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  ;
 
-  position: absolute;
-  background: transparent;
-  z-index: 7;
-  /* Плавна анімація */
-  transition: transform 0.35s ease-out, opacity 0.35s ease-out;
-  will-change: transform, opacity;
-
-
-  /* visibility: visible;
-   opacity: 1;
-   -webkit-transition: all 0.25s linear;
-   transition: all 0.25s linear;*/
-  @media (max-width: $breakpoint-lg) {
-    padding: 30px 0;
-
-  }
-  @media (max-width: $breakpoint-md) {
-    height: auto;
-    padding: 20px 0;
+  &.bg {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
   }
 
-  & .container-fluid {
-    @media (min-width: 1470px) {
+  // ВЕРХНЯ ПАНЕЛЬ (Top Bar)
+  &__top {
+    padding: 9px 0 9px 162px;
 
-      width: var(--container-width);
-
-    }
-  }
-
-  @media (min-width: 1200px) {
-    &-hidden {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-
-    &-visible {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  &__main {
-    transition: all ease-out .5s;
-    padding: 20px 0 30px 0;
+    font-size: 13px;
     position: relative;
-    @media (max-width: $breakpoint-lg) {
-      padding: 0;
-      order: 2;
-      display: grid;
-      gap: 20px;
-      position: relative;
-    }
 
     &:after {
       content: '';
       width: 100vw;
-      height: 1px;
-      background: rgba(255, 255, 255, .3);
-      bottom: 0;
-      left: calc(-1 * (100vw - 100%) / 2);
       position: absolute;
-      @media (max-width: $breakpoint-lg) {
-        bottom: auto;
-        top: -20px;
-      }
+      height: 100%;
+      left: calc(50% - 50vw);
+      top: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
     }
 
-    & .menu {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-transition: .4s all;
-      transition: .4s all;
-      visibility: visible;
-      opacity: 1;
-      gap: 50px;
-      @media (max-width: $breakpoint-lg) {
-        gap:0;
-        display: grid;
-      }
-
-      &-main-menu-container {
-        @media (max-width: $breakpoint-lg) {
-          display: grid;
-          width: 100%;
-          gap: 0;
-          text-align: left;
-          padding-bottom: 15px;
-
-          order: 3;
-          margin-top: 0;
-        }
-      }
-
-      &-item {
-        @media (max-width: $breakpoint-lg) {
-          padding: 20px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, .1);
-        }
-
-        &:nth-child(1) {
-          @media (max-width: $breakpoint-lg) {
-            border-top: 1px solid rgba(255, 255, 255, .1);
-
-          }
-        }
-
-        & a {
-          position: relative;
-          font-size: 18px;
-          line-height: 1;
-          font-weight: 500;
-          @include transition(.5);
-          @media (min-width: $breakpoint-lg) {
-
-          }
-
-          &:after {
-            content: '';
-            width: 0;
-            height: 4px;
-            background: rgba(89, 69, 55, 1);
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            @media (max-width: $breakpoint-lg) {
-              display: none;
-            }
-          }
-
-          &:hover {
-            color: rgba(139, 117, 96, 1);
-          }
-        }
-
-        &-active {
-          & a {
-            &:after {
-              width: 100%;
-            }
-          }
-        }
-      }
+    .social-label {
+      color: $gray;
+      margin-right: 15px;
+      font-weight: 500;
     }
 
-    & .contact {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
-        display: none;
-      }
+    .social {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 10px;
 
-      &-item {
-        @media (max-width: $breakpoint-lg) {
-          width: 100%;
-        }
-
-        & a {
-          transition: color ease-out .3s;
-          font-weight: 700;
-
-          font-size: fluid(16, 22);
-          color: rgba(255, 255, 255, 1);
-
-          &:hover {
-            color: rgba(139, 117, 96, 1);
-          }
-        }
-      }
-    }
-  }
-
-  & .social {
-    @media (max-width: $breakpoint-md) {
-      gap: 20px;
-    }
-  }
-
-  & .logo {
-    height: 100%;
-
-    &__wrap {
-      width: 162px;
-      height: 105px;
-      display: block;
-      transition: transform ease-out .5s;
-      @media (max-width: $breakpoint-xl) {
-        width: 140px;
-        height: 91px;
-      }
-      @media (max-width: $breakpoint-lg) {
-        width: 135px;
-        height: 89px;
-      }
-    }
-  }
-
-  & .burger {
-    display: flex;
-    cursor: pointer;
-    width: 28px;
-    height: 18px;
-    justify-content: space-between;
-    flex-direction: column;
-    @include transition(.3);
-
-
-    & > span {
-
-      height: 2px;
-      background-color: #D9D9D9;
-      border-radius: 0;
-      @include transition(.5);
-      z-index: 999;
-      width: 100%;
-
-      &:nth-child(2) {
-        width: 66%;
-        margin-left: auto;
-      }
-
-      &:nth-child(3) {
-        width: 33%;
-        margin-left: auto;
-      }
-    }
-
-
-    &__wrap {
-      display: none;
-      @media (max-width: $breakpoint-lg) {
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-      }
-
-      &.active {
-        & .burger {
-          & span {
-            width: 100%;
-            // background-color: rgba(226, 241, 231, 1);
-
-            &:nth-child(1) {
-              transform: translateY(8px) rotate(45deg);
-            }
-
-            &:nth-child(2) {
-              opacity: 0;
-            }
-
-            &:nth-child(3) {
-              transform: translateY(-8px) rotate(-45deg);
-            }
-          }
-        }
-      }
-
-      & .burger__text {
-
-        z-index: 2;
-        transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-        height: 100%;
-        display: inline-flex;
-        color: #fff;
+      &__label {
         font-size: 16px;
+        color: #fff;
         font-weight: 300;
-        right: 40px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        padding-right: 24px;
+      }
 
-        &::before {
-          content: attr(data-toggle-open);
+      &__item a {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+
+        & i {
+          font-size: 18px;
+          color: $white-color;
+          transition: color 0.3s;
         }
 
+        &:hover {
+          & i {
+            color: red;
+          }
+        }
       }
     }
+
+    .contact__info {
+      color: #fff;
+      font-size: 16px;
+      text-decoration: none;
+      margin-right: 45px;
+      gap: 12px;
+      transition: all ease-out .3s;
+
+      i {
+        color: #fff;
+        font-size: 18px;
+      }
+
+      &:hover {
+        color: rgba(255, 60, 0, 1);
+      }
+    }
+
+
+
+    .lang-switcher {
+      list-style: none;
+      margin: 0 0 0 25px;
+      padding: 0;
+      gap: 10px;
+      font-weight: 700;
+      border-left: 1px solid red;
+      padding-left: 20px;
+
+      .lang-item a {
+        color: $gray;
+        text-decoration: none;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+
+      .current-lang-item a {
+        color: red;
+      }
+    }
+  }
+
+  // НИЖНЯ ПАНЕЛЬ (Main Bar)
+  &__bottom {
+    padding: 43px 0;
+  }
+
+  .logo-link img {
+    height: auto;
+    width: 104px; // Налаштуйте під ваш логотип
+    position: absolute;
+    bottom: 20px;
+  }
+
+  // МЕНЮ НАВІГАЦІЇ
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+
+    .menu-item {
+      position: relative;
+
+      a {
+        display: block;
+        padding: 10px 0;
+        font-size: 17px;
+        font-weight: 400;
+
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 0;
+          height: 4px;
+          background: #B3B0D8;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include transition(.5);
+        }
+      }
+
+      &:hover>a,
+      &.current-menu-item>a {
+        color: rgba(179, 176, 216, 1);
+      }
+
+      &.current-menu-item {
+        & a {
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // КНОПКИ КЕРУВАННЯ (Search, User, Cart)
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .control-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white-color;
+    transition: color 0.3s;
+    position: relative;
+
+    i {
+      font-size: 20px;
+
+    }
+
+    &__text {
+      margin-left: 8px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: rgba(255, 60, 0, 1);
+    }
+
+    &__icon-wrap {
+      position: relative;
+    }
+
+    &__badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background: #fff;
+      color: rgba(255, 60, 0, 1);
+      font-size: 10px;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
+
+  // МОБІЛЬНА ПАНЕЛЬ
+  &__mobile-bar {
+    padding: 12px 0;
+
+    .btn-icon,
+    .btn-cart-min {
+      background: none;
+      border: none;
+      color: $secondary;
+      font-size: 20px;
+      margin-right: 15px;
+      text-decoration: none;
+      position: relative;
+
+      span {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: red;
+        color: $white-color;
+        font-size: 9px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &__line {
+      width: 100%;
+      height: 2px;
+      background: $secondary;
+      transition: 0.3s;
+    }
+  }
+
+  // ПОШУКОВА ПАНЕЛЬ (H-Search)
+  /*.h-search {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: $white;
+    padding: 20px 0;
+    border-top: 1px solid $border;
+    display: none; // Показується через JS
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    &-form {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 12px 40px 12px 15px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        outline: none;
+
+        &:focus {
+          border-color: $primary;
+        }
+      }
+
+      button[type="submit"] {
+        position: absolute;
+        right: 45px;
+        background: none;
+        border: none;
+        color: $gray;
+        font-size: 18px;
+      }
+
+      &__close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        margin-left: 15px;
+        cursor: pointer;
+        color: $gray;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }*/
+}
+
+
+
+.h-search {
+  position: fixed;
+  left: 0;
+  top: 95px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  z-index: 105;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+
+  & .container {
+    max-width: 89.375rem;
   }
 
   &__inner {
-    @media (max-width: $breakpoint-lg) {
-
-      height: 100vh;
-      max-height: 590px;
-      background-color: #1C1C1C;
-      position: fixed;
-      top: 0;
-      transition: all 0.5s ease;
-      z-index: 2;
-      width: 100%;
-      right: -100%;
-
-      overflow-y: auto;
-      overflow-x: hidden;
-      display: grid;
-      padding: 190px 20px 20px 20px;
-
-
-    }
-    @media (max-width: $breakpoint-md) {
-      padding: 149px 20px 20px 20px;
-    }
-  }
-
-  .logo__wrap, & .controls {
-    transition: all ease-out .5s;
-  }
-
-  &.open-menu {
-
-
-    & .header__inner {
-      @media (max-width: $breakpoint-lg) {
-
-        right: 0;
-        transition: all .5s ease;
-      }
-    }
-
-    & .burger__text {
-      &::before {
-        content: attr(data-toggle-close);
-      }
-    }
+    padding-inline: var(--sp-sm);
+    height: var(--h-height);
   }
 }
 
-
-
-html.overflow-menu, html.overflow-hidden {
-  overflow: clip clip !important;
-
+.h-overlay {
+  cursor: pointer;
+  position: fixed;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-html.overflow-menu body, html.overflow-hidden body {
-  overflow: clip !important;
-
-}
-
-/* slide up */
-.header.hide {
-  transform: translateY(-100%);
-}
-
-@media (max-width: $breakpoint-md) {
-  .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    will-change: transform, opacity;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+.search-open {
+  & .h-search {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 
-  .header.scrolled {
-    backdrop-filter: blur(2px);
-    background: rgba(0, 0, 0, 0.3);
-  }
-}
-
-@media (max-width: $breakpoint-md) {
-  .open-menu .h-menu-overlay {
+  & .h-overlay {
     opacity: 1;
     visibility: visible;
   }
 }
 
-@media (max-width: $breakpoint-md) {
-  .h-menu-overlay {
-    display: block;
-    position: fixed;
-    z-index: 1;
-    height: 100vh;
-    inset: 0;
-    opacity: 0;
-    visibility: hidden;
-    background-color: #1C1C1C;
-    transition: all .5s ease;
-  }
+
+
+.search>* {
+  flex-shrink: 0;
 }
 
+.search input {
+  flex-grow: 1;
+  height: 100%;
+  width: auto;
+}
 
+.header_search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--clr-title);
+  font-size: 1rem;
+}
 
+.search__btn {
+  transition: opacity var(--transition-1);
+  color: var(--clr-title);
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: opacity var(--transition-1);
+}
 
+.search__btn svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
+.search__btn_close {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+:is(:focus, :hover, :active, :visited) {
+  outline: none;
+}

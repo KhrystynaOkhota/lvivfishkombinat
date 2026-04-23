@@ -112,7 +112,12 @@
 .h6 {
   @include fontSize(15, 17);
 }
-
+.icon-search:before {
+  content: "\e915";
+}
+.icon-user:before {
+  content: "\e916";
+}
 .icon-pin-map:before {
   content: "\e912";
 

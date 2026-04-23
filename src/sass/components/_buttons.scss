@@ -8,22 +8,22 @@
   text-decoration: none;
   border: none;
   font-family: 'Gilroy', sans-serif;
-  font-size: fluid(18,20);
+  font-size: fluid(18, 20);
   line-height: 100%;
   border: 1px solid transparent;
   text-align: center;
   display: inline-block;
 
-  border-radius: 10px;
+  border-radius: 0;
   @include transition(.3);
 
   @media (max-width: $breakpoint-md) {
-    width:100%;
+    width: 100%;
     //max-width: 300px;
   }
 
   @media (min-width: $breakpoint-md) {
-   // min-width: 304px;
+    // min-width: 304px;
   }
 
 
@@ -39,10 +39,12 @@
   &:focus {
     outline: none;
   }
+
   &-more {
     text-transform: uppercase;
     color: #FF3C00;
     font-weight: 600;
+
     & i {
       padding-left: 16px;
       @include fontSize(14, 16);
@@ -55,15 +57,19 @@
       }
     }
   }
+
   &-primary {
     background: rgba(255, 60, 0, 1);
     border-radius: 0;
     color: $white-color;
     @include transition(.5);
+    padding: 22.5px;
   }
 
   &-transparent {
-    &, &__white {
+
+    &,
+    &__white {
       background: transparent;
 
       & i {
@@ -74,8 +80,9 @@
   }
 
   &-transparent {
-    border-color: $accent-color;
-    color: $accent-color;
+    border-color: rgba(255, 60, 0, 1);
+    color:rgba(255, 60, 0, 1);
+    padding: 22.5px;
 
     &__white {
       border-color: $white-color;
@@ -89,5 +96,3 @@
     margin-top: 34px;
   }
 }
-
-

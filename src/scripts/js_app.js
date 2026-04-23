@@ -65,49 +65,49 @@ jQuery(function ($) {
 
     /* Function on page scroll */
     $(window).on('scroll', function () {
-       //header-hidden _functions.scrollCall();
+        //header-hidden _functions.scrollCall();
     });
 
-/*
-    let prevScroll = 0;
-    let ticking = false;
-
-    const header = document.querySelector('header');
-    const menuItems = document.querySelectorAll('.menu-item');
-
-    _functions.scrollCall = () => {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollDiff = currentScroll - prevScroll;
-
-                // Скрол вниз — ховати хедер
-                if (scrollDiff > 10 && currentScroll > 50 && !header.classList.contains('header-hidden')) {
-                    header.classList.add('header-hidden');
-                    header.classList.remove('header-visible');
-                    menuItems.forEach(item => item.classList.remove('active'));
-                }
-
-                // Скрол вверх — показати хедер
-                if (scrollDiff < -10 && header.classList.contains('header-hidden')) {
-                    header.classList.remove('header-hidden');
-                    header.classList.add('header-visible');
-                }
-
-                // Біля верху сторінки — скинути класи
-                if (currentScroll <= 10) {
-                    header.classList.remove('header-hidden', 'header-visible');
-                }
-
-                prevScroll = currentScroll;
-                ticking = false;
-            });
-
-            ticking = true;
-        }
-    };
-*/
+    /*
+        let prevScroll = 0;
+        let ticking = false;
+    
+        const header = document.querySelector('header');
+        const menuItems = document.querySelectorAll('.menu-item');
+    
+        _functions.scrollCall = () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollDiff = currentScroll - prevScroll;
+    
+                    // Скрол вниз — ховати хедер
+                    if (scrollDiff > 10 && currentScroll > 50 && !header.classList.contains('header-hidden')) {
+                        header.classList.add('header-hidden');
+                        header.classList.remove('header-visible');
+                        menuItems.forEach(item => item.classList.remove('active'));
+                    }
+    
+                    // Скрол вверх — показати хедер
+                    if (scrollDiff < -10 && header.classList.contains('header-hidden')) {
+                        header.classList.remove('header-hidden');
+                        header.classList.add('header-visible');
+                    }
+    
+                    // Біля верху сторінки — скинути класи
+                    if (currentScroll <= 10) {
+                        header.classList.remove('header-hidden', 'header-visible');
+                    }
+    
+                    prevScroll = currentScroll;
+                    ticking = false;
+                });
+    
+                ticking = true;
+            }
+        };
+    */
 
     /* _functions.scrollCall = function () {
          winScr = $(window).scrollTop();
@@ -119,11 +119,11 @@ jQuery(function ($) {
      }*/
     /*_functions.scrollCall();*/
     // Підписка на скрол
-    window.addEventListener('scroll', _functions.scrollCall, {passive: true});
+    window.addEventListener('scroll', _functions.scrollCall, { passive: true });
 
-// Виклик одразу при завантаженні, щоб перевірити положення хедера
+    // Виклик одразу при завантаженні, щоб перевірити положення хедера
     window.addEventListener('load', () => {
-       // _functions.scrollCall();
+        // _functions.scrollCall();
     });
 
 
@@ -196,7 +196,7 @@ jQuery(function () {
         _functions.scrollWidth();
         jQuery('html').toggleClass('overflow-menu');
         jQuery(this).toggleClass("active"),
-        jQuery(this).closest('header').toggleClass('open-menu');
+            jQuery(this).closest('header').toggleClass('open-menu');
 
 
 
@@ -467,22 +467,22 @@ function debounce(fn, delay) {
 jQuery(function ($) {
     const obsCounter = new IntersectionObserver(function (entries, observer) {
         entries.forEach((entry) => {
-                if (!entry.isIntersecting)
-                    return;
-                entry.target.classList.add("|", "animated");
-                $(entry.target).find(".stats__value--number").each(function () {
-                    $(this).prop("Counter", 0).animate({
-                        Counter: $(this).text(),
-                    }, {
-                        duration: 1500,
-                        easing: "swing",
-                        step: function (now) {
-                            $(this).text(Math.ceil(now));
-                        },
-                    });
+            if (!entry.isIntersecting)
+                return;
+            entry.target.classList.add("|", "animated");
+            $(entry.target).find(".stats__value--number").each(function () {
+                $(this).prop("Counter", 0).animate({
+                    Counter: $(this).text(),
+                }, {
+                    duration: 1500,
+                    easing: "swing",
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    },
                 });
-                observer.unobserve(entry.target);
-            }
+            });
+            observer.unobserve(entry.target);
+        }
         );
     });
 
@@ -547,3 +547,30 @@ if (jQuery('#slider').length) {
         }
     });
 };
+
+// open search
+$(document).on("click", ".js-open-search", function () {
+    _functions.removeScroll();
+    $("header").addClass("search-open");
+
+    setTimeout(function () {
+        $(".h-search").find("input").focus();
+    }, 100);
+});
+$(document).on("click", ".js-close-search", function () {
+    _functions.addScroll();
+    $("header").removeClass("search-open");
+    $(".h-search").find("input").val("");
+    $(".cab-search").removeClass("active");
+    $(".search__results-wrap").removeClass("active");
+});
+
+$(document).on("input", ".search input", function () {
+    const val = $(this).val();
+    const $res = $(this).closest(".search").find(".search__results-wrap");
+    if (val.length) {
+        $res.addClass("active");
+    } else {
+        $res.removeClass("active");
+    }
+});
