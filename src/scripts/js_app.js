@@ -195,8 +195,8 @@ jQuery(function () {
     jQuery(document).on('click', '.h-burger', function () {
         _functions.scrollWidth();
         jQuery('html').toggleClass('overflow-menu');
-        jQuery(this).toggleClass("active"),
-            jQuery(this).closest('header').toggleClass('open-menu');
+        jQuery(this).toggleClass("is-active"),
+            jQuery(this).closest('header').toggleClass('is-open');
 
 
 
@@ -210,9 +210,9 @@ jQuery(function () {
 // ACCORDEON
 // =============================
 
-jQuery(document).on('click', '.accordion-title', function () {
+jQuery(document).on('click', '.accordeon-title', function () {
     var accordeon = jQuery(this).closest('.accordeon');
-    accordeon.find('.accordion-title.active').not(this).removeClass('active').next().slideUp();
+    accordeon.find('.accordeon-title.active').not(this).removeClass('active').next().slideUp();
     jQuery(this).toggleClass('active').next().slideToggle();
 });
 
@@ -490,6 +490,21 @@ jQuery(function ($) {
         obsCounter.observe(block);
     });
 
+});
+
+
+// =============================
+// UPLOAD FILE
+// =============================
+
+jQuery('body').on('change', '.upload-file', function () {
+    var format = jQuery(this).val();
+    var fileName = format.substring(format.lastIndexOf("\\") + 1);
+    if (format == '') {
+        jQuery('.upload-file__name').text(jQuery('.upload-file__name').data('placeholder-text'));
+    } else {
+        jQuery('.upload-file__name').text(fileName);
+    }
 });
 
 

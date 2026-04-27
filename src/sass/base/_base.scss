@@ -13,32 +13,21 @@
   overflow: hidden;
 }
 
-.decor {
-  padding-left: 122px;
-  position: relative;
-
-  &:before {
-    content: '';
-    width: 122px;
-    height: 1px;
-    background: #1D9F96;
-    position: absolute;
-    left: -20px;
-    top: 21px;
-  }
-}
 
 
-html:not(.touch-screen)::-webkit-scrollbar, html:not(.touch-screen) *::-webkit-scrollbar {
+html:not(.touch-screen)::-webkit-scrollbar,
+html:not(.touch-screen) *::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-html:not(.touch-screen)::-webkit-scrollbar-track, html:not(.touch-screen) *::-webkit-scrollbar-track {
+html:not(.touch-screen)::-webkit-scrollbar-track,
+html:not(.touch-screen) *::-webkit-scrollbar-track {
   background-color: #eee;
 }
 
-html:not(.touch-screen)::-webkit-scrollbar-thumb, html:not(.touch-screen) *::-webkit-scrollbar-thumb {
+html:not(.touch-screen)::-webkit-scrollbar-thumb,
+html:not(.touch-screen) *::-webkit-scrollbar-thumb {
   background-color: $accent-color !important;
 }
 
@@ -47,11 +36,13 @@ html {
   overflow-y: scroll;
 }
 
-body .hide-scrollbar, html .hide-scrollbar {
+body .hide-scrollbar,
+html .hide-scrollbar {
   scrollbar-width: none
 }
 
-body .hide-scrollbar::-webkit-scrollbar, html .hide-scrollbar::-webkit-scrollbar {
+body .hide-scrollbar::-webkit-scrollbar,
+html .hide-scrollbar::-webkit-scrollbar {
   display: none
 }
 
@@ -92,7 +83,8 @@ img {
   z-index: 3;
 }
 
-body, html {
+body,
+html {
   &.overflow-hidden {
     // padding-left: calc(100vw - 100%);
     overflow: hidden;
@@ -109,8 +101,10 @@ img {
 
 img {
   user-drag: none;
-  -webkit-user-drag: none; /* Safari/Chrome */
-  pointer-events: auto; /* keep interactions like clicks */
+  -webkit-user-drag: none;
+  /* Safari/Chrome */
+  pointer-events: auto;
+  /* keep interactions like clicks */
 }
 
 .lg-img-wrap img {
@@ -119,7 +113,8 @@ img {
 }
 
 .body-padding {
-  height: 124px;
+  height: 164px;
+
   @media (max-width: $breakpoint-lg) {
     height: 84px;
   }
@@ -130,9 +125,7 @@ img {
   overflow: hidden;
   position: relative;
 
-  & .heading {
-
-  }
+  & .heading {}
 }
 
 
@@ -187,6 +180,7 @@ img {
     display: flex;
     margin-top: 21px;
     gap: 10px;
+
     @media (max-width: $breakpoint-md) {
       gap: 15px;
       margin-top: 10px;
@@ -204,6 +198,7 @@ img {
       border-radius: 0;
 
       @include transition(.4);
+
       @media (max-width: $breakpoint-md) {
         width: 55px;
       }
@@ -212,22 +207,30 @@ img {
         background: rgba(255, 60, 0, 1);
       }
     }
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
   }
 
   &-controls {
-
+    @media (max-width: $breakpoint-md) {
+      margin-top: 50px;
+    }
   }
 
   &-button {
     &__wrap {
       cursor: auto;
       gap: 40px;
+
       @media (max-width: $breakpoint-md) {
         gap: 20px;
       }
     }
 
-    &-next, &-prev {
+    &-next,
+    &-prev {
       background: transparent;
       border: 1px solid rgba(200, 198, 229, 1);
       border-radius: 0;
@@ -236,9 +239,12 @@ img {
       position: absolute;
       top: calc(50% - 30px);
       @include transition(.5);
+
       @media (max-width: $breakpoint-md) {
         width: 40px;
         height: 40px;
+        position: relative;
+        top: 0;
       }
 
       &:after {
@@ -249,6 +255,7 @@ img {
         color: rgba(200, 198, 229, 1);
         font-size: 15px;
         @include transition(.5);
+
         @media (max-width: $breakpoint-md) {
           font-size: 7px;
         }
@@ -265,10 +272,18 @@ img {
 
     &-next {
       right: -90px;
+
+      @media (max-width: $breakpoint-md) {
+        right: 0;
+      }
     }
 
     &-prev {
       left: -90px;
+
+      @media (max-width: $breakpoint-md) {
+        left: 0;
+      }
     }
   }
 }
@@ -280,5 +295,3 @@ img {
   max-width: 1296px;
   margin: auto;
 }
-
-

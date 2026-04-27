@@ -27,7 +27,8 @@ input {
   -webkit-border-radius: 0;
 }
 
-input, button {
+input,
+button {
   &:focus {
     outline: none;
   }
@@ -39,29 +40,31 @@ input, button {
 
     &:not(&.no-margin) {
       margin-bottom: 20px;
+
       @media (max-width: $breakpoint-lg) {
         margin-bottom: 20px;
       }
     }
 
 
-    &__input, &__textarea {
+    &__input,
+    &__textarea {
 
-      background: rgba(0, 0, 0, .54);
+      background: #fff;
       border: none;
-
-      border-radius: 10px;
+      border: 1px solid rgba(228, 228, 228, 1);
+      border-radius: 0;
       cursor: pointer;
       display: block;
       width: 100%;
-      font-size: fluid(18, 20);;
-      line-height: 1.5;
-      font-family: 'AvenirNextCyr', sans-serif;
+      font-size: 16px;
+      line-height: 1;
+      font-family: 'Gilroy', sans-serif;
       font-weight: 400;
-      color: #DFD8CF;
+      color: rgba(27, 27, 27, 1);
 
       resize: none;
-      padding: 18px 20px 17px 20px;
+      padding: 15px 20px 16px 20px;
     }
 
 
@@ -70,9 +73,11 @@ input, button {
       margin: 0 auto;
       padding: 15px 33px 17px 33px;
       line-height: 100%;
+
       @media (min-width: $breakpoint-md) {
         width: max-content;
       }
+
       @media (max-width: $breakpoint-md) {
         margin-top: 10px;
         max-width: 100%;
@@ -82,33 +87,33 @@ input, button {
 }
 
 ::-webkit-input-placeholder {
-  font-size: fluid(18, 20);
-  line-height: 1.5;
-  font-family: 'AvenirNextCyr', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: #DFD8CF;
+  color: rgba(27, 27, 27, 1);
 
   opacity: 1;
   transition: opacity 0.5s;
 }
 
 ::-moz-placeholder {
-  font-size: fluid(18, 20);
-  line-height: 1.5;
-  font-family: 'AvenirNextCyr', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: #DFD8CF;
+  color: rgba(27, 27, 27, 1);
 
   opacity: 1;
   transition: opacity 0.5s;
 }
 
 :-ms-input-placeholder {
-  font-size: fluid(18, 20);
-  line-height: 1.5;
-  font-family: 'AvenirNextCyr', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: #DFD8CF;
+  color: rgba(27, 27, 27, 1);
 
   opacity: 1;
   transition: opacity 0.5s;

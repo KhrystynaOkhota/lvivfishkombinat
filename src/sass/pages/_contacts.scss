@@ -2,11 +2,8 @@
 @import "../abstracts/variables";
 
 .s-contacts {
-  padding: 140px 0;
+  padding: fluid(40, 80) 0 fluid(0, 100) 0;
   background: rgba(244, 244, 244, 1);
-  @media (max-width: $breakpoint-md) {
-    padding: 100px 0;
-  }
 
   & .map-info {
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
@@ -17,6 +14,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: max-content;
+
     @media (max-width: $breakpoint-md) {
       width: 100%;
     }
@@ -44,6 +42,7 @@
         position: absolute;
         top: calc(100% + 16px);
         left: 0;
+
         @media (max-width: $breakpoint-md) {
           width: 100%;
         }
@@ -67,12 +66,12 @@
     }
   }
 
+  /*
   &__map {
-    position: absolute;
-    top: 0;
-    left: 0;
+
     width: 100%;
     height: 100%;
+height: 600px;
     @media (max-width: $breakpoint-md) {
       min-height: 500px;
     }
@@ -94,17 +93,25 @@
 
       }
     }
-  }
+  }*/
 
   & .heading {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   & .description {
-    margin-bottom: 32px;
+    margin-bottom: 44px;
+    font-size: 16px;
+    line-height: 1.4;
   }
 
   & .social {
+    &--messengers {
+      margin-top: 16px;
+    }
+
+    gap: 10px;
+
     &__item {
       a {
         width: 32px;
@@ -125,6 +132,8 @@
       box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
       background: #FFFFFF;
       padding: 32px;
+      gap: 24px;
+      display: grid;
     }
 
     &__item {
@@ -145,10 +154,136 @@
         margin-top: 8px;
       }
 
-      & .social {
-        margin-top: 15px;
+    }
+  }
+
+
+  .contacts {
+    font-style: normal;
+    /* Скидаємо стандартний курсив тегу address */
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      background: #fff;
+      padding: 32px;
+      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+    }
+
+    &__link {
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(27, 27, 27, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--wp--preset--color--main-text, #000);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--wp--preset--color--primary);
       }
 
+      &--phone {
+
+        color: rgba(255, 60, 0, 1);
+      }
+
+      &--email {
+
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+
+    &__icon {
+      width: 24px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    &__text {
+      font-size: 14px;
+      color: rgba(27, 27, 27, 1);
+    }
+  }
+
+
+}
+
+
+.s-cta {
+  margin-bottom: fluid(100,200);
+  & .heading {
+    font-size: fluid(24, 32);
+    line-height: 1.4;
+    margin-bottom: fluid(16, 24);
+  }
+
+  & .description {
+    margin-bottom: fluid(24, 32);
+  }
+
+  & .btn-primary {
+    width: 100%;
+    background: rgba(255, 60, 0, 1);
+  }
+
+  & .decor-large {
+    position: absolute;
+    bottom: 250px;
+    right: -128px;
+    height: 525px;
+    width: 365px;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+    padding: fluid(24, 40);
+  }
+
+  & .bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &__wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 55%;
+      z-index: -1;
+
+      @media (max-width: $breakpoint-md) {
+        top: auto;
+        bottom: 0;
+        height: 75%;
+        width: 100%;
+      }
+
+
+      &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        // background: linear-gradient(90deg, rgba(244, 244, 244, 0) 0%, #8E8E8E 100%);
+
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @media (max-width: $breakpoint-md) {
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+        }
+      }
     }
   }
 }

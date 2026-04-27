@@ -1,6 +1,15 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
+
+.btn-filter {
+  font-weight: 600;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 1px 0 1px 0;
+  cursor: pointer;
+}
+
 .fl {
   &-toggle {
     display: none;
@@ -18,12 +27,12 @@
 
     &:after {
       content: '';
-      width: 10px;
-      height: 10px;
+      width: 14px;
+      height: 14px;
       position: absolute;
-      top: calc(50% - 5px);
+      top: calc(50% - 7px);
       right: 0;
-      background: url("../img/triangle.svg") no-repeat center;
+      background: url("../img/down.svg") no-repeat center;
       background-size: contain;
       @include transition(.5);
     }
@@ -32,7 +41,7 @@
 
 
       &:after {
-        transform: rotate(-90deg);
+        transform: rotate(-180deg);
       }
     }
   }
@@ -53,6 +62,7 @@
 
     &__bottom {
       padding-top: 10px;
+
       @media (max-width: $breakpoint-md) {
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
@@ -62,25 +72,29 @@
 
       & .btn {
         &-clean {
-          width: 100%;
-          font-size: 16px;
-          padding: 25px;
-          font-weight: 300;
-          color: rgba(0, 0, 0, 1);
-          cursor: pointer;
-          background: transparent;
           border: 1px solid rgba(0, 0, 0, 0.1);
+          font-size: 16px;
+          color: rgba(0, 0, 0, 1);
+          font-weight: 300;
+          line-height: 1.4;
+          font-family: "Gilroy", sans-serif;
+          width: 100%;
+          padding: 25px 25.5px;
+          background: transparent;
+
+          & svg {
+            width: 10px;
+            height: 10px;
+            object-fit: contain;
+          }
         }
       }
     }
 
     &__close {
-      position: absolute;
-      top: 15px;
-      background: transparent;
-      right: 15px;
-      cursor: pointer;
+      margin-bottom: 92px;
       display: none;
+
       @media (max-width: $breakpoint-md) {
         display: block;
       }
@@ -115,8 +129,6 @@
       }
 
       &.is-open {
-
-
         opacity: 1;
         visibility: visible;
       }
@@ -139,7 +151,7 @@
     display: none;
 
     &:checked {
-      & + span {
+      &+span {
         &:before {
           background: rgba(15, 14, 104, 1);
 
@@ -159,7 +171,8 @@
     line-height: normal;
 
 
-    &:before, &:after {
+    &:before,
+    &:after {
       content: "";
       position: absolute;
       left: 0;
@@ -182,9 +195,9 @@
     &:after {
       font-family: 'icomoon' !important;
       content: '\e907';
-      font-size: 11px;
+      font-size: 14px;
       top: calc(50% - 1px);
-      left: 6px;
+      left: 5px;
       color: $white-color;
       font-weight: 400;
       opacity: 0;
@@ -194,8 +207,7 @@
 }
 
 .range {
-  &__wrap {
-  }
+  &__wrap {}
 
   &__label {
     position: relative;

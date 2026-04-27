@@ -49,12 +49,12 @@
       -ms-flex-align: center;
       align-items: center;
 
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 300;
       text-align: center;
       color: #2D2D2D;
-      width: 60px;
-      height: 60px;
+      width: fluid(50,60);
+      height: fluid(50,60);
       background: transparent;
 
       border-radius: 0;

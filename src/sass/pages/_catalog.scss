@@ -52,6 +52,7 @@
     bottom: 0;
     left: 0;
     z-index: 1;
+
     @media (max-width: $breakpoint-md) {
       display: none;
     }
@@ -59,13 +60,47 @@
 }
 
 .s-catalog {
-  padding: 56px 0 140px 0;
+  padding: 50px 0 fluid(50, 100) 0;
+
+  & .container {
+    &:after {
+      content: '';
+      background: rgba(179, 176, 216, 0.4);
+      height: 1px;
+      width: calc(100% - 20px);
+      max-width: 1270px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (max-width: $breakpoint-lg) {
+        width: calc(100% - 40px);
+      }
+    }
+  }
+
 
   & .pagination {
-    width:auto;
+    width: auto;
+
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+
     &__wrap {
-      margin-top: 50px;
-      gap: 32px;
+      margin-top: fluid(30, 50);
+      gap: 32px fluid(30, 32);
+
+      & .btn-transparent {
+        border: 1px solid rgba(200, 198, 229, 1);
+        color: rgba(200, 198, 229, 1);
+        color: rgba(49, 39, 131, 1);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: fluid(15, 18);
+        padding: 18.5px 24px;
+      }
     }
 
   }
@@ -80,6 +115,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 15px;
       }
+
       @media (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -97,146 +133,83 @@
   }
 
 
-  .filter {
-    &-section {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
 
-    &-title {
-      position: relative;
-      font-size: 14px;
-      line-height: 20px;
-      padding: 24px 60px 24px 24px;
-      text-transform: uppercase;
-      background-color: #f4f4f4;
-      cursor: pointer;
+  .sorting {
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 45px;
 
-      &:before {
-        content: '';
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        width: 12px;
-        height: 12px;
-        border-right: 1px solid rgba(177, 35, 45, 1);
-        border-bottom: 1px solid rgba(177, 35, 45, 1);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-        margin-top: -10px;
+      @media (max-width: $breakpoint-xl) {
+        display: none;
       }
     }
+
+    &__label {
+      font-weight: 600;
+      color: rgba(0, 0, 0, 1);
+      font-size: 16px;
+    }
+
+    &__options {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    &__button {
+      display: inline-block;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(49, 39, 131, 1);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    &__input:checked+.sorting__button {
+      color: rgba(179, 176, 216, 1);
+    }
   }
 
-
-  .filter-title:before {
-    content: '';
+  /* Стандартний клас WP для приховування елементів */
+  .screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
     position: absolute;
-    right: 30px;
-    top: 50%;
-    width: 11px;
-    height: 11px;
-    border-right: 1px solid rgba(177, 35, 45, 1);
-    border-bottom: 1px solid rgba(177, 35, 45, 1);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    margin-top: -10px
+    width: 1px;
+    word-wrap: normal;
   }
-
-  .filter-section.filter-section-disabled .filter-title {
-    cursor: default
-  }
-
-  .filter-section.filter-section-disabled .filter-title:before {
-    content: none
-  }
-
-  .filter-section.active .filter-title:before {
-    -webkit-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-    margin-top: -3px
-  }
-
-  .filter-content {
-    padding: 0 24px 24px 24px;
-  }
-
-  .filter-content .checkbox-entry {
-
-  }
-
-  .filter-content .checkbox-entry:last-child {
-    margin-bottom: 0
-  }
-
-  .filter-section {
-    // margin-bottom: 30px
-  }
-
-  .filter-section .filter-title {
-    background-color: #fff;
-    //border: 1px solid #f4f4f4
-  }
-
-  .filter-section .filter-content {
-    /*border: 1px solid #f4f4f4;
-     border-width: 0 1px 1px*/
-  }
-
-  .filter-link {
-    display: block;
-    margin-bottom: 25px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px
-  }
-
-  .filter-link.active {
-    color: #e29b2f
-  }
-
-  .filter-link:last-child {
-    margin-bottom: 0
-  }
-
-  .filter-btn {
-    display: none;
-    width: 60px;
-    height: 60px;
-    background: #e29b2f;
-    right: -60px;
-    position: absolute;
-    top: 50%;
-    margin-top: -75px
-  }
-
-  .filter-btn img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    max-height: 30px;
-    max-width: 30px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index: 1
-  }
-
-  .filter-close-layer {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    z-index: 119
-  }
-
-  .filter-wrap.active + .filter-close-layer {
-    width: 100%;
-    height: 100%
-  }
-
-
 }
+
+.s-recently-viewed {
+  padding: fluid(40, 75) 0 fluid(100, 200) 0;
+
+  & .heading {
+    margin-bottom: fluid(30, 40);
+  }
+
+  .swiper {
+    &-pagination {
+      margin-top: 50px;
+    }
+
+    &-controls {
+      margin-top: 30px;
+    }
+  }
+}
+
 
 
 .sidebar {
@@ -254,6 +227,7 @@
       z-index: 3;
       background: #fff;
     }
+
     &.active {
       & .filter-wrap {
         -webkit-transform: translateX(0);

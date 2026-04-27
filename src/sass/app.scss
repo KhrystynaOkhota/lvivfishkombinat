@@ -21,6 +21,8 @@
 @import "components/_tabs";
 @import "components/_filter";
 
+@import "components/_accordeon";
+
 @import "pages/_home";
 @import "pages/_direction";
 @import "pages/_contacts";
@@ -30,9 +32,8 @@
 @import "pages/_product";
 
 
-//@import "pages/_contacts";
-//@import "pages/_blog";
-//@import "pages/_product";
+@import "pages/_blog";
+@import "pages/_career";
 
 //@import "pages/_catalog";
 

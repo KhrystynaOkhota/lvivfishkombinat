@@ -32,17 +32,6 @@
 
   & a {
     position: relative;
-
-    &:after {
-      content: '';
-      width: 100%;
-      height: 1px;
-      background: rgba(224, 217, 208, 1);
-      left: 0;
-      bottom: 0;
-      position: absolute;
-    }
-
     &:hover {
 
     }
