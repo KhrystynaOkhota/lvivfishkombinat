@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>My fish</title>
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+
+    <link rel="stylesheet" href="assets/css/app.css" />
+
+</head>
+
+<body>
+
+    <header class="header js-header bg">
+        <div class="container">
+
+            <div class="header__inner ">
+
+                <div class="header__top d-flex align-justify align-middle">
+
+                    <div class="header__socials d-flex align-middle">
+
+                        <div class="social__label d-none d-md-block">Написати нам:</div>
+                        <ul class="social d-flex align-middle ">
+                            <li class="social__item">
+                                <a href="" class="d-flex align-center align-middle">
+                                    <i class="icon-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="" class="d-flex align-center align-middle">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="" class="d-flex align-center align-middle">
+                                    <i class="icon-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="header__top-right d-flex align-middle">
+                        <a href="mailto:info@rybnuy-kombinat.com"
+                            class="contact__info text-medium d-none d-md-flex align-middle">
+                            <i class="icon-mail"></i>info@rybnuy-kombinat.com
+                        </a>
+                        <a href="tel:0672662110" class="contact__info text-bold d-none d-md-flex align-middle"><i
+                                class="icon-phone"></i>(067) 266-21-10</a>
+
+                        <div class="lang__wrap">
+                            <button type="button" class="lang__current" aria-expanded="false" aria-haspopup="listbox">
+                                <span>Eng</span>
+                            </button>
+
+                            <ul class="lang"">
+                                <li class=" lang-item current-lang">
+                                <a href="" lang="en">Eng</a>
+                                </li>
+                                <li class="lang-item">
+                                    <a href="" lang="it">Ita</a>
+                                </li>
+                                <li class="lang-item">
+                                    <a href="" lang="uk">Ukr</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header__bottom d-flex align-justify align-middle">
+                    <a href="/" class="logo-link">
+                        <img src="assets/img/logo.svg" alt="Motyv" class="logo">
+                    </a>
+
+                    <nav class="header__nav-primary">
+                        <ul id="menu-primary-menu" class="menu">
+                            <li class="menu-item"></li>
+                            <li class="menu-item"><a href="about.html">Про нас</a></li>
+                            <li class="menu-item current-menu-item"><a href="directions.html">Діяльність</a></li>
+                            <li class="menu-item"><a href="catalog-2.html">Каталог</a></li>
+                            <li class="menu-item"><a href="re">Рецепти</a></li>
+                            <li class="menu-item"><a href="blog.html">Новини</a></li>
+                            <li class="menu-item"><a href="career.html">Кар’єра</a></li>
+                            <li class="menu-item"><a href="contacts.html">Контакти</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__controls">
+                        <button type="button" class="control-btn js-open-search">
+                            <i class="icon-search"></i>
+                            <span class="control-btn__text d-none d-xl-inline">Пошук</span>
+                        </button>
+
+                        <a href="/account/" class="control-btn open-popup" data-rel="login">
+                            <i class="icon-user"></i>
+                        </a>
+
+                        <a href="/wishlist/" class="control-btn control-btn--wishlist">
+                            <i class="icon-fav"></i>
+                        </a>
+
+                        <a href="/cart/" class="control-btn control-btn--cart">
+                            <div class="control-btn__icon-wrap">
+                                <i class="icon-bag"></i>
+                                <span class="control-btn__badge">0</span>
+                            </div>
+
+                        </a>
+                    </div>
+                    <button type="button" class="burger js-burger h-burger">
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-search">
+            <div class="container">
+                <form class="search__wrap">
+                    <input type="text" name="s" class="search__input" placeholder="Введіть назву " value=""
+                        autocomplete="off">
+                    <button type="submit" class="search__btn">
+                        <i class="icon-search"></i>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="h-overlay js-close-search"></div>
+    </header>
+
+
+
+<div class="body-padding"></div>
+
+<main class="main overlap">
+
+    <section class="s-banner --relative">
+        <div class="s-banner__img-wrap">
+            <img src="assets/img/banner.jpg" alt="" class="s-banner__img">
+        </div>
+        <div class="container overlap">
+            <div class="row">
+                <div class="col-xl-9 col-lg-9 col-md-10 col-sm-12 col-xs-12">
+                    <div class="kama_breadcrumbs">
+                        <span>
+                            <a href="https://hope.le-target.com" itemprop="item">
+                                <span>Головна</span>
+                            </a>
+                            <span class="kb_sep"><i class="icon-arrow-forward"></i> </span>
+                        <span class="kb_title">Рецепти</span>
+                        </span>
+                    </div>
+                    <h1 class="s-banner__heading text-xl text-bold">
+                        Рецепти
+                    </h1>
+                    <div class="s-banner__description text-s text-light">
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Vivamus convallis dignissim curae praesent
+                        at. Justo mus vehicula porta arcu in vehicula. Ex accumsan curabitur metus convallis maecenas,
+                        class auctor bibendum ante. Nisi urna fringilla ultrices magnis hac arcu iaculis Lorem ipsum
+                        odor amet, consectetuer adipiscing elit.
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Vivamus convallis dignissim curae praesent
+                        at. Justo mus vehicula porta arcu in vehicula. Ex accumsan curabitur metus convallis maecenas,
+                        class auctor bibendum ante. Nisi urna fringilla ultrices magnis hac arcu iaculis Lorem ipsum
+                        odor amet, consectetuer adipiscing elit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-recipes">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="recipes__filter d-flex align-middle align-justify">
+                        <div class="d-flex align-left align-middle">
+                            <div class="select-box">
+                                <select class="orderby">
+                                    <option value="category1">Категорія</option>
+                                    <option value="category2">Закуски</option>
+                                    <option value="category3">Салати</option>
+                                    <option value="category4">Супи</option>
+                                    <option value="category5">Гарячі страви</option>
+                                    <option value="category6">Дитяче меню</option>
+                                    <option value="category6">Святкове меню</option>
+                                </select>
+                                <input type="hidden" name="paged" value="1">
+                            </div>
+                            <div class="select-box">
+                                <select class="orderby">
+                                    <option value="time">Час приготування</option>
+                                    <option value="time2">20хв</option>
+                                    <option value="time3">60хв</option>
+                                    <option value="time4">120хв</option>
+                                    <option value="time5">2 год</option>
+                                    <option value="time6">40хв</option>
+                                </select>
+
+                            </div>
+                            <div class="select-box">
+                                <select class="orderby">
+                                    <option value="ingredients">Інгредієнти</option>
+                                    <option value="ingredients2">Борошно</option>
+                                    <option value="ingredients3">Риба</option>
+                                    <option value="ingredients4">Інгредієнти2</option>
+                                    <option value="ingredients5">Інгредієнти3</option>
+                                    <option value="ingredients6">Інгредієнти4</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="select-box">
+                            <select class="orderby">
+                                <option value="sort">Сортувати</option>
+                                <option value="sort2">Спочатку нові</option>
+                                <option value="sort3">тест</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-row align-center">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 column">
+                    <div class="recipe__item">
+                        <div class="recipe__img-wrap --relative ">
+                            <img src="assets/img/recipe-1.jpg" alt="" class="recipe__img">
+                        </div>
+                        <div class="recipe__info">
+                            <div class="recipe__time  text-regular --relative">
+                                <i class="icon-hourglass"></i>5 хвилин
+                            </div>
+                            <div class="recipe__heading text-medium">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco la Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco la..
+                            </div>
+                            <div class="line"></div>
+                            <a href="recipes-inner.html" class="btn-more text-medium">Читати повністю<i
+                                    class="icon-ar-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 column">
+                    <div class="recipe__item">
+                        <div class="recipe__img-wrap --relative ">
+                            <img src="assets/img/recipe-2.jpg" alt="" class="recipe__img">
+                        </div>
+                        <div class="recipe__info">
+                            <div class="recipe__time  text-regular --relative">
+                                <i class="icon-hourglass"></i>5 хвилин
+                            </div>
+                            <div class="recipe__heading text-medium">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco la Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco la..
+                            </div>
+                            <div class="line"></div>
+                            <a href="recipes-inner.html" class="btn-more text-medium">Читати повністю<i
+                                    class="icon-ar-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 column">
+                    <div class="recipe__item">
+                        <div class="recipe__img-wrap --relative ">
+                            <img src="assets/img/recipe-3.jpg" alt="" class="recipe__img">
+                        </div>
+                        <div class="recipe__info">
+                            <div class="recipe__time  text-regular --relative">
+                                <i class="icon-hourglass"></i>40 хвилин
+                            </div>
+                            <div class="recipe__heading text-medium">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco la Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco la..
+                            </div>
+                            <div class="line"></div>
+                            <a href="recipes-inner.html" class="btn-more text-medium">Читати повністю<i
+                                    class="icon-ar-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 column">
+                    <div class="recipe__item">
+                        <div class="recipe__img-wrap --relative ">
+                            <img src="assets/img/recipe-1.jpg" alt="" class="recipe__img">
+                        </div>
+                        <div class="recipe__info">
+                            <div class="recipe__time  text-regular --relative">
+                                <i class="icon-hourglass"></i>20 хвилин
+                            </div>
+                            <div class="recipe__heading text-medium">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco la Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco la..
+                            </div>
+                            <div class="line"></div>
+                            <a href="recipes-inner.html" class="btn-more text-medium">Читати повністю<i
+                                    class="icon-ar-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-center">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+                    <nav class="navigation pagination">
+                        <div class="nav-links d-flex">
+                            <a class="prev page-numbers">
+                                <i class="icon-ar-left"></i>
+                            </a>
+                            <a class="page-numbers">1</a>
+                            <span class="page-numbers current">2</span>
+                            <a class="page-numbers">3</a>
+                            <span class="page-numbers dots">…</span>
+                            <a class="page-numbers">7</a>
+                            <a class="next page-numbers">
+                                <i class="icon-ar-right"></i>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer overlap">
+    <div class="footer__main">
+        <div class="container">
+            <div class="row align-justify m-row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 column">
+                    <div class="company__name text-bold">ПРаТ "ЛЬВІВСЬКИЙ ОБЛРИБКОМБІНАТ"</div>
+
+                    <div class="subscription">
+                        <div class="subscription__heading text-semibold">Слідкуйте за нами!
+                        </div>
+                        <form>
+                            <div class="subscription__field --relative">
+                                <input type="email" value="" name="email" class="subscription__input "
+                                       placeholder="Ваша пошта">
+                                <button class="subscription__btn btn  d-flex align-center align-middle" type="submit"><i
+                                        class="icon-ar-right"></i>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 footer-item column">
+                    <ul class="menu">
+                        <li class="menu-item ">
+                            <a href="about.html">Про нас</a>
+                        </li>
+                        <li class="menu-item ">
+                            <a href="brand.html">Наші Бренди</a>
+                        </li>
+                        <li class="menu-item ">
+                            <a href="directions.html"> Діяльність</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="catalog.html">Каталог</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="recipes.html"> Рецепти</a>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="blog.html">Новини</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="career.html"> Кар’єра</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contacts.html">Контакти</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12  footer-item --relative column">
+
+
+                    <div class="contact__item">
+                        <a href="mailto:info@rybnuy-kombinat.com" class="contact__info text-medium d-flex align-middle">
+                            <i class="icon-mail"></i>info@rybnuy-kombinat.com
+                        </a>
+                    </div>
+                    <a href="" class="show-map text-medium text-uppercase d-flex d-md-none align-middle">
+                        <i class="icon-location"></i>Подивитись на карті<i class="icon-ar-right"></i>
+                    </a>
+                    <div class="contact__item d-flex align-justify align-middle">
+                        <a href="tel:+380678473628" class="contact__info text-medium d-flex align-middle"> <i
+                                class="icon-phone"></i><b>+38(067)-847-36-28</b></a>
+                        <ul class="social d-flex ">
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-viber"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-telegram"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="social__wrap d-flex align-justify align-middle">
+                        <div class="social__title text-light">Ми в соц мережах:</div>
+                        <ul class="social d-flex ">
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" target="_self" class="d-flex align-center align-middle">
+                                    <i class="icon-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="" class="show-map text-medium text-uppercase d-none d-md-flex align-middle"><i
+                            class="icon-location"></i>Подивитись на
+                        карті
+                        <i class="icon-ar-right"></i> </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer__info d-flex align-middle --relative">
+                        <div class="footer__info-copyright">
+                            © Рибний Комбінат | 2024
+                        </div>
+                        <a href="" class="footer__info-link --relative text-regular">Політика конфіденційності</a>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="develop d-flex align-middle align-right">
+                        <div class="develop__text text-light">Розроблено:</div>
+                        <a href="" class="develop__link d-block">
+                            <img src="assets/img/logo.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/js/jquery-3.7.0.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/js_app.min.js"></script>
+<script src="assets/js/jquery.sumoselect.min.js"></script>
+<script src="assets/js/sumoselectCustom.js"></script>
+
+</body>
+</html>
