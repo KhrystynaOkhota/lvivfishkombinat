@@ -14,7 +14,25 @@ $white: #ffffff;
   width: 100%;
   z-index: 10;
   background: rgba(0, 0, 0, 0.7);
-  ;
+
+  & .contact__info {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 45px;
+    gap: 12px;
+    transition: all ease-out .3s;
+
+    i {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    &:hover {
+      color: rgba(255, 60, 0, 1);
+    }
+
+  }
 
   &.bg {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
@@ -75,29 +93,12 @@ $white: #ffffff;
         }
       }
     }
-
-    .contact__info {
-      color: #fff;
-      font-size: 16px;
-      text-decoration: none;
-      margin-right: 45px;
-      gap: 12px;
-      transition: all ease-out .3s;
-
-      i {
-        color: #fff;
-        font-size: 18px;
-      }
-
-      &:hover {
-        color: rgba(255, 60, 0, 1);
-      }
-    }
   }
+
 
   // НИЖНЯ ПАНЕЛЬ (Main Bar)
   &__bottom {
-    padding: 37px 0;
+    padding: fluid(31.5, 37) 0;
   }
 
   .logo-link img {
@@ -109,26 +110,42 @@ $white: #ffffff;
 
   &__nav-primary {
     @media (max-width: $breakpoint-md) {
-
-
       position: fixed;
       z-index: -1;
       top: 136px;
       left: 0;
       transform: translateX(-100%);
       transition: all ease-out .4s;
-      width: min(100%, 26.25rem);
-      height: 100%;
+      width: 100%;
+      height: calc(100% - 136px);
       overflow-y: auto;
       overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+
       background-color: #fff;
       opacity: 0;
-      padding: 1rem;
-      padding-top: calc(var(--h-inner-height) + 1rem);
+
+    }
+  }
+
+  .header__contacts {
+    @media (max-width: $breakpoint-md) {
+      gap: 48px;
+      padding: 0 20px 20px 20px;
+      display: grid;
+
+      & .contact__info {
+        & i {
+          color: #FF3C00;
+        }
+
+        &:nth-child(1) {
+          color: #312783;
+        }
+
+        &:nth-child(2) {}
+
+        color:#000;
+      }
     }
   }
 
@@ -140,10 +157,20 @@ $white: #ffffff;
     padding: 0;
     gap: 25px;
 
-    @media (max-width: $breakpoint-md) {}
+    @media (max-width: $breakpoint-md) {
+      gap: 0;
+      display: grid;
+      margin-bottom: 35px;
+    }
 
     .menu-item {
       position: relative;
+
+      @media (max-width: $breakpoint-md) {
+        &:not(&:last-child) {
+          border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+      }
 
       a {
         display: block;
@@ -156,15 +183,23 @@ $white: #ffffff;
         transition: color 0.3s;
         position: relative;
 
-        &:after {
-          content: '';
-          width: 0;
-          height: 4px;
-          background: #B3B0D8;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          @include transition(.5);
+        @media (max-width: $breakpoint-md) {
+          color: #000;
+          font-size: 16px;
+          padding: 20px;
+        }
+
+        @media (min-width: $breakpoint-md) {
+          &:after {
+            content: '';
+            width: 0;
+            height: 4px;
+            background: #B3B0D8;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            @include transition(.5);
+          }
         }
       }
 
