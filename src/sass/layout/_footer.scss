@@ -5,6 +5,24 @@
   position: relative;
   background: rgba(0, 0, 0, .8);
 
+  .footer__bg {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+  }
+
 
   &-item {
     &:not(&:last-child) {
@@ -24,6 +42,7 @@
   &__main {
     padding: 50px 0 30px 0;
     background: #232323;
+
     @media (max-width: $breakpoint-md) {
       padding: 32px 0 0 0;
     }
@@ -33,30 +52,63 @@
     padding: 10px 0;
     background: rgba(0, 0, 2, 0.5);
     color: #fff;
+
     @media (max-width: $breakpoint-md) {
       text-align: center;
-      padding: 10px 0;
+      padding: 22px 0;
     }
 
+    & .develop {
+      @media (min-width: $breakpoint-md) {
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-top: 24px;
+        width: 100%;
+        margin-bottom: 24px;
+      }
+
+      &__text {
+        color: rgba(255, 255, 255, .6);
+        font-size: 14px;
+      }
+
+      &__link {
+        padding-left: 10px;
+
+        & img {
+          width: 75px;
+          height: 15px;
+          object-fit: contain;
+        }
+      }
+
+      & .copyright,
+      .develop {
+        font-size: fluid(14, 16);
+        font-weight: 300;
+      }
+    }
+
+    & .copyright {
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+      }
+
+    }
 
   }
 
   & .menu {
 
-    @media (max-width: $breakpoint-md) {
-      padding: 32px 0 0 0;
-      position: relative;
-      margin-bottom: 32px;
-      &:after {
-        content: '';
-        width: calc(100% + 20px);
-        height: 1px;
-        background: rgba(255, 255, 255, .1);
-        position: absolute;
-        left: -10px;
-        bottom: 0;
-      }
-    }
 
     &-item {
 
@@ -76,12 +128,12 @@
       margin-bottom: 32px;
 
       @media (max-width: 380px) {
-        & .contact__info + .social {
+        & .contact__info+.social {
           margin-top: 20px;
         }
       }
 
-      & > i {
+      &>i {
         font-size: 24px;
         color: rgba(255, 60, 0, 1);
         padding-right: 12px;
@@ -95,7 +147,10 @@
       color: #fff;
 
       & .icon {
-        &-phone, &-mail, &-clock {
+
+        &-phone,
+        &-mail,
+        &-clock {
           font-size: 24px;
           color: rgba(232, 16, 16, 1);
           padding-right: 12px;
@@ -119,11 +174,17 @@
       display: flex;
       align-items: center;
       gap: 30px;
+
+      @media (max-width: $breakpoint-md) {
+        justify-content: center;
+        width: 100%;
+      }
     }
 
     &__title {
       @include fontSize(14, 16);
       color: #fff;
+
       @media (max-width: 380px) {
         margin-bottom: 20px;
         width: 100%;
@@ -147,36 +208,7 @@
     }
   }
 
-  & .develop {
-    @media (min-width: $breakpoint-md) {
-      -webkit-box-pack: end;
-      -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-      justify-content: flex-end;
-    }
-    @media (max-width: $breakpoint-md) {
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      margin-top: 24px
-    }
 
-    &__text {
-      color: rgba(255, 255, 255, .6);
-      font-size: 14px;
-    }
-
-    &__link {
-      padding-left: 10px;
-
-      & img {
-        width: 75px;
-        height: 15px;
-        object-fit: contain;
-      }
-    }
-  }
 
   &__info {
     color: rgba(255, 255, 255, 1);
@@ -185,12 +217,14 @@
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+
     @media (max-width: $breakpoint-md) {
       -webkit-box-pack: center;
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center;
       padding-bottom: 24px;
+
       &:after {
         content: '';
         width: calc(100% + 20px);
@@ -206,6 +240,7 @@
       padding-left: 48px;
       color: rgba(255, 255, 255, 1);
       font-size: 14px;
+
       @media (max-width: $breakpoint-md) {
         padding-left: 0;
         margin-top: 18px;
@@ -222,6 +257,7 @@
         top: 50%;
         transform: translateY(-50%);
         left: 24px;
+
         @media (max-width: $breakpoint-md) {
           display: none;
         }
@@ -233,6 +269,7 @@
   & .show-map {
     @include fontSize(14, 16);
     color: #fff;
+
     @media (max-width: $breakpoint-md) {
       margin-bottom: 32px;
     }
@@ -254,7 +291,7 @@
   }
 
   &__top {
-    padding: 60px 0 75px 0;
+    padding: fluid(20, 60) 0 fluid(40, 75) 0;
 
     & .menu {
       display: grid;
@@ -268,8 +305,34 @@
       margin: 0;
 
       &-item {
-        white-space: nowrap;
+
+        @media (min-width: $breakpoint-md) {
+          white-space: nowrap;
+        }
       }
+
+      @media (max-width: $breakpoint-md) {
+
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        column-gap: 10px;
+        row-gap: 22px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        grid-auto-flow: row;
+
+        &:after {
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: rgba(255, 255, 255, .3);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
     }
 
     & .social {
@@ -294,4 +357,3 @@
     }
   }
 }
-

@@ -68,47 +68,6 @@ jQuery(function ($) {
         //header-hidden _functions.scrollCall();
     });
 
-    /*
-        let prevScroll = 0;
-        let ticking = false;
-    
-        const header = document.querySelector('header');
-        const menuItems = document.querySelectorAll('.menu-item');
-    
-        _functions.scrollCall = () => {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollDiff = currentScroll - prevScroll;
-    
-                    // Скрол вниз — ховати хедер
-                    if (scrollDiff > 10 && currentScroll > 50 && !header.classList.contains('header-hidden')) {
-                        header.classList.add('header-hidden');
-                        header.classList.remove('header-visible');
-                        menuItems.forEach(item => item.classList.remove('active'));
-                    }
-    
-                    // Скрол вверх — показати хедер
-                    if (scrollDiff < -10 && header.classList.contains('header-hidden')) {
-                        header.classList.remove('header-hidden');
-                        header.classList.add('header-visible');
-                    }
-    
-                    // Біля верху сторінки — скинути класи
-                    if (currentScroll <= 10) {
-                        header.classList.remove('header-hidden', 'header-visible');
-                    }
-    
-                    prevScroll = currentScroll;
-                    ticking = false;
-                });
-    
-                ticking = true;
-            }
-        };
-    */
-
     /* _functions.scrollCall = function () {
          winScr = $(window).scrollTop();
          if (winScr > 10) {
@@ -127,27 +86,6 @@ jQuery(function ($) {
     });
 
 
-    // search
-    $(document).on("click", ".js-open-search", function () {
-
-
-        jQuery(".h-search").addClass("active");
-        jQuery("html").removeClass("open-menu open-submenu");
-        jQuery(`.h-sub-menu, .h-link-subnav`).removeClass("active");
-        setTimeout(() => {
-            jQuery(".autocomplete-product").focus();
-        }, 10);
-    });
-
-    jQuery(document).on("click", ".js-close-search", function () {
-        jQuery(".h-search, .h-search-results").removeClass("active");
-        jQuery(".h-search input").val("");
-    });
-    $(document).on("click", ".h-overlay", function () {
-        jQuery("html").removeClass("overflow-menu open-menu open-submenu");
-        jQuery(".h-search").removeClass("active");
-        jQuery(".h-search input").val("");
-    });
 
 });
 
@@ -216,6 +154,40 @@ jQuery(document).on('click', '.accordeon-title', function () {
     jQuery(this).toggleClass('active').next().slideToggle();
 });
 
+// =============================
+// INCREMENT AND DECREMENT
+// =============================
+document.addEventListener('click', (e) => {
+    // Шукаємо кнопку всередині нашого блоку за BEM-класом
+    const btn = e.target.closest('.quantity-picker__btn');
+    if (!btn) return;
+
+    const container = btn.closest('.quantity-picker');
+    const input = container.querySelector('.quantity-picker__input');
+
+    if (!input) return;
+
+    const isIncrement = btn.classList.contains('quantity-picker__btn--increment');
+    const value = parseInt(input.value, 10) || 0;
+
+    // Отримуємо обмеження через dataset
+    const min = input.dataset.min ? Number(input.dataset.min) : 1;
+    const max = input.dataset.max ? Number(input.dataset.max) : Infinity;
+
+    if (isIncrement) {
+        if (value < max) {
+            input.value = value + 1;
+        }
+    } else {
+        if (value > min) {
+            input.value = value - 1;
+        }
+    }
+
+    // Викликаємо подію 'change' для синхронізації з іншими скриптами
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+});
+
 
 // =============================
 // PLAY AND STOP VIDEO
@@ -240,35 +212,7 @@ jQuery(document).on('click', '.media__btn', function () {
         jQuery(this).closest('.btn-play').removeClass('hide');
     }
 });
-// about page
-/*
-jQuery('.preload__btn').on('click', function () {
-    jQuery(this).parents(".preload-entry").find(".preload").css({
-        'z-index': -1,
-        'opacity': 0
-    });
-    jQuery(this).parents(".s-video").find(".heading").css({
-        "display": "none"
-    });
 
-    jQuery(this).parents(".preload-entry").find("video").css({
-        "display": "block"
-    });
-
-    var video = $(this).parents(".preload-entry").find("video")[0];
-
-    console.log(video.paused);
-    if (video.paused === false) {
-        $(this).parents(".preload-entry").find('.--pause').removeClass("d-block").addClass("d-none");
-        $(this).parents(".preload-entry").find('.--play').removeClass("d-none").addClass("d-block");
-        video.pause();
-    } else {
-        video.play();
-        $(this).parents(".preload-entry").find('.--play').removeClass("d-block").addClass("d-none");
-        $(this).parents(".preload-entry").find('.--pause').removeClass("d-none").addClass("d-block");
-    }
-});
-*/
 // =============================
 // FILTER
 // =============================
@@ -296,12 +240,7 @@ jQuery(document).on("click", ".fl-menu__overlay, .fl-menu__close", function () {
 
 });
 
-// =============================
-// LIGHTGALLERY
-// =============================
-jQuery('.lightgallery').not('.animated').each(function () {
-    jQuery(this).lightGallery();
-});
+
 
 // =============================
 // TAB
@@ -342,125 +281,6 @@ function tabify(tab) {
 tabs.forEach(tabify);
 
 
-/*
-const tabs = document.querySelectorAll(".tab");
-const MOBILE_BREAKPOINT = 768;
-
-tabs.forEach(initTabs);
-
-function initTabs(tab) {
-    const tabList = tab.querySelector(".tab__list");
-    if (!tabList) return;
-
-    const tabItems = [...tabList.children];
-    const tabContent = tab.querySelector(".tab__content");
-    const tabContentItems = [...tabContent.children];
-    const isAccordion = tab.classList.contains("accordion");
-
-    let currentIndex = tabItems.findIndex(item =>
-        item.classList.contains("is--active")
-    );
-    if (currentIndex === -1) currentIndex = 0;
-
-    function isMobile() {
-        return isAccordion && window.innerWidth <= MOBILE_BREAKPOINT;
-    }
-
-    function clearTabs() {
-        tabItems.forEach(i => i.classList.remove("is--active"));
-        tabContentItems.forEach(c => {
-            c.classList.remove("is--active");
-            c.style.height = "";
-            c.style.overflow = "";
-            c.style.transition = "";
-        });
-    }
-
-    function buildTabs() {
-        tab.querySelectorAll(".accordion-title").forEach(el => el.remove());
-        tabList.style.display = "";
-
-        clearTabs();
-
-        tabItems.forEach((item, index) => {
-            item.onclick = () => {
-                clearTabs();
-                item.classList.add("is--active");
-                tabContentItems[index].classList.add("is--active");
-            };
-        });
-
-        tabItems[currentIndex]?.classList.add("is--active");
-        tabContentItems[currentIndex]?.classList.add("is--active");
-    }
-
-    function closeAllAccordion() {
-        tab.querySelectorAll(".accordion-title").forEach(t =>
-            t.classList.remove("is--active")
-        );
-
-        tabContentItems.forEach(c => {
-            c.classList.remove("is--active");
-            c.style.height = "0px";
-        });
-    }
-
-    function buildAccordion() {
-        tabList.style.display = "none";
-        clearTabs();
-
-        tabContentItems.forEach((content, index) => {
-            const existingTitle = content.previousElementSibling;
-            if (existingTitle && existingTitle.classList.contains("accordion-title")) {
-                return;
-            }
-
-            const title = document.createElement("div");
-            title.className = "accordion-title";
-            title.innerHTML = tabItems[index].innerHTML;
-
-            content.style.height = "0px";
-            content.style.overflow = "hidden";
-            content.style.transition = "height 0.3s ease";
-
-            title.onclick = () => {
-                const isOpen = title.classList.contains("is--active");
-
-                closeAllAccordion();
-
-                if (!isOpen) {
-                    title.classList.add("is--active");
-                    content.classList.add("is--active");
-                    content.style.height = content.scrollHeight + "px";
-                }
-            };
-
-            tabContent.insertBefore(title, content);
-        });
-    }
-
-    function updateMode() {
-        if (isMobile()) {
-            buildAccordion();
-        } else {
-            buildTabs();
-        }
-    }
-
-    updateMode();
-
-    window.addEventListener("resize", debounce(updateMode, 200));
-}
-
-function debounce(fn, delay) {
-    let t;
-    return function () {
-        clearTimeout(t);
-        t = setTimeout(fn, delay);
-    };
-}
-
-*/
 // =============================
 // stats
 // =============================
@@ -565,7 +385,7 @@ if (jQuery('#slider').length) {
 
 // open search
 $(document).on("click", ".js-open-search", function () {
-    _functions.removeScroll();
+   // _functions.removeScroll();
     $("header").addClass("search-open");
 
     setTimeout(function () {
@@ -573,7 +393,7 @@ $(document).on("click", ".js-open-search", function () {
     }, 100);
 });
 $(document).on("click", ".js-close-search", function () {
-    _functions.addScroll();
+   // _functions.addScroll();
     $("header").removeClass("search-open");
     $(".h-search").find("input").val("");
     $(".cab-search").removeClass("active");
@@ -587,5 +407,49 @@ $(document).on("input", ".search input", function () {
         $res.addClass("active");
     } else {
         $res.removeClass("active");
+    }
+});
+
+
+
+// =============================
+// LANG 
+// =============================
+const langWrap = document.querySelector('.lang__wrap');
+const langBtn = langWrap.querySelector('.lang__current');
+
+// Функція тогла
+const toggleLang = (e) => {
+    const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+    langBtn.setAttribute('aria-expanded', !isExpanded);
+};
+
+// Обробка кліку
+langBtn.addEventListener('click', (e) => {
+    // Якщо пристрій сенсорний (coarse pointer)
+    if (window.matchMedia('(pointer: coarse)').matches) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleLang();
+    }
+});
+
+// Закриття при кліку поза межами (для мобільних)
+document.addEventListener('click', (e) => {
+    if (!langWrap.contains(e.target)) {
+        langBtn.setAttribute('aria-expanded', 'false');
+    }
+});
+
+// Для десктопа: синхронізація aria-expanded при ховері (для скрінрідерів)
+langWrap.addEventListener('mouseenter', () => {
+    if (window.matchMedia('(hover: hover)').matches) {
+        langBtn.setAttribute('aria-expanded', 'true');
+    }
+});
+
+langWrap.addEventListener('mouseleave', () => {
+    if (window.matchMedia('(hover: hover)').matches) {
+        langBtn.setAttribute('aria-expanded', 'false');
     }
 });

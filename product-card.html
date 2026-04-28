@@ -22,34 +22,15 @@
 
     <header class="header js-header bg">
         <div class="container">
-            <div class="header__mobile-bar d-flex d-lg-none align-middle align-justify">
-                <a href="/" class="logo-link">
-                    <img src="assets/img/logo.svg" alt="Motyv" class="logo">
-                </a>
 
-                <div class="header__mobile-controls d-flex align-middle">
-                    <button type="button" class="btn-icon js-open-search">
-                        <i class="icon-search"></i>
-                    </button>
-                    <a href="/cart/" class="btn-cart-min">
-                        <i class="icon-card"></i> <span>(0)</span>
-                    </a>
-                    <button type="button" class="burger js-burger">
-                        <span class="burger__line"></span>
-                        <span class="burger__line"></span>
-                        <span class="burger__line"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="header__inner d-none d-lg-block">
+            <div class="header__inner ">
 
                 <div class="header__top d-flex align-justify align-middle">
 
                     <div class="header__socials d-flex align-middle">
 
-                        <div class="social__label">Написати нам:</div>
-                        <ul class="social d-flex align-middle">
+                        <div class="social__label d-none d-md-block">Написати нам:</div>
+                        <ul class="social d-flex align-middle ">
                             <li class="social__item">
                                 <a href="" class="d-flex align-center align-middle">
                                     <i class="icon-youtube"></i>
@@ -70,57 +51,65 @@
 
 
                     <div class="header__top-right d-flex align-middle">
-
-
-                        <a href="mailto:info@rybnuy-kombinat.com" class="contact__info text-medium d-flex align-middle">
+                        <a href="mailto:info@rybnuy-kombinat.com"
+                            class="contact__info text-medium d-none d-md-flex align-middle">
                             <i class="icon-mail"></i>info@rybnuy-kombinat.com
                         </a>
+                        <a href="tel:0672662110" class="contact__info text-bold d-none d-md-flex align-middle"><i
+                                class="icon-phone"></i>(067) 266-21-10</a>
 
+                        <div class="lang__wrap">
+                            <button type="button" class="lang__current d-flex align-middle align-justify" aria-expanded="false" aria-haspopup="listbox">
+                                <img src="assets/img/globe.svg" alt=""><span>Eng</span><img src="assets/img/down.svg">
+                            </button>
 
-                        <a href="tel:0672662110" class="contact__info text-bold d-flex align-middle"><i
-                                class="icon-mail"></i>(067) 266-21-10</a>
-
-                        <ul class="lang-switcher d-flex">
-                            <li class="lang-item"><a href="#">EN</a></li>
-                            <li class="lang-item current-lang-item"><a href="#">UA</a></li>
-                        </ul>
-
+                            <ul class="lang"">
+                                <li class=" lang-item current-lang">
+                                <a href="" lang="en">Eng</a>
+                                </li>
+                                <li class="lang-item">
+                                    <a href="" lang="it">Ita</a>
+                                </li>
+                                <li class="lang-item">
+                                    <a href="" lang="uk">Ukr</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="header__bottom d-flex align-justify align-middle">
                     <a href="/" class="logo-link">
-                        <img src="assets/img/logo.svg" alt="Motyv" class="logo">
+                        <img src="assets/img/logo.svg" alt="" class="logo">
                     </a>
 
                     <nav class="header__nav-primary">
                         <ul id="menu-primary-menu" class="menu">
-                            <li class="menu-item"></li>
-                            <li class="menu-item"><a href="#">Про нас</a></li>
-                            <li class="menu-item current-menu-item"><a href="#">Діяльність</a></li>
-                            <li class="menu-item"><a href="#">Каталог</a></li>
-                            <li class="menu-item"><a href="#">Рецепти</a></li>
-                            <li class="menu-item"><a href="#">Новини</a></li>
-                            <li class="menu-item"><a href="#">Кар’єра</a></li>
-                            <li class="menu-item"><a href="#">Контакти</a></li>
+                            <li class="menu-item"><a href="about.html">Про нас</a></li>
+                            <li class="menu-item current-menu-item"><a href="directions.html">Діяльність</a></li>
+                            <li class="menu-item"><a href="catalog-2.html">Каталог</a></li>
+                            <li class="menu-item"><a href="re">Рецепти</a></li>
+                            <li class="menu-item"><a href="blog.html">Новини</a></li>
+                            <li class="menu-item"><a href="career.html">Кар’єра</a></li>
+                            <li class="menu-item"><a href="contacts.html">Контакти</a></li>
                         </ul>
                     </nav>
 
                     <div class="header__controls">
-                        <button type="button" class="control-btn js-open-search" aria-label="Пошук">
+                        <button type="button" class="control-btn js-open-search">
                             <i class="icon-search"></i>
                             <span class="control-btn__text d-none d-xl-inline">Пошук</span>
                         </button>
 
-                        <a href="/account/" class="control-btn" aria-label="Кабінет користувача">
+                        <a href="" class="control-btn open-popup" data-rel="login">
                             <i class="icon-user"></i>
                         </a>
 
-                        <a href="/wishlist/" class="control-btn control-btn--wishlist" aria-label="Обране">
+                        <a href="" class="control-btn control-btn--wishlist">
                             <i class="icon-fav"></i>
                         </a>
 
-                        <a href="/cart/" class="control-btn control-btn--cart" aria-label="Кошик">
+                        <a href="" class="control-btn control-btn--cart">
                             <div class="control-btn__icon-wrap">
                                 <i class="icon-bag"></i>
                                 <span class="control-btn__badge">0</span>
@@ -128,39 +117,30 @@
 
                         </a>
                     </div>
+                    <button type="button" class="burger js-burger h-burger">
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <div class="h-search">
             <div class="container">
-                <form class="h-search__inner header_search" role="search" method="get" action="https://miromark.com.ua/"
-                    autocomplete="off">
+                <form class="search__wrap">
+                    <input type="text" name="s" class="search__input" placeholder="Введіть назву " value=""
+                        autocomplete="off">
                     <button type="submit" class="search__btn">
-                        <svg>
-                            <use href="https://miromark.com.ua/wp-content/themes/miromark/img/icons/symbols.svg#search">
-                            </use>
-                        </svg>
+                        <i class="icon-search"></i>
                     </button>
-                    <input type="text" name="s" class="autocomplete-product ui-autocomplete-input"
-                        placeholder="Введіть назву або артикул" value="" autocomplete="off">
-                    <button class="search__btn search__btn_close js-close-search" type="button">
-                        <svg>
-                            <use
-                                href="https://miromark.com.ua/wp-content/themes/miromark/img/icons/symbols.svg#close_circle">
-                            </use>
-                        </svg>
-                    </button>
-                    <div class="search__results-wrap">
-                        <div class="search__results autocomplete-product-result"></div>
-                    </div>
+
                 </form>
             </div>
         </div>
 
         <div class="h-overlay js-close-search"></div>
     </header>
-
 
     <div class="body-padding"></div>
 
@@ -354,7 +334,7 @@
                                     <span class="product-specs__value">3</span>
                                 </div>
                             </div>
-                            <div class=" d-flex align-justify align-middle">
+                            <div class=" d-flex align-left align-middle">
                                 <div class="product__price-wrap text-center">
                                     <p class="price">
                                         <del aria-hidden="true">
@@ -374,11 +354,22 @@
 
 
                                 </div>
-                                <div class="thumb-input-number">
-                                    <button type="button" class="decrement" aria-label="button"> </button>
-                                    <input value="1" tabindex="-1" class="product-qty" readonly="" max="999">
-                                    <button type="button" class="increment" aria-label="button"></button>
+
+                                <div class="quantity-picker">
+                                    <button type="button" class="quantity-picker__btn quantity-picker__btn--decrement"
+                                        aria-label="Зменшити кількість">
+                                        &minus;
+                                    </button>
+
+                                    <input type="number" class="quantity-picker__input" value="1" data-min="1"
+                                        data-max="100" readonly>
+
+                                    <button type="button" class="quantity-picker__btn quantity-picker__btn--increment"
+                                        aria-label="Додати кількість">
+                                        &plus;
+                                    </button>
                                 </div>
+
                             </div>
                             <div class="align-middle product__controls">
                                 <a href="" class="btn btn-primary">До кошику</a>
@@ -906,7 +897,7 @@
 
                                 </div>
 
-                                 <div class="swiper-pagination"></div>
+                                <div class="swiper-pagination"></div>
                                 <div class="swiper-controls d-flex align-justify align-middle">
                                     <div class="swiper-button__wrap d-flex align-left align-middle">
                                         <div class="swiper-button-prev">
@@ -1274,7 +1265,7 @@
 
                                     </div>
                                 </div>
-                                 <div class="swiper-pagination"></div>
+                                <div class="swiper-pagination"></div>
                                 <div class="swiper-controls d-flex align-justify align-middle">
                                     <div class="swiper-button__wrap d-flex align-left align-middle">
                                         <div class="swiper-button-prev">
@@ -1613,7 +1604,7 @@
 
                                     </div>
                                 </div>
-                               <div class="swiper-pagination"></div>
+                                <div class="swiper-pagination"></div>
                                 <div class="swiper-controls d-flex align-justify align-middle">
                                     <div class="swiper-button__wrap d-flex align-left align-middle">
                                         <div class="swiper-button-prev">
@@ -1976,7 +1967,11 @@
 
     <footer class="footer">
         <div class="footer__bg-wrap">
-            <img src="assets/img/bg-footer.jpg" alt="" class="footer__bg">
+            <img src="assets/img/banner.jpg" alt="" class="footer__bg d-none">
+            <video class="footer__bg" autoplay muted loop playsinline preload="auto" poster="assets/img/hero.jpg">
+                <source src="assets/img/t.mp4" type="video/mp4">
+                Ваш браузер не підтримує відео.
+            </video>
         </div>
         <div class="footer__inner ">
             <div class="footer__top overlap">
@@ -2032,9 +2027,7 @@
                                     <i class="icon-mail"></i>info@rybnuy-kombinat.com
                                 </a>
                             </div>
-                            <a href="" class="show-map text-medium text-uppercase d-flex d-md-none align-middle">
-                                <i class="icon-location"></i>Подивитись на карті<i class="icon-ar-right"></i>
-                            </a>
+
                             <div class="contact__item d-flex align-left align-middle">
                                 <a href="tel:+380678473628" class="contact__info text-medium d-flex align-middle"> <i
                                         class="icon-phone"></i><b>+38(067)-847-36-28</b></a>
@@ -2057,7 +2050,7 @@
                                 </ul>
                             </div>
 
-                            <a href="" class="show-map text-medium text-uppercase d-none d-md-flex align-middle"><i
+                            <a href="" class="show-map text-medium text-uppercase  d-md-flex align-middle"><i
                                     class="icon-location"></i>Подивитись на
                                 карті
                                 <i class="icon-ar-right"></i> </a>
@@ -2084,6 +2077,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="footer__bottom overlap">
 
                 <div class="container">
@@ -2097,7 +2092,7 @@
                             <div class="develop d-flex align-middle align-left">
                                 Розроблено:
                                 <a href="https://webtune.com.ua/" target="_blank" rel="nofollow" class="develop__link">
-                                    WebTune.
+                                    <img src="assets/img/logo-dev.svg" alt="" class="develop__logo">
                                 </a>
                             </div>
                             <div class="social__wrap">
@@ -2124,6 +2119,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </footer>
 
