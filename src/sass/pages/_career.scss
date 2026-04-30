@@ -64,7 +64,7 @@
     & span {
       display: block;
       font-weight: 500;
-      @include fontSize(16, 24);
+      font-size: fluid(16, 24);
       line-height: 1.4;
       color: #000;
       width: calc(100% - 64px);
@@ -106,8 +106,8 @@
     }
 
     &__title {
-      margin-bottom: 24px;
-      @include fontSize(16, 20);
+      margin-bottom: fluid(16,20);
+      font-size: fluid(16,20);
     }
   }
 }

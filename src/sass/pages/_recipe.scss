@@ -114,18 +114,10 @@
 }
 
 .s-recommended-recipes {
-  padding: 140px 0;
-  @media (max-width: $breakpoint-md) {
-    padding: 100px 0;
-  }
-
+  padding: 0 0 fluid(100,200) 0;
+  
   & .heading {
-    @include fontSize(28, 45);
-    width: calc(100% - 132px);
-    @media (max-width: 380px) {
-      font-size: 20px;
-      width: calc(100% - 92px);
-    }
+    padding: fluid(30,37) 0;
   }
 
   & .decor {
@@ -137,7 +129,7 @@
 }
 
 .s-recipe-detail {
-  padding: 56px 0 0 0;
+  padding: fluid(50,56) 0 fluid(50,100) 0;
 
 
   & .meta {
@@ -357,4 +349,62 @@
   &:not(&:last-child){
     margin-right:40px;
   }
+}
+
+/* Десктоп: без змін */
+@media (min-width: 1025px) {
+    .SumoSelect > .optWrapper {
+        position: absolute !important;
+    }
+}
+
+/* Мобільні: ідеально плавний акордеон */
+@media (max-width: 1024px) {
+    .SumoSelect {
+        width: 100% !important;
+    }
+
+    .SumoSelect > .optWrapper {
+        /* Примусово тримаємо блок у потоці, навіть коли плагін хоче його сховати */
+        display: block !important; 
+        position: static !important;
+        width: 100% !important;
+        
+        /* Початковий стан (закритий) */
+        max-height: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        overflow: hidden !important;
+        border: 1px solid transparent;
+        
+        /* Transition для обох напрямків (відкриття/закриття) */
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.3s ease, 
+                    margin 0.3s ease, 
+                    border 0.4s ease !important;
+    }
+
+    /* Відкритий стан */
+    .SumoSelect.open > .optWrapper {
+        max-height: 500px !important; /* Значення має бути більшим за контент */
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-color: #ddd;
+    }
+
+    /* Плавна стрілочка */
+    .SumoSelect .CaptionCont > label > i {
+        transition: transform 0.3s ease !important;
+    }
+
+    .SumoSelect.open > .CaptionCont > label > i {
+        transform: rotate(180deg);
+    }
+    
+    /* Додатково: прибираємо різку появу елементів списку всередині */
+    .SumoSelect > .optWrapper .options {
+        padding: 10px 0;
+    }
 }

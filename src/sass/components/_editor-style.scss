@@ -4,35 +4,42 @@
 
 .cms-content {
   font-family: 'Gilroy', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
-  color: #000000;
+  color: rgba(27, 27, 27, 1);
 
-  & b, & strong {
+  & b,
+  & strong {
     font-weight: bold;
   }
 
-  & > * {
+  &>* {
     &:last-child {
       margin-bottom: 0;
     }
   }
 
   & p {
-    font-size: fluid(14, 16);;
-    line-height: 1.38;
-    margin-bottom: 20px;
+    font-size: fluid(14, 16);
+    ;
+    line-height: 1.4;
+    margin-bottom: 12px;
 
-    & + ul, & + ol {
+    &+ul,
+    &+ol {
       margin-top: 15px;
     }
   }
 
 
-  & h2, & h3, & h4, & h5, & h6 {
-    font-weight: bold;
-    margin-bottom: 18px;
-    line-height: 1.25;
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-weight: 500;
+    margin-bottom: fluid(16,24);
+    line-height: 1.4;
 
   }
 
@@ -85,9 +92,9 @@
 
   & img {
     margin: 0 auto;
-    @media (min-width: $breakpoint-lg) {
 
-    }
+    @media (min-width: $breakpoint-lg) {}
+
     @media (max-width: $breakpoint-lg) {
       height: 100%;
       max-height: 400px;
@@ -124,19 +131,22 @@
     }
   }
 
-  & ul, & ol {
+  & ul,
+  & ol {
     margin-bottom: 30px;
 
     list-style-type: none;
 
     & li {
-      font-size: fluid(18, 20);;
-      line-height: 1.38;
+      font-size: fluid(14, 16);
+      ;
+      line-height: 1.4;
 
       position: relative;
 
       &:not(&:last-child) {
         margin-bottom: 20px;
+
         @media (max-width: $breakpoint-md) {
           margin-bottom: 15px;
         }
@@ -144,7 +154,7 @@
 
       &::marker {
         display: none;
-        color: $accent-color;
+        color: rgba(27, 27, 27, 1);
       }
 
       &::before {
@@ -176,19 +186,22 @@
     padding: 34px 20px;
     margin-bottom: 30px;
     position: relative;
+
     @media (max-width: $breakpoint-lg) {
       padding: 15px;
       margin: 50px 0;
     }
 
-    & p, & {
+    & p,
+    & {
       position: relative;
       @include fontSize(14, 17);
       line-height: 1.58;
-      @media (max-width: $breakpoint-lg) {
-      }
 
-      & b, & strong {
+      @media (max-width: $breakpoint-lg) {}
+
+      & b,
+      & strong {
         font-weight: bold;
       }
     }
@@ -214,6 +227,7 @@
         &:nth-child(1) {
           font-weight: 600;
           width: 40%;
+
           @media (max-width: $breakpoint-md) {
             width: 70%;
           }
@@ -223,4 +237,3 @@
   }
 
 }
-
