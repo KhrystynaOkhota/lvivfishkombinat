@@ -62,12 +62,14 @@
   }
 
   &__sku,
+  &__count,
   &__status {
     font-size: 15px;
     font-weight: 300;
   }
 
-  &__sku {
+  &__sku,
+  &__count {
     color: #5A5A5A;
   }
 
@@ -161,6 +163,66 @@
       margin-bottom: 30px;
     }
   }
+
+  &-horiz {
+    background: #fff;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+    padding: 18px;
+
+    & .product {
+      &__img {
+        &-wrap {
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      &__title {
+        margin: 0;
+        padding: 0;
+        ;
+      }
+
+      &__info {
+        display: flex;
+        flex-wrap: wrap; // Дозволяє елементам ставати в кілька рядів
+        gap: 13px 0;
+        align-items: flex-start;
+      }
+
+      &__title-wrap {
+        flex: 0 0 100%; // Перший елемент на всю ширину (100%)
+        width: 100%;
+      }
+
+      &__meta,
+      &__price-wrap {
+        flex: 0 0 30%; // Другий і третій елементи по 50%
+        max-width: 30%;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: $breakpoint-lg) {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+
+      // Додаткове вирівнювання для краси
+      &__meta {
+        padding: 0;
+        gap: 13px;
+        display: grid;
+      }
+
+      &__price-wrap {
+        & .price{
+          justify-content: left;
+        }
+      }
+    }
+  }
 }
 
 .product-specs {
@@ -242,7 +304,8 @@
         }
 
         & .price {
-gap:0;
+          gap: 0;
+
           &>ins {
             color: #FF3C00;
             text-decoration: none;

@@ -103,6 +103,59 @@
     display: grid;
     gap: 20px;
   }
+
+
+  & .cbn-order-history {
+    .order-info {
+      display: grid;
+      grid-template-columns: 1fr; // По замовчуванню одна колонка (Mobile First)
+      gap: 15px; // Відступи між елементами
+      padding: fluid(20,33.5) fluid(10,32);
+      align-items: center;
+      &__number,&__status, &__date {
+        font-size: 18px;
+        color: #000000;
+      }
+
+   
+
+      // Медіа-запит для десктопу (від 768px або 992px)
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr); // Три рівні колонки
+        text-align: left; // Вирівнювання по лівому краю
+        gap: 10px; // Більші відступи на десктопі
+
+        &__status {
+          text-align: center; // Середню колонку можна центрувати
+        }
+
+        &__date {
+          text-align: right; // Дату зазвичай притискають вправо
+        }
+      }
+    }
+
+    & .product {
+      grid-template-columns: fluid(90, 94) 1fr;
+      display: grid;
+      gap: 10px;
+
+      &__list {
+        padding: 10px;
+        background: rgba(179, 176, 216, .2);
+        gap: 10px;
+        display: grid;
+      }
+    }
+
+    & .accordion {
+      display: grid;
+      gap: 24px;
+      &__header {
+        box-shadow: 0px 0px 30px 0px #3C507233;
+      }
+    }
+  }
 }
 
 .s-registration {
