@@ -1,6 +1,36 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
+
+.cursor-fish {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; // Ваші розміри
+  height: 60px;
+  pointer-events: none;
+  z-index: 999;
+  will-change: transform;
+
+  .fish-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      // Якщо рибка дивиться вгору в оригіналі, 
+      // можливо знадобиться rotate(90deg), щоб вона дивилася вперед за курсором
+      transform: rotate(0deg); 
+    }
+  }
+}
+
+
+
 .s-about {
   &.home {
     padding: fluid(50, 100) 0 fluid(40, 100) 0;

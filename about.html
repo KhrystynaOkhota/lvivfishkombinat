@@ -142,6 +142,32 @@
 
         <div class="h-overlay js-close-search"></div>
     </header>
+    <style>
+       
+        .cursor-fish {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            /* Рибка не заважає клікати на посилання */
+            z-index: 9999;
+        }
+
+        .fish-wrapper img {
+            width: 100%;
+            height: auto;
+            /* Початковий поворот, якщо рибка дивиться вбік */
+            transform: rotate(0deg);
+        }
+    </style>
+
+    <div class="cursor-fish" id="fish">
+        <div class="fish-wrapper">
+            <img src="assets/img/fish.svg" alt="fish">
+        </div>
+    </div>
 
     <div class="body-padding"></div>
     <main class="main ">
@@ -1281,6 +1307,105 @@
         });
     </script>
 
+
+    <!--<script>
+
+
+        const fish = document.querySelector("#fish");
+
+        // Оптимізовані сеттери через quickSetter (працюють швидше за звичайний .set)
+        const xSetter = gsap.quickSetter(fish, "x", "px");
+        const ySetter = gsap.quickSetter(fish, "y", "px");
+        const rSetter = gsap.quickSetter(fish, "rotation", "deg");
+
+        const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        const mouse = { x: pos.x, y: pos.y };
+        const speed = 0.15; // Чим менше, тим плавніша (інертніша) рибка
+
+        window.addEventListener("mousemove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        // Головний цикл анімації
+        gsap.ticker.add(() => {
+            // Розрахунок плавного слідування (Lerp)
+            const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+            pos.x += (mouse.x - pos.x) * dt;
+            pos.y += (mouse.y - pos.y) * dt;
+
+            // Розрахунок кута повороту
+            const dx = mouse.x - pos.x;
+            const dy = mouse.y - pos.y;
+            const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+            // Оновлення позиції
+            xSetter(pos.x - 25); // Центрування (половина ширини)
+            ySetter(pos.y - 25);
+
+            // Додаємо невелику затримку для повороту, щоб він був "живим"
+            if (Math.abs(dx) + Math.abs(dy) > 0.1) {
+                rSetter(angle);
+            }
+        });
+
+
+    </script>-->
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector("#fish");
+            const wrapper = container.querySelector(".fish-wrapper");
+
+            let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            let pos = { x: mouse.x, y: mouse.y };
+
+            // Зсув відносно вістря курсора (у пікселях)
+            const offset = { x: 40, y: 40 };
+
+            const setX = gsap.quickSetter(container, "x", "px");
+            const setY = gsap.quickSetter(container, "y", "px");
+            const setRotation = gsap.quickSetter(container, "rotation", "deg");
+            const setScaleX = gsap.quickSetter(wrapper, "scaleX");
+
+            window.addEventListener("mousemove", (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            gsap.ticker.add(() => {
+                // Збільшуємо інерцію (0.05 - 0.1), щоб рибка була більш "лінивою"
+                const lerp = 0.07;
+
+                // Розраховуємо цільову позицію зі зсувом
+                const targetX = mouse.x + offset.x;
+                const targetY = mouse.y + offset.y;
+
+                const vx = (targetX - pos.x) * lerp;
+                const vy = (targetY - pos.y) * lerp;
+
+                pos.x += vx;
+                pos.y += vy;
+
+                // Кут повороту в бік руху
+                const angle = Math.atan2(vy, vx) * (180 / Math.PI);
+
+                // Динамічне розтягування залежно від швидкості
+                const speed = Math.sqrt(vx * vx + vy * vy);
+                const stretch = 1 + Math.min(speed * 0.03, 0.4);
+
+                setX(pos.x - 25); // Центрування власної ширини рибки
+                setY(pos.y - 25);
+
+                if (speed > 0.2) {
+                    setRotation(angle);
+                }
+
+                setScaleX(stretch);
+            });
+        });
+    </script>
 </body>
 
 </html>

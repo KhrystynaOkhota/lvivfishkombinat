@@ -64,6 +64,7 @@
     color: $white-color;
     @include transition(.5);
     padding: 22.5px;
+    text-transform: uppercase;
   }
 
   &-transparent {
@@ -71,6 +72,7 @@
     &,
     &__white {
       background: transparent;
+      text-transform: uppercase;
 
       & i {
         font-size: 13px;
@@ -81,7 +83,7 @@
 
   &-transparent {
     border-color: rgba(255, 60, 0, 1);
-    color:rgba(255, 60, 0, 1);
+    color: rgba(255, 60, 0, 1);
     padding: 22.5px;
 
     &__white {

@@ -134,30 +134,14 @@
     max-width: 304px;
   }
 
-  &[data-rel="cottagee"] {
+  &[data-rel="login"] {
     & .popup-container {
-      max-width: 1400px;
-      background: #2C3837;
-      padding: 60px;
+      
 
       @media (max-width: $breakpoint-md) {
-        padding: 50px 20px 20px 20px;
+        padding: 40px 10px ;
       }
 
-      & .swiper-thumbs {
-        &-top {
-          margin-bottom: 30px;
-
-          @media (max-width: $breakpoint-md) {
-            margin-bottom: 20px;
-          }
-
-          & img {
-            aspect-ratio: 4 / 2;
-            object-fit: cover;
-          }
-        }
-      }
     }
   }
 }
@@ -179,16 +163,10 @@
 .popup-container .btn-close {
   position: absolute;
   z-index: 10;
-  top: 30px;
-  right: 30px;
+  top: fluid(13,30);
+  right: fluid(13,30);
   font-size: 24px;
   cursor: pointer;
-
-  @media (max-width: $breakpoint-md) {
-    top: 10px;
-    right: 20px;
-  }
-
   & i {
     transition: color ease-in-out .3s;
     font-size: 20px;
@@ -204,5 +182,49 @@
 .popup-form {
   &__heading {
     margin-bottom: 18px;
+  }
+}
+
+.reset-pass {
+  margin-top: 26px;
+  margin-bottom: 26px;
+  font-weight: 600;
+  color: #312783;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.social-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__grid {
+    display: flex;
+    align-items: center;
+    gap:20px;
+  }
+
+  & .social-btn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+
+    &--facebook {
+      background: #0B84EE;
+    }
+    &--google{
+      border:1px solid #EAEAEA;
+    }
   }
 }
