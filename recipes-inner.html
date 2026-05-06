@@ -119,12 +119,26 @@
                             </div>
 
                         </a>
+
+                        <div class="burger">
+                        <div class="hamburger hamburger--spring">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
                     </div>
-                    <button type="button" class="burger js-burger h-burger">
+                    </div>
+                   <!--<button type="button" class="burger js-burger h-burger">
                         <span class="burger__line"></span>
                         <span class="burger__line"></span>
                         <span class="burger__line"></span>
-                    </button>
+                    </button>-->
+
+
+
+                    
+
+
                 </div>
             </div>
         </div>
@@ -172,7 +186,7 @@
                                 lorem odio cubilia</span>
                         </div>
                         <h1 class="heading h1 text-bold">
-                           Ut enim ad minim veniam, quis nostrud exercitation ullamco adipiscing lorem odio cubilia
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco adipiscing lorem odio cubilia
                         </h1>
                     </div>
                 </div>
@@ -181,27 +195,28 @@
 
         <section class="s-recipe-detail">
             <div class="container">
-                <div class="row m-row s-recipe-detail__inner">
+                <div class="row m-row recipe-details__row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-
-                        <div class="meta">
-                            <div class="meta__inner d-flex align-middle align-justify">
-                                <div class="time text-medium"><i class="icon-hourglass"></i> 20 хвилин</div>
-                                <div class="servings text-medium"><i class="icon-fork-knife"></i> 4 порції</div>
-                                <div class="share  text-medium text-uppercase d-flex align-middle align-center">
-                                    <span>Поділитись</span>
-                                    <img src="assets/img/share.svg" alt="">
+                        <div class="recipe-details__media">
+                            <div class="meta">
+                                <div class="meta__inner d-flex align-middle align-justify">
+                                    <div class="time text-medium"><i class="icon-hourglass"></i> 20 хвилин</div>
+                                    <div class="servings text-medium"><i class="icon-fork-knife"></i> 4 порції</div>
+                                    <div class="share  text-medium text-uppercase d-flex align-middle align-center">
+                                        <span>Поділитись</span>
+                                        <img src="assets/img/share.svg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="recipe__img-wrap --relative ">
-                            <img src="assets/img/recipe-1.jpg" alt="" class="recipe__img">
+                            <div class="recipe-details__img">
+                                <img src="assets/img/recipe-1.jpg" alt="Готова страва">
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                        <div class="recipe-detail">
-                            <h4 class="recipe-detail__heading text-medium">Інгредієнти</h4>
-                            <div class="recipe-detail__text editor-style">
+                        <div class="recipe-details">
+                            <h4 class="recipe-details__heading text-bold">Інгредієнти</h4>
+                            <div class="cms-content">
                                 <ul>
                                     <li> Крабові палички - <b>1 упаковка (200 г)</b></li>
                                     <li> Вершкове масло -<b> 120 г (для тіста) + 20 г (для смаження)</b></li>
@@ -217,82 +232,82 @@
                     </div>
                 </div>
 
-                <div class="row recommended-product --relative swiper-entry">
+                <div class="row recipe-details__product --relative swiper-entry">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="swiper-container"
-                            data-options='{"loop":true,"slidesPerView": 1.2, "spaceBetween": 10,"centeredSlides": false, "breakpoints": { "360": {"slidesPerView":2.2, "spaceBetween": 10}, " 400": {"slidesPerView":2.2, "spaceBetween": 10}, "767": {"slidesPerView": 3, "spaceBetween": 20}, "1200": {"slidesPerView": 4, "spaceBetween": 20}}}'>
+                            data-options='{"loop":false,"slidesPerView": 1.2, "spaceBetween": 10,"centeredSlides": false, "breakpoints": { "360": {"slidesPerView":2.2, "spaceBetween": 10}, " 400": {"slidesPerView":2.2, "spaceBetween": 10}, "767": {"slidesPerView": 3, "spaceBetween": 20}, "1200": {"slidesPerView": 4, "spaceBetween": 20}}}'>
 
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/recipe-1.jpg" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба
                                         </div>
+
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/category-6.png" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба test test test
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба test test test
                                         </div>
+
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/recipe-1.jpg" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба
                                         </div>
+
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/recipe-1.jpg" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба
                                         </div>
+
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/recipe-1.jpg" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба
                                         </div>
+
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="product-inner.html" class="product__item d-block">
+                                    <a href="product-inner.html" class="product">
                                         <div class="product__img-wrap --relative ">
                                             <img src="assets/img/recipe-1.jpg" alt="" class="product__img">
                                         </div>
-                                        <div class="product__info">
-                                            <div class="product__heading text-semibold">
-                                                Морожена риба
-                                            </div>
+
+                                        <div class="product__heading text-semibold">
+                                            Морожена риба
                                         </div>
+
                                     </a>
                                 </div>
                             </div>
@@ -311,9 +326,9 @@
 
                 <div class="row m-row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
-                        <div class="recipe-detail">
-                            <h4 class="recipe-detail__heading text-medium">Приготування</h4>
-                            <div class="recipe-detail__text editor-style">
+                        <div class="recipe-details">
+                            <h4 class="recipe-details__heading text-bold">Приготування</h4>
+                            <div class="recipe-detail__text cms-content">
                                 <ol>
                                     <li> Lorem ipsum odor amet, consectetuer adipiscing elit. Vivamus convallis
                                         dignissim
@@ -498,7 +513,7 @@
                                         <i class="icon-ar-right"></i>
                                     </div>
                                 </div>
-                                 <a href="" class="btn-more d-md-none">Усі рецепти<i class="icon-ar-right"></i></a>
+                                <a href="" class="btn-more d-md-none">Усі рецепти<i class="icon-ar-right"></i></a>
                             </div>
                         </div>
                     </div>
