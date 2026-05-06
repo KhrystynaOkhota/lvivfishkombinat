@@ -1,4 +1,4 @@
-jQuery(function ($) {
+/*jQuery(function ($) {
     // ініціалізація SumoSelect
     if ($('.orderby').length) {
         $('.orderby').each(function () {
@@ -10,4 +10,17 @@ jQuery(function ($) {
             });
         });
     }
+});*/
+
+jQuery(document).ready(function () {
+    jQuery('.orderby').each(function() {
+        // Беремо текст першої опції як плейсхолдер (для підтримки багатомовності)
+        var placeholderText = jQuery(this).find('option:first').text();
+        
+        jQuery(this).SumoSelect({
+            placeholder: placeholderText,
+            forceCustomRendering: true,
+            csvDispCount: 3
+        });
+    });
 });

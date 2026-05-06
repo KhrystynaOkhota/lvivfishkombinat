@@ -2658,6 +2658,105 @@ select:-webkit-autofill:focus {
   }
 }
 
+.checkout-form__section-title {
+  font-weight: bold;
+  -webkit-margin-after: clamp(15px, 15px + (40 - 15) * (100vw - 375px) / (1440 - 375), 40px);
+          margin-block-end: clamp(15px, 15px + (40 - 15) * (100vw - 375px) / (1440 - 375), 40px);
+  font-size: clamp(20px, 20px + (25 - 20) * (100vw - 375px) / (1440 - 375), 25px);
+}
+
+.radio-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 25px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.field {
+  position: relative;
+}
+.field__input, .field__textarea {
+  background: #fff;
+  border: none;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  color: rgb(27, 27, 27);
+  resize: none;
+  padding: 15px 20px 16px 20px;
+}
+.field__grid {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  gap: 20px;
+}
+
+.radio-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.radio-option__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.radio-option__input:checked ~ .radio-option__custom::after {
+  opacity: 1;
+}
+.radio-option__custom {
+  height: 24px;
+  width: 24px;
+  background-color: #fff;
+  border: 1px solid #C0C0C0;
+  border-radius: 50%;
+  margin-right: 7px;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+.radio-option__custom::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #312783;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+.radio-option__text {
+  font-size: 16px;
+  color: #1B1B1B;
+}
+
 .cms-content {
   font-family: "Gilroy", sans-serif;
   font-weight: 300;
@@ -4870,123 +4969,137 @@ select:-webkit-autofill:focus {
   }
 }
 
-.select-box select {
-  opacity: 0;
+.filter-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 40px;
 }
-
-.SumoSelect {
-  width: auto;
-  max-width: 250px;
+.filter-bar__item select {
+  display: none;
 }
-
-.SumoSelect.open > .optWrapper {
-  background: rgb(244, 244, 244);
+.filter-bar__item:last-child {
+  margin-left: auto;
 }
-
-.SumoSelect > .optWrapper {
-  border-radius: 0;
-  max-width: 210px;
-}
-
-.SumoSelect > .optWrapper > .options > li.opt:first-child {
-  border-radius: 0;
-}
-
-.SumoSelect > .optWrapper > .options {
-  border-radius: 0;
-  padding: 24px;
-  max-height: -webkit-max-content;
-  max-height: -moz-max-content;
-  max-height: max-content;
-}
-
-.SumoSelect > .optWrapper > .options li.opt {
-  padding: 0;
-}
-.SumoSelect > .optWrapper > .options li.opt:not(.SumoSelect > .optWrapper > .options li.opt:last-child) {
-  margin-bottom: 24px;
-}
-
-.SumoSelect > .optWrapper > .options li.opt:hover {
-  background-color: transparent;
-}
-
-.SumoSelect > .CaptionCont {
-  position: relative;
-  border: none;
-  min-height: 14px;
-  background-color: #fff;
-  border-radius: 0;
-  margin: 0;
-}
-
-.SumoSelect.open > .CaptionCont, .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-color: transparent;
-  cursor: pointer;
-}
-
-.SumoSelect > .CaptionCont > span {
-  cursor: pointer;
-}
-
-.select-box:not(.select-box:last-child) {
-  margin-right: 40px;
-}
-
-/* Десктоп: без змін */
-@media (min-width: 1025px) {
-  .SumoSelect > .optWrapper {
-    position: absolute !important;
+@media (max-width: 768px) {
+  .filter-bar__item:last-child {
+    margin-left: 0;
   }
 }
-/* Мобільні: ідеально плавний акордеон */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  .filter-bar__item:not(.filter-bar__item:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+@media (max-width: 768px) {
+  .filter-bar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    gap: 0;
+  }
+  .filter-bar .select-box {
+    width: 100%;
+  }
+  .filter-bar .select-box:last-child {
+    margin-left: 0;
+  }
+}
+
+/* Базові налаштування SumoSelect */
+.SumoSelect {
+  width: auto !important;
+}
+@media (max-width: 768px) {
   .SumoSelect {
     width: 100% !important;
   }
-  .SumoSelect > .optWrapper {
-    /* Примусово тримаємо блок у потоці, навіть коли плагін хоче його сховати */
-    display: block !important;
-    position: static !important;
-    width: 100% !important;
-    /* Початковий стан (закритий) */
-    max-height: 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    overflow: hidden !important;
-    border: 1px solid transparent;
-    /* Transition для обох напрямків (відкриття/закриття) */
-    -webkit-transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease, border 0.4s ease !important;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease, border 0.4s ease !important;
-  }
-  /* Відкритий стан */
-  .SumoSelect.open > .optWrapper {
-    max-height: 500px !important; /* Значення має бути більшим за контент */
-    opacity: 1 !important;
-    visibility: visible !important;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-color: #ddd;
-  }
-  /* Плавна стрілочка */
-  .SumoSelect .CaptionCont > label > i {
-    -webkit-transition: -webkit-transform 0.3s ease !important;
-    transition: -webkit-transform 0.3s ease !important;
-    transition: transform 0.3s ease !important;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease !important;
-  }
-  .SumoSelect.open > .CaptionCont > label > i {
-    -webkit-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-  /* Додатково: прибираємо різку появу елементів списку всередині */
-  .SumoSelect > .optWrapper .options {
-    padding: 10px 0;
+}
+.SumoSelect > .CaptionCont {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  min-height: unset !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+@media (max-width: 768px) {
+  .SumoSelect > .CaptionCont {
+    padding: 24px 22.5px !important;
   }
 }
+.SumoSelect > .CaptionCont span {
+  font-size: 18px;
+  color: #000;
+  padding-right: 30px;
+  font-weight: 400;
+}
+.SumoSelect > .CaptionCont label {
+  right: 0 !important;
+  background: none !important;
+  width: 20px;
+}
+@media (max-width: 768px) {
+  .SumoSelect > .CaptionCont label {
+    right: 22px !important;
+  }
+}
+.SumoSelect > .CaptionCont label i {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23FF4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 12px !important;
+  height: 8px !important;
+  border: none !important;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.SumoSelect.open > .CaptionCont > label i {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.SumoSelect > .optWrapper {
+  top: 35px !important;
+  border-radius: 0 !important;
+  border: none;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2) !important;
+          box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2) !important;
+  min-width: 200px;
+}
+@media (max-width: 768px) {
+  .SumoSelect > .optWrapper {
+    top: 70px !important;
+  }
+}
+.SumoSelect > .optWrapper .options {
+  max-height: 280px;
+}
+.SumoSelect > .optWrapper .options li.opt {
+  padding: 12px 15px !important;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.SumoSelect > .optWrapper .options li.opt:hover {
+  background-color: #fff5f0 !important;
+  color: #FF4500 !important;
+}
+.SumoSelect > .optWrapper .options li.opt.selected {
+  color: #FF4500 !important;
+  font-weight: 600;
+  background-color: transparent !important;
+}
+
 .cursor-fish {
   position: fixed;
   top: 0;
@@ -6429,6 +6542,62 @@ select:-webkit-autofill:focus {
   font-size: clamp(16px, 16px + (20 - 16) * (100vw - 375px) / (1440 - 375), 20px);
 }
 
+@media (mшт-width: 767px) {
+  .form-control__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Дві рівні колонки */
+    /* Визначаємо карту сітки */
+    grid-template-areas: "name  email" "phone message" "files message" "files btn";
+    gap: 20px 30px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  /* Прив'язуємо кожен блок до своєї області за порядком у HTML */
+  /* 1. Ім'я */
+  .form-control__grid > div:nth-child(1) {
+    grid-area: name;
+  }
+  /* 2. Пошта */
+  .form-control__grid > div:nth-child(2) {
+    grid-area: email;
+  }
+  /* 3. Телефон */
+  .form-control__grid > div:nth-child(3) {
+    grid-area: phone;
+  }
+  /* 4. Повідомлення (Textarea) - займає 2 та 3 рядки справа */
+  .form-control__grid > div:nth-child(4) {
+    grid-area: message;
+    height: 100%;
+  }
+  .form-control__grid > div:nth-child(4) textarea {
+    height: 100%;
+    min-height: 150px;
+    /* Регулюйте під висоту лівої колонки */
+    resize: none;
+  }
+  /* 5. Блок: Файл + Чекбокс */
+  .form-control__grid > div:nth-child(5) {
+    grid-area: files;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
+  }
+  /* 6. Кнопка "Надіслати" */
+  .form-control__grid > .btn {
+    grid-area: btn;
+    width: 100%;
+    align-self: end;
+    /* Притискаємо до низу, якщо повідомлення довше */
+  }
+}
 .s-other {
   height: 100vh;
 }
@@ -7092,4 +7261,9 @@ select:-webkit-autofill:focus {
   .s-cart .cart-summary__actions .btn-primary, .s-cart .cart-summary__actions .btn-transparent {
     width: 100%;
   }
+}
+
+.s-checkout .heading {
+  -webkit-margin-after: 37px;
+          margin-block-end: 37px;
 }/*# sourceMappingURL=app.css.map */
