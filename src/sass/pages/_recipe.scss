@@ -1,5 +1,5 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
 
 .line {
   width: 100%;
@@ -11,6 +11,7 @@
 .recipe {
   &__item {
     margin-bottom: 20px;
+
     @media (max-width: $breakpoint-md) {
       margin-bottom: 16px;
     }
@@ -29,6 +30,7 @@
     position: relative;
     z-index: 2;
     box-shadow: 0px 4px 16px 0px #0000000F;
+
     @media (max-width: $breakpoint-md) {
       width: calc(100% - 24px);
       padding: 18px;
@@ -88,6 +90,7 @@
     box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2);
     margin-bottom: 24px;
     padding: 40px;
+
     @media (max-width: $breakpoint-md) {
       padding: 0;
     }
@@ -107,6 +110,7 @@
     left: 0;
     width: 100%;
     z-index: -1;
+
     @media (max-width: $breakpoint-md) {
       display: none;
     }
@@ -114,10 +118,10 @@
 }
 
 .s-recommended-recipes {
-  padding: 0 0 fluid(100,200) 0;
-  
+  padding: 0 0 fluid(100, 200) 0;
+
   & .heading {
-    padding: fluid(30,37) 0;
+    padding: fluid(30, 37) 0;
   }
 
   & .decor {
@@ -129,7 +133,7 @@
 }
 
 .s-recipe-detail {
-  padding: fluid(50,56) 0 fluid(50,100) 0;
+  padding: fluid(50, 56) 0 fluid(50, 100) 0;
 
 
   & .meta {
@@ -151,6 +155,7 @@
       -ms-flex-pack: center;
       justify-content: center;
     }
+
     @media (max-width: $breakpoint-md) {
       padding: 32px;
     }
@@ -161,10 +166,12 @@
       border: 1px solid rgba(232, 16, 16, 1);
 
       cursor: pointer;
+
       @media (max-width: $breakpoint-xl) {
         margin: 24px auto 0 auto;
         width: 100%;
       }
+
       @media (max-width: $breakpoint-md) {
         width: 100%;
         margin-top: 24px;
@@ -184,7 +191,8 @@
       }
     }
 
-    & .time, & .servings {
+    & .time,
+    & .servings {
       font-size: 16px;
 
       & i {
@@ -217,12 +225,15 @@
 
   & .recommended-product {
     margin: 18px 0;
+
     @media (max-width: $breakpoint-md) {
       margin: 10px 0;
     }
 
     .swiper {
-      &-button-prev, &-button-next {
+
+      &-button-prev,
+      &-button-next {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -245,6 +256,7 @@
       &__info {
         padding: 24px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+
         @media (max-width: $breakpoint-md) {
           padding: 14px 12px;
         }
@@ -279,6 +291,7 @@
     &__heading {
       @include fontSize(20, 24);
       margin-bottom: 32px;
+
       @media (max-width: $breakpoint-md) {
         margin-bottom: 16px;
       }
@@ -287,124 +300,137 @@
 }
 
 
-.select-box select {
-  opacity: 0;
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+
+  &__item {
+    & select {
+      display: none;
+    }
+
+    &:last-child {
+      margin-left: auto;
+
+      @media (max-width: 768px) {
+        margin-left: 0;
+      }
+    }
+
+    &:not(&:last-child) {
+      @media (max-width: 768px) {
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Ставимо елементи один під одним
+    align-items: stretch; // Розтягуємо елементи на всю ширину контейнера
+    gap: 0; // Можна трохи зменшити відступ між ними
+
+    .select-box {
+      width: 100%; // Коробка займає 100% ширини
+
+      &:last-child {
+        margin-left: 0; // Скидаємо авто-відступ, щоб не було зміщення
+      }
+    }
+  }
 }
 
+/* Базові налаштування SumoSelect */
 .SumoSelect {
-  width: auto;
-  max-width: 250px;
-}
+  width: auto !important; 
 
-.SumoSelect.open > .optWrapper {
-  background: rgba(244, 244, 244, 1);
-}
-
-.SumoSelect > .optWrapper {
-  border-radius: 0;
-  max-width: 210px;
-}
-
-.SumoSelect > .optWrapper > .options > li.opt:first-child {
-  border-radius: 0;
-}
-
-.SumoSelect > .optWrapper > .options {
-  border-radius: 0;
-  padding: 24px;
-  max-height: max-content;
-}
-
-.SumoSelect > .optWrapper > .options li.opt {
-  padding: 0;
-
-  &:not(&:last-child) {
-    margin-bottom: 24px;
+  @media (max-width: 768px) {
+    width: 100% !important;
   }
-}
 
-.SumoSelect > .optWrapper > .options li.opt:hover {
-  background-color: transparent;
-}
+  // Головний контейнер (закритий стан)
+  >.CaptionCont {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    min-height: unset !important;
+    box-shadow: none !important;
 
-.SumoSelect > .CaptionCont {
-  position: relative;
-  border: none;
-  min-height: 14px;
-  background-color: #fff;
-  border-radius: 0;
-  margin: 0;
-}
+    @media (max-width: 768px) {
+      padding: 24px 22.5px !important;
 
-.SumoSelect.open>.CaptionCont, .SumoSelect:focus>.CaptionCont, .SumoSelect:hover>.CaptionCont {
-  box-shadow: none;
-  border-color: transparent;
-  cursor: pointer;
-}
-.SumoSelect>.CaptionCont>span{
-  cursor: pointer;
-}
+    }
 
-.select-box{
-  &:not(&:last-child){
-    margin-right:40px;
+    span {
+      font-size: $sumo-font-size;
+      color: $sumo-text-color;
+      padding-right: 30px;
+      font-weight: 400;
+    }
+
+    label {
+      right: 0 !important;
+      background: none !important;
+      width: 20px;
+
+      @media (max-width: 768px) {
+        right: 22px !important;
+      }
+
+      i {
+        // Використання вашого SVG
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23FF4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 12px !important;
+        height: 8px !important;
+        border: none !important;
+        transition: transform $sumo-transition;
+      }
+    }
   }
-}
 
-/* Десктоп: без змін */
-@media (min-width: 1025px) {
-    .SumoSelect > .optWrapper {
-        position: absolute !important;
+  // Стан при відкритті
+  &.open {
+    >.CaptionCont>label i {
+      transform: rotate(180deg);
     }
-}
+  }
 
-/* Мобільні: ідеально плавний акордеон */
-@media (max-width: 1024px) {
-    .SumoSelect {
-        width: 100% !important;
-    }
+  // Випадаюче вікно з опціями
+  >.optWrapper {
+    top: 35px !important;
+    border-radius: 0 !important;
+    border: none;
+    box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2) !important;
+    min-width: 200px;
 
-    .SumoSelect > .optWrapper {
-        /* Примусово тримаємо блок у потоці, навіть коли плагін хоче його сховати */
-        display: block !important; 
-        position: static !important;
-        width: 100% !important;
-        
-        /* Початковий стан (закритий) */
-        max-height: 0 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        overflow: hidden !important;
-        border: 1px solid transparent;
-        
-        /* Transition для обох напрямків (відкриття/закриття) */
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                    opacity 0.3s ease, 
-                    margin 0.3s ease, 
-                    border 0.4s ease !important;
+    @media (max-width: 768px) {
+
+      top: 70px !important;
+      
     }
 
-    /* Відкритий стан */
-    .SumoSelect.open > .optWrapper {
-        max-height: 500px !important; /* Значення має бути більшим за контент */
-        opacity: 1 !important;
-        visibility: visible !important;
-        margin-top: 5px;
-        margin-bottom: 15px;
-        border-color: #ddd;
-    }
+    .options {
+      max-height: 280px;
 
-    /* Плавна стрілочка */
-    .SumoSelect .CaptionCont > label > i {
-        transition: transform 0.3s ease !important;
-    }
+      li.opt {
+        padding: 12px 15px !important;
+        transition: 0.2s;
 
-    .SumoSelect.open > .CaptionCont > label > i {
-        transform: rotate(180deg);
+        &:hover {
+          background-color: $sumo-bg-hover !important;
+          color: $sumo-accent-color !important;
+        }
+
+        &.selected {
+          color: $sumo-accent-color !important;
+          font-weight: 600;
+          background-color: transparent !important;
+        }
+      }
     }
-    
-    /* Додатково: прибираємо різку появу елементів списку всередині */
-    .SumoSelect > .optWrapper .options {
-        padding: 10px 0;
-    }
+  }
 }

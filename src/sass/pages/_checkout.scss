@@ -1,0 +1,8 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.s-checkout {
+  & .heading {
+    margin-block-end: 37px;
+  }
+}
