@@ -1,5 +1,5 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .s-cbn {
 
@@ -146,9 +146,7 @@
         gap: 10px;
         display: grid;
       }
-      &__price{
-        
-      }
+
     }
 
     & .accordion {
@@ -204,8 +202,6 @@
       width: 139px;
       height: auto;
     }
-
-    .bonus-count {}
   }
 
   .bonus-details {

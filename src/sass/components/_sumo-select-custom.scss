@@ -1,5 +1,5 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .SumoSelect {
   width: 100%;
@@ -121,10 +121,6 @@
             color: #b46650;
 
           }
-        }
-
-        &.selected {
-
         }
       }
     }

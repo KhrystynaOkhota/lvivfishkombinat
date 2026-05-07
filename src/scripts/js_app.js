@@ -130,7 +130,7 @@ jQuery(function () {
         });
     }
     // Open menu
-    jQuery(document).on('click', '.h-burger', function () {
+    /*jQuery(document).on('click', '.h-burger', function () {
         _functions.scrollWidth();
         jQuery('html').toggleClass('overflow-menu');
         jQuery(this).toggleClass("is-active"),
@@ -138,8 +138,14 @@ jQuery(function () {
 
 
 
+    });*/
+    //menu
+    $(document).on("click", ".burger", function (e) {
+        $(this).find(".hamburger ").toggleClass("is-active");
+        $("html").toggleClass("overflow-menu");
+        $(this).parents("header").toggleClass("is-open");
+      
     });
-
 
 });
 
@@ -385,7 +391,7 @@ if (jQuery('#slider').length) {
 
 // open search
 $(document).on("click", ".js-open-search", function () {
-   // _functions.removeScroll();
+    // _functions.removeScroll();
     $("header").addClass("search-open");
 
     setTimeout(function () {
@@ -393,7 +399,7 @@ $(document).on("click", ".js-open-search", function () {
     }, 100);
 });
 $(document).on("click", ".js-close-search", function () {
-   // _functions.addScroll();
+    // _functions.addScroll();
     $("header").removeClass("search-open");
     $(".h-search").find("input").val("");
     $(".cab-search").removeClass("active");

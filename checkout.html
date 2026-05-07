@@ -185,6 +185,144 @@
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 column">
                         <h1 class="heading heading-accent h2 text-bold">Оформити замовлення</h1>
 
+
+
+                        <form class="checkout-form">
+                            <fieldset class="checkout-form__section">
+                                <legend class="checkout-form__title">1. Замовник</legend>
+                                <div class="checkout-form__grid">
+                                    <div class="field">
+                                        <input class="field__input" type="text" name="first_name" placeholder="Ім’я"
+                                            aria-label="Ім’я" required>
+                                    </div>
+                                    <div class="field">
+                                        <input class="field__input" type="text" name="last_name" placeholder="Прізвище"
+                                            aria-label="Прізвище" required>
+                                    </div>
+                                    <div class="field">
+                                        <input class="field__input" type="tel" name="phone" placeholder="Телефон"
+                                            aria-label="Телефон" required>
+                                    </div>
+                                    <div class="field">
+                                        <input class="field__input" type="email" name="email" placeholder="E-mail"
+                                            aria-label="E-mail">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="checkout-form__section">
+                                <legend class="checkout-form__title">2. Доставка</legend>
+
+                                <div class="checkout-form__options">
+                                    <label class="radio-control">
+                                        <input type="radio" name="delivery" value="np"
+                                            class="radio-control__input js-delivery-toggle" data-target="np-block" checked>
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Нова пошта</span>
+                                    </label>
+                                    <label class="radio-control">
+                                        <input type="radio" name="delivery" value="zone"
+                                            class="radio-control__input js-delivery-toggle" data-target="zone-block">
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Доставка (по зонам)</span>
+                                    </label>
+                                    <label class="radio-control">
+                                        <input type="radio" name="delivery" value="pickup"
+                                            class="radio-control__input js-delivery-toggle" >
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Самовивіз</span>
+                                    </label>
+                                </div>
+
+                                <div class="checkout-form__sub-section js-toggle-block" id="np-block" >
+                                    <div class="field">
+                                        <select class="field__input field__input--select" name="np_branch">
+                                            <option value="" disabled selected>Відділення Нової пошти</option>
+                                            <option value="1">Відділення №1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="checkout-form__sub-section js-toggle-block" id="pickup" hidden>
+                                    <div class="field">
+                                        <select class="field__input field__input--select" name="np_branch">
+                                            <option value="" disabled selected>Відділення Нової пошти</option>
+                                            <option value="1">Відділення №1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="checkout-form__sub-section js-toggle-block" id="np-block" hidden>
+                                    <div class="field">
+                                        <select class="field__input field__input--select" name="np_branch">
+                                            <option value="" disabled selected>Відділення Нової пошти</option>
+                                            <option value="1">Відділення №1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="checkout-form__grid checkout-form__grid--2-col">
+                                    <div class="field">
+                                        <label class="field__caption">Дата отримання</label>
+                                        <input class="field__input" type="date" name="delivery_date" value="2026-05-07">
+                                    </div>
+                                    <div class="field">
+                                        <label class="field__caption">Час отримання</label>
+                                        <select class="field__input field__input--select" name="delivery_time">
+                                            <option>Оберіть час</option>
+                                            <option>10:00 - 12:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="checkout-form__alert">
+                                    <span class="icon" aria-hidden="true">⚠️</span>
+                                    <p>Доставка здійснюється з 9:00 до 18:00.</p>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="checkout-form__section">
+                                <legend class="checkout-form__title">3. Оплата</legend>
+                                <div class="checkout-form__options">
+                                    <label class="radio-control">
+                                        <input type="radio" name="payment" value="payment-1"
+                                            class="radio-control__input">
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Банківська карта</span>
+                                    </label>
+                                    <label class="radio-control">
+                                        <input type="radio" name="payment" value="payment-2"
+                                            class="radio-control__input">
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Безготівковий розрахунок</span>
+                                    </label>
+                                    <label class="radio-control">
+                                        <input type="radio" name="payment" value="payment-3"
+                                            class="radio-control__input" checked>
+                                        <span class="radio-control__ui"></span>
+                                        <span class="radio-control__label">Оплата при отриманні</span>
+                                    </label>
+                                </div>
+                                <div class="field">
+                                    <textarea class="field__input field__input--textarea" name="comment"
+                                        placeholder="Коментар до замовлення"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <div class="checkout-form__newsletter newsletter">
+                                <h3 class="newsletter__title">Підпишіться на нашу розсилку!</h3>
+                                <label class="checkbox-control">
+                                    <input type="checkbox" name="subscribe" class="checkbox-control__input">
+                                    <span class="checkbox-control__ui"></span>
+                                    <span class="checkbox-control__label">
+                                        Новини компанії та унікальні знижки для підписників
+                                    </span>
+                                </label>
+                            </div>
+                        </form>
+
+
+
+
+
                         <form class="checkout-form">
 
                             <!-- Таби авторизації -->
@@ -221,18 +359,21 @@
                             </div>
 
                             <!-- Секція 2: Доставка -->
-                            <section class="checkout-form__section">
+                            <section class="checkout-form__block">
                                 <h2 class="checkout-form__section-title">2. Доставка</h2>
                                 <div class="radio-group">
 
-                                    
+
                                     <label class="radio-option">
-                                        <input type="radio" name="delivery" value="np" class="radio-option__input tgl-control" data-block="0" data-rel="novaposhta">
+                                        <input type="radio" name="delivery" value="np"
+                                            class="radio-option__input tgl-control" data-block="0"
+                                            data-rel="novaposhta">
                                         <span class="radio-option__custom"></span>
                                         <span class="radio-option__text">Нова пошта</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="delivery" value="zone" class="radio-option__input" data-block="0" data-rel="zone">
+                                        <input type="radio" name="delivery" value="zone" class="radio-option__input"
+                                            data-block="0" data-rel="zone">
                                         <span class="radio-option__custom"></span>
                                         <span class="radio-option__text">Доставка (по зонам)</span>
                                     </label>
@@ -362,28 +503,6 @@
                                             </ins>
                                         </p>
                                     </div>
-
-                                    <div class="quantity-picker">
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--decrement"
-                                            aria-label="Зменшити кількість">
-                                            &minus;
-                                        </button>
-
-                                        <input type="number" class="quantity-picker__input" value="1" data-min="1"
-                                            data-max="100" readonly>
-
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--increment"
-                                            aria-label="Додати кількість">
-                                            &plus;
-                                        </button>
-                                    </div>
-                                    <div class="product__subtotal">
-                                        <span class="product__subtotal-val">50.92 грн</span>
-                                    </div>
-
-
                                     <button type="button" class="product__remove">
                                         <i class="icon-trash d-none"></i>
                                         <img src="assets/img/trash.svg" alt="delete product">
@@ -432,25 +551,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="quantity-picker">
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--decrement"
-                                            aria-label="Зменшити кількість">
-                                            &minus;
-                                        </button>
-
-                                        <input type="number" class="quantity-picker__input" value="1" data-min="1"
-                                            data-max="100" readonly>
-
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--increment"
-                                            aria-label="Додати кількість">
-                                            &plus;
-                                        </button>
-                                    </div>
-                                    <div class="product__subtotal">
-                                        <span class="product__subtotal-val">50.92 грн</span>
-                                    </div>
+                                    
 
 
                                     <button type="button" class="product__remove">
@@ -499,27 +600,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="quantity-picker">
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--decrement"
-                                            aria-label="Зменшити кількість">
-                                            &minus;
-                                        </button>
-
-                                        <input type="number" class="quantity-picker__input" value="1" data-min="1"
-                                            data-max="100" readonly>
-
-                                        <button type="button"
-                                            class="quantity-picker__btn quantity-picker__btn--increment"
-                                            aria-label="Додати кількість">
-                                            &plus;
-                                        </button>
-                                    </div>
-                                    <div class="product__subtotal">
-                                        <span class="product__subtotal-val">50.92 грн</span>
-                                    </div>
-
-
+                            
                                     <button type="button" class="product__remove">
                                         <i class="icon-trash d-none"></i>
                                         <img src="assets/img/trash.svg" alt="delete product">
@@ -1259,28 +1340,28 @@
     </script>
 
 
-<script>
-    	// Toggle block
-	$(document).on('change', '.tgl-control', function () {
-		const blockNum = $(this).attr('data-block'),
-			rel = $(this).attr('data-rel'),
-			showBlock = $(`.tgl-block[data-block="${blockNum}"][data-rel="${rel}"]`),
-			hideBlock = $(`.tgl-block[data-block="${blockNum}"]:visible`);
+    <script>
+        // Toggle block
+        $(document).on('change', '.tgl-control', function () {
+            const blockNum = $(this).attr('data-block'),
+                rel = $(this).attr('data-rel'),
+                showBlock = $(`.tgl-block[data-block="${blockNum}"][data-rel="${rel}"]`),
+                hideBlock = $(`.tgl-block[data-block="${blockNum}"]:visible`);
 
-		if ($(this).is('input[type="checkbox"]')) {
-			showBlock.slideToggle();
-			return;
-		}
+            if ($(this).is('input[type="checkbox"]')) {
+                showBlock.slideToggle();
+                return;
+            }
 
-		if (hideBlock.length) {
-			hideBlock.slideUp(500, function () {
-				showBlock.slideDown();
-			});
-		} else {
-			showBlock.slideDown();
-		}
-	});
-</script>
+            if (hideBlock.length) {
+                hideBlock.slideUp(500, function () {
+                    showBlock.slideDown();
+                });
+            } else {
+                showBlock.slideDown();
+            }
+        });
+    </script>
 </body>
 
 </html>

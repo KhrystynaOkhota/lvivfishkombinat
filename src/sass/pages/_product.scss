@@ -1,5 +1,5 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .product {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
@@ -296,9 +296,6 @@
       font-size: fluid(30, 35);
       color: rgba(15, 14, 104, 1);
     }
-
-    &__description {}
-
     &__meta {
       margin: 0;
       padding: 0;
@@ -442,7 +439,7 @@
   display: flex;
   align-items: center;
   width: fit-content;
-  margin-left: 50px;
+  //margin-left: 50px;
 
   &__input {
     width: fluid(80, 100);

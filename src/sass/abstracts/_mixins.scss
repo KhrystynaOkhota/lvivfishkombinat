@@ -69,3 +69,15 @@
                   #{$max}px
   );
 }
+
+@mixin line-clamp($lines: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines; // Додаємо стандартну властивість
+    overflow: hidden;
+    
+    // Додатковий захист для 2026:
+    // overflow-wrap допомагає з довгими словами краще за word-break
+    overflow-wrap: anywhere; 
+}

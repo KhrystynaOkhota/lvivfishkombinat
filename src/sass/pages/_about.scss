@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 
 .cursor-fish {
@@ -246,10 +246,6 @@
     &-wrapper,
     &-slide {
       overflow: visible !important;
-    }
-
-    &-slide {
-      //padding: 20px 15px;
     }
 
     &-controls {

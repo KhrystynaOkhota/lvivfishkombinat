@@ -1,6 +1,5 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
-
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -261,14 +260,6 @@ select:-webkit-autofill:focus {
     }
   }
 }
-
-.checkout-form__section-title {
-  font-weight: bold;
-  margin-block-end: fluid(15, 40);
-  font-size: fluid(20, 25);
-}
-
-
 
 .radio-group {
   display: flex;

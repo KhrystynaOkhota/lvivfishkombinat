@@ -1,8 +1,162 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .s-checkout {
   & .heading {
     margin-block-end: 37px;
+  }
+
+  .product {
+    &-horiz {
+      grid-template-columns: fluid(90, 94) 1fr;
+      display: grid;
+      gap: 10px;
+      clear: both;
+      padding: 18px 10px;
+    }
+
+    &__price-wrap {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+
+// Токени компонента
+:root {
+  --form-gap: 50px;
+  --input-height: 52px;
+  --accent-orange: #FF4500;
+}
+
+.checkout-form {
+  &__section {
+    border: none;
+    padding: 0;
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--form-gap);
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-block-end: fluid(15, 24);
+    font-size: fluid(20, 25);
+    width: 100%;
+  }
+
+  &__grid {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 20px;
+    clear: both;
+  }
+
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 40px;
+    margin-bottom: 25px;
+  }
+
+  &__alert {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    background: #fffcf5;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+// Атомарний компонент Field
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__caption {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  &__input {
+    height: var(--input-height);
+    width: 100%;
+    padding: 0 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus {
+      border-color: var(--accent-orange);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.1);
+    }
+
+    &--textarea {
+      height: auto;
+      min-height: 120px;
+      padding: 12px 16px;
+    }
+
+    &--select {
+      appearance: none;
+      background: url("data:image/svg+xml,...") no-repeat right 16px center / 12px;
+    }
+  }
+}
+
+// Кастомний Radio Control
+.radio-control {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    &:checked+.radio-control__ui::after {
+      transform: scale(1);
+    }
+  }
+
+  &__ui {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-orange);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+    }
+  }
+
+  &__label {
+    font-size: 16px;
   }
 }
