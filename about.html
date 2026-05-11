@@ -143,23 +143,36 @@
         <div class="h-overlay js-close-search"></div>
     </header>
     <style>
+       /* 1. ПРИМУСОВО ХОВАЄМО КУРСОР ДЛЯ ВСІХ ЕЛЕМЕНТІВ */
+    * {
+        cursor: none !important;
+    }
+
+    /* Додатково для впевненості ховаємо на специфічних тегах */
+    html, body, a, button, input, textarea, label {
+        cursor: none !important;
+    }
+
         .fish-follower {
             position: fixed;
             top: 0;
             left: 0;
-            width: 60px;
-            height: 60px;
-            pointer-events: none;
+            width: 40px;
+            height: 40px;
             z-index: 9999;
             will-change: transform;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            /* ЦЕЙ РЯДОК ВИПРАВЛЯЄ ВСЕ: */
+            pointer-events: none;
         }
 
         .fish-follower img {
             width: 100%;
             height: auto;
+             pointer-events: none;
         }
     </style>
 
@@ -1403,7 +1416,7 @@
             });
         });
     </script>-->
-    <script>
+    <!--<script>
 
 
         const fishEl = document.querySelector('#fish');
@@ -1411,7 +1424,7 @@
         // Налаштування (константи для Senior-контролю)
         const lerpFactor = 0.08;     // Плавність руху (0.1 - швидше, 0.05 - повільніше)
         const rotationLerp = 0.12;   // Плавність повороту голови
-        const targetOffset = 40;     // Відступ від курсора
+        const targetOffset = 0;     // Відступ від курсора
 
         let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
         let pos = { x: mouse.x, y: mouse.y };
@@ -1463,6 +1476,74 @@
                 scaleX: 1 + speedEffect,
                 scaleY: 1 - speedEffect * 0.5
             });
+        });
+    </script>-->
+
+    <script>
+        const fishEl = document.querySelector('#fish');
+
+        // Налаштування плавного руху
+        const lerpFactor = 0.08; 
+        const rotationLerp = 0.12;
+        const targetOffset = 0; // 0, щоб рибка була точно на курсорі
+
+        let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let pos = { x: mouse.x, y: mouse.y };
+        let currentAngle = 0;
+
+        // Швидкі сетери GSAP
+        const setX = gsap.quickSetter(fishEl, "x", "px");
+        const setY = gsap.quickSetter(fishEl, "y", "px");
+        const setR = gsap.quickSetter(fishEl, "rotation", "deg");
+
+        // Відстеження миші
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        // Анімаційний цикл
+        gsap.ticker.add(() => {
+            const dt = 1.0 - Math.pow(1.0 - lerpFactor, gsap.ticker.deltaRatio());
+
+            // 1. Позиція
+            pos.x += (mouse.x - pos.x) * dt;
+            pos.y += (mouse.y - pos.y) * dt;
+
+            // 2. Розрахунок кута повороту
+            const dx = mouse.x - pos.x;
+            const dy = mouse.y - pos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 1) {
+                // +180, якщо рибка на картинці дивиться вліво
+                let targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 180;
+
+                let diff = targetAngle - currentAngle;
+                if (diff > 180) diff -= 360;
+                if (diff < -180) diff += 360;
+
+                currentAngle += diff * rotationLerp;
+            }
+
+            // 3. Застосування координат (центруємо рибку: -30px при ширині 60px)
+            setX(pos.x - 20); 
+            setY(pos.y - 20);
+            setR(currentAngle);
+
+            // 4. Ефект стискання (Squash & Stretch)
+            const speedEffect = Math.min(distance * 0.01, 0.25);
+            gsap.set(fishEl, {
+                scaleX: 1 + speedEffect,
+                scaleY: 1 - speedEffect * 0.5
+            });
+        });
+
+        // ДОДАТКОВО: Реакція на наведення на інтерактивні елементи
+        const interactive = document.querySelectorAll('a, button');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => gsap.to(fishEl, { scale: 1.4, duration: 0.3 }));
+            el.addEventListener('mouseleave', () => gsap.to(fishEl, { scale: 1, duration: 0.3 }));
         });
     </script>
 </body>
