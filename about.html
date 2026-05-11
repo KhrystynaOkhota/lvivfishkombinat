@@ -142,7 +142,23 @@
 
         <div class="h-overlay js-close-search"></div>
     </header>
+
     <style>
+        * {
+            cursor: url('./assets/img/fish.png'), default;
+        }
+
+        html,
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        label {
+            cursor: url('./assets/img/fish.png'), default;
+        }
+    </style>
+    <!--<style>
        /* 1. ПРИМУСОВО ХОВАЄМО КУРСОР ДЛЯ ВСІХ ЕЛЕМЕНТІВ */
     * {
         cursor: none !important;
@@ -179,7 +195,7 @@
 
     <div class="fish-follower" id="fish">
         <img src="assets/img/fish.svg" alt="fish">
-    </div>
+    </div>-->
 
 
     <div class="body-padding"></div>
@@ -1479,11 +1495,11 @@
         });
     </script>-->
 
-    <script>
+   <!-- <script>
         const fishEl = document.querySelector('#fish');
 
         // Налаштування плавного руху
-        const lerpFactor = 0.08; 
+        const lerpFactor = 0.08;
         const rotationLerp = 0.12;
         const targetOffset = 0; // 0, щоб рибка була точно на курсорі
 
@@ -1527,7 +1543,7 @@
             }
 
             // 3. Застосування координат (центруємо рибку: -30px при ширині 60px)
-            setX(pos.x - 20); 
+            setX(pos.x - 20);
             setY(pos.y - 20);
             setR(currentAngle);
 
@@ -1545,7 +1561,7 @@
             el.addEventListener('mouseenter', () => gsap.to(fishEl, { scale: 1.4, duration: 0.3 }));
             el.addEventListener('mouseleave', () => gsap.to(fishEl, { scale: 1, duration: 0.3 }));
         });
-    </script>
+    </script>-->
 </body>
 
 </html>
