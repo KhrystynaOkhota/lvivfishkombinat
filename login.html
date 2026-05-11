@@ -148,61 +148,54 @@
     <main class="main ">
 
 
-        <section class="s-registration">
+        <section class="s-login">
 
             <div class="container overlap">
                 <div class="row align-center">
-                    <div class="col-xl-8 col-lg-9 col-md-10 col-sm-12 col-xs-12">
-                        <div class="login-prompt">
-                            <p>Якщо Ви вже маєте обліковий запис, ввійдіть будь ласка <a href="login.html">тут</a>.</p>
-                        </div>
+                    <div class="col-xl-5 col-lg-6 col-md-7 col-sm-12 col-xs-12">
+
                         <h1 class="heading heading-accent h2 text-bold text-center">
-                            Реєстрація
+                            Вхід
                         </h1>
                         <form action="" class="form-block">
                             <div class="row m-row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                                     <div class="form-control">
-                                        <input class="form-control__input" name="first_name" type="text"
-                                            placeholder="Ім’я">
+                                        <input class="form-control__input" type="email" name="" value=""
+                                            placeholder="E-mail" title="">
                                     </div>
+
+                                    <div class="form-control">
+                                        <input class="form-control__input" type="password" name="password" value=""
+                                            placeholder="Пароль" title="">
+
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btn-primary text-uppercase">Вхід</button>
                                 </div>
 
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                    <div class="form-control">
-                                        <input class="form-control__input" name="last_name" type="text"
-                                            placeholder="Призвіще">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                    <div class="form-control">
-                                        <input class="form-control__input " name="phone" type="tel"
-                                            placeholder="Телефон">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                    <div class="form-control">
-                                        <input class="form-control__input " name="email" type="email"
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                    <div class="form-control">
-                                        <input class="form-control__input" name="new_password"
-                                            placeholder="Новій пароль" type="password">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                    <div class="form-control">
-                                        <input class="form-control__input" name="confirm_password"
-                                            placeholder="Підтвердження паролю" type="password">
-                                    </div>
-                                </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column text-center">
-                                    <button type="submit"
-                                        class="btn btn-primary text-uppercase">Зареєструватися</button>
+
+
+
+                                    <a href="" class="reset-pass">Забули пароль?</a>
+
+                                    <div class="social-auth">
+                                        <p class="social-auth__title">Увійти через:</p>
+
+                                        <div class="social-auth__grid">
+                                            <button type="button" class="social-btn social-btn--facebook">
+
+                                                <img src="assets/img/facebook.svg" alt="" class="social-btn__icon">
+
+                                            </button>
+
+                                            <button type="button" class="social-btn social-btn--google">
+                                                <img src="assets/img/google.svg" alt="" class="social-btn__icon">
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>

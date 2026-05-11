@@ -19,7 +19,15 @@
 </head>
 
 <body>
+    <style>
+        * {
+            cursor: url('./assets/img/fish.png') , default;
+        }
 
+         html, body, a, button, input, textarea, label {
+       cursor: url('./assets/img/fish.png') , default;
+    }
+    </style>
     <header class="header js-header bg">
         <div class="container">
 
@@ -59,7 +67,8 @@
                                 class="icon-phone"></i>(067) 266-21-10</a>
 
                         <div class="lang__wrap">
-                            <button type="button" class="lang__current d-flex align-middle align-justify" aria-expanded="false" aria-haspopup="listbox">
+                            <button type="button" class="lang__current d-flex align-middle align-justify"
+                                aria-expanded="false" aria-haspopup="listbox">
                                 <img src="assets/img/globe.svg" alt=""><span>Eng</span><img src="assets/img/down.svg">
                             </button>
 
@@ -2023,31 +2032,12 @@
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-xs-12 column">
-                        <div class="s-contacts__map--wrap --relative">
 
-                            <div class="map-wrapper">
-                                <div class="map-container">
-                                    <div id="map" class="s-contacts__map"></div>
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="map-info">
-                                <img src="assets/img/map-pin.png" alt="location" class="map-info__icon">
-                                <div class="map-info__location --relative">22-я Садовая, Київ, Київська область 02000
-                                </div>
-                                <div id="link1"
-                                    class="map-info__more show-map text-medium text-uppercase  d-flex align-middle">
-                                    Подивитись на карті <i class="icon-ar-right"></i>
-                                </div>
-                            </div>
-
-                            <div class="mask"></div>
+                        <div class="map-wrapper">
+                            <!--<div id="map"></div>-->
+                            <img src="assets/img/about.png" alt="">
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -2214,7 +2204,6 @@
         </div>
     </footer>
 
-
     <div class="popup-wrapper">
         <div class="bg-layer"></div>
 
@@ -2295,11 +2284,11 @@
                             <button type="button" class="social-btn social-btn--facebook">
 
                                 <img src="assets/img/facebook.svg" alt="" class="social-btn__icon">
-                                
+
                             </button>
 
                             <button type="button" class="social-btn social-btn--google">
-                               <img src="assets/img/google.svg" alt="" class="social-btn__icon">
+                                <img src="assets/img/google.svg" alt="" class="social-btn__icon">
                             </button>
                         </div>
                     </div>

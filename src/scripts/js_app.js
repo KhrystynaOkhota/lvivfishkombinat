@@ -63,6 +63,32 @@ jQuery(function ($) {
     });
 
 
+
+    $(window).scroll(function () {
+        _functions.scrollCall();
+    });
+
+    var prev_scroll = 0;
+    _functions.scrollCall = function () {
+        winScr = $(window).scrollTop();
+        if (winScr > prev_scroll) {
+            $("header").addClass("scrolled");
+        } else {
+        }
+        prev_scroll = winScr;
+
+        if (winScr <= 10) {
+            $("header").removeClass("scrolled");
+            prev_scroll = 0;
+        }
+    };
+    _functions.scrollCall();
+
+    setTimeout(_functions.scrollCall, 0);
+
+
+
+
     /* Function on page scroll */
     $(window).on('scroll', function () {
         //header-hidden _functions.scrollCall();
@@ -144,7 +170,7 @@ jQuery(function () {
         $(this).find(".hamburger ").toggleClass("is-active");
         $("html").toggleClass("overflow-menu");
         $(this).parents("header").toggleClass("is-open");
-      
+
     });
 
 });

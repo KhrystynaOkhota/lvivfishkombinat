@@ -110,14 +110,17 @@
       display: grid;
       grid-template-columns: 1fr; // По замовчуванню одна колонка (Mobile First)
       gap: 15px; // Відступи між елементами
-      padding: fluid(20,33.5) fluid(10,32);
+      padding: fluid(20, 33.5) fluid(10, 32);
       align-items: center;
-      &__number,&__status, &__date {
+
+      &__number,
+      &__status,
+      &__date {
         font-size: 18px;
         color: #000000;
       }
 
-   
+
 
       // Медіа-запит для десктопу (від 768px або 992px)
       @media (min-width: 768px) {
@@ -152,6 +155,7 @@
     & .accordion {
       display: grid;
       gap: 24px;
+
       &__header {
         box-shadow: 0px 0px 30px 0px #3C507233;
       }
@@ -186,6 +190,20 @@
   }
 }
 
+.s-login {
+  padding: fluid(50, 60) 0 fluid(100, 200) 0;
+
+  & .heading {
+    margin-bottom: 20px;
+  }
+
+  & .btn-primary {
+    width: 100%;
+    max-width: 275px;
+    margin: 0 auto;
+    display: block;
+  }
+}
 
 .bonus-widget {
   display: flex;

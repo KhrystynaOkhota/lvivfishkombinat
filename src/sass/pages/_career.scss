@@ -112,7 +112,7 @@
   }
 }
 
-@media (mшт-width: $breakpoint-md) {
+@media (min-width: $breakpoint-md) {
   .form-control__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
