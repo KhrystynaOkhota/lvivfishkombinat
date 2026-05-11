@@ -445,11 +445,11 @@ img {
 }
 
 .body-padding {
-  height: 65px;
+  height: 165px;
 }
 @media (max-width: 991px) {
   .body-padding {
-    height: 40px;
+    height: 136px;
   }
 }
 
@@ -2624,14 +2624,15 @@ button:focus {
 
 .form-control {
   position: relative;
-}
-.form-control:not(.form-control.no-margin) {
-  margin-bottom: 20px;
-}
-@media (max-width: 991px) {
-  .form-control:not(.form-control.no-margin) {
-    margin-bottom: 20px;
-  }
+  /*
+    &:not(&.no-margin) {
+      margin-bottom: 20px;
+
+      @media (max-width: $breakpoint-lg) {
+        margin-bottom: 20px;
+      }
+    }
+  */
 }
 .form-control__input, .form-control__textarea {
   background: #fff;
@@ -3390,6 +3391,7 @@ select:-webkit-autofill:focus {
 .s-banner {
   min-height: 370px;
   padding: 100px 0;
+  margin-top: 65px;
   overflow: hidden;
   position: relative;
   color: #fff;
@@ -6765,6 +6767,12 @@ select:-webkit-autofill:focus {
 .job-info__title {
   margin-bottom: clamp(16px, 16px + (20 - 16) * (100vw - 375px) / (1440 - 375), 20px);
   font-size: clamp(16px, 16px + (20 - 16) * (100vw - 375px) / (1440 - 375), 20px);
+}
+
+.form-control__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 @media (min-width: 767px) {
