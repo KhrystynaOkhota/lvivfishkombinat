@@ -99,7 +99,13 @@
 
 
 .s-cart {
-  margin-block-end: fluid(100, 200);
+  padding-block-end: fluid(100, 200);
+
+  & .decor {
+    &__wrap {
+      bottom: 0;
+    }
+  }
 
   & .heading {
     margin-bottom: fluid(21, 38);
@@ -120,7 +126,7 @@
 
   .product-horiz {
     display: grid;
-    grid-template-columns: fluid(90,170) 1fr;
+    grid-template-columns: fluid(90, 170) 1fr;
     align-items: center;
     gap: 20px;
 
@@ -194,7 +200,7 @@
 
       .cart-summary__label,
       .cart-summary__val {
-        font-size: fluid(16,20);
+        font-size: fluid(16, 20);
         color: #000;
         line-height: 1.2;
       }

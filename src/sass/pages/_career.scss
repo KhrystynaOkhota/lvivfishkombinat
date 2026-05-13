@@ -47,6 +47,78 @@
       margin-bottom: 32px;
     }
   }
+
+
+.form-control__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: $breakpoint-md) {
+  .form-control__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Дві рівні колонки */
+    /* Визначаємо карту сітки */
+    grid-template-areas:
+      "name  email"
+      "phone message"
+      "files message"
+      "files btn";
+    gap: 20px 30px;
+    align-items: start;
+  }
+
+  /* Прив'язуємо кожен блок до своєї області за порядком у HTML */
+
+  /* 1. Ім'я */
+  .form-control__grid>div:nth-child(1) {
+    grid-area: name;
+  }
+
+  /* 2. Пошта */
+  .form-control__grid>div:nth-child(2) {
+    grid-area: email;
+  }
+
+  /* 3. Телефон */
+  .form-control__grid>div:nth-child(3) {
+    grid-area: phone;
+  }
+
+  /* 4. Повідомлення (Textarea) - займає 2 та 3 рядки справа */
+  .form-control__grid>div:nth-child(4) {
+    grid-area: message;
+    height: 100%;
+  }
+
+  .form-control__grid>div:nth-child(4) textarea {
+    height: 100%;
+    min-height: 150px;
+    /* Регулюйте під висоту лівої колонки */
+    resize: none;
+  }
+
+  /* 5. Блок: Файл + Чекбокс */
+  .form-control__grid>div:nth-child(5) {
+    grid-area: files;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* 6. Кнопка "Надіслати" */
+  .form-control__grid>.btn {
+    grid-area: btn;
+    width: 100%;
+    align-self: end;
+    /* Притискаємо до низу, якщо повідомлення довше */
+  }
+
+}
+
+
 }
 
 .job {
@@ -112,65 +184,3 @@
   }
 }
 
-@media (min-width: $breakpoint-md) {
-  .form-control__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Дві рівні колонки */
-    /* Визначаємо карту сітки */
-    grid-template-areas:
-      "name  email"
-      "phone message"
-      "files message"
-      "files btn";
-    gap: 20px 30px;
-    align-items: start;
-  }
-
-  /* Прив'язуємо кожен блок до своєї області за порядком у HTML */
-
-  /* 1. Ім'я */
-  .form-control__grid>div:nth-child(1) {
-    grid-area: name;
-  }
-
-  /* 2. Пошта */
-  .form-control__grid>div:nth-child(2) {
-    grid-area: email;
-  }
-
-  /* 3. Телефон */
-  .form-control__grid>div:nth-child(3) {
-    grid-area: phone;
-  }
-
-  /* 4. Повідомлення (Textarea) - займає 2 та 3 рядки справа */
-  .form-control__grid>div:nth-child(4) {
-    grid-area: message;
-    height: 100%;
-  }
-
-  .form-control__grid>div:nth-child(4) textarea {
-    height: 100%;
-    min-height: 150px;
-    /* Регулюйте під висоту лівої колонки */
-    resize: none;
-  }
-
-  /* 5. Блок: Файл + Чекбокс */
-  .form-control__grid>div:nth-child(5) {
-    grid-area: files;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  /* 6. Кнопка "Надіслати" */
-  .form-control__grid>.btn {
-    grid-area: btn;
-    width: 100%;
-    align-self: end;
-    /* Притискаємо до низу, якщо повідомлення довше */
-  }
-
-}

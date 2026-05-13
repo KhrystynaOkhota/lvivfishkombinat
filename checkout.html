@@ -153,17 +153,14 @@
 
         <div class="h-overlay js-close-search"></div>
     </header>
-
     <div class="body-padding"></div>
-
-
     <main class="main overlap">
 
-        <section class="s-checkout">
-            <div class="container">
+        <section class="s-checkout section">
+            <div class="container overlap">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="kama_breadcrumbs">
+                        <div class="kama_breadcrumbs ">
                             <span>
                                 <a href="">
                                     <span>Головна</span>
@@ -185,7 +182,27 @@
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 column">
                         <h1 class="heading heading-accent h2 text-bold">Оформити замовлення</h1>
 
+                        <nav class="auth-tabs" aria-label="Методи оформлення замовлення">
+                            <ul class="auth-tabs__list">
+                                <li class="auth-tabs__item">
+                                    <span class="auth-tabs__link auth-tabs__link--disabled" aria-disabled="true">
+                                        Гість
+                                    </span>
+                                </li>
 
+                                <li class="auth-tabs__item">
+                                    <a href="registration.html" class="auth-tabs__link" aria-current="page">
+                                        Реєстрація
+                                    </a>
+                                </li>
+
+                                <li class="auth-tabs__item">
+                                    <a href="login.html" class="auth-tabs__link">
+                                        Вхід
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
 
                         <form class="checkout-form">
                             <fieldset class="checkout-form__section">
@@ -216,7 +233,8 @@
                                 <div class="checkout-form__options">
                                     <label class="radio-control">
                                         <input type="radio" name="delivery" value="np"
-                                            class="radio-control__input js-delivery-toggle" data-target="np-block" checked>
+                                            class="radio-control__input js-delivery-toggle" data-target="np-block"
+                                            checked>
                                         <span class="radio-control__ui"></span>
                                         <span class="radio-control__label">Нова пошта</span>
                                     </label>
@@ -228,13 +246,13 @@
                                     </label>
                                     <label class="radio-control">
                                         <input type="radio" name="delivery" value="pickup"
-                                            class="radio-control__input js-delivery-toggle" >
+                                            class="radio-control__input js-delivery-toggle">
                                         <span class="radio-control__ui"></span>
                                         <span class="radio-control__label">Самовивіз</span>
                                     </label>
                                 </div>
 
-                                <div class="checkout-form__sub-section js-toggle-block" id="np-block" >
+                                <div class="checkout-form__sub-section js-toggle-block" id="np-block">
                                     <div class="field">
                                         <select class="field__input field__input--select" name="np_branch">
                                             <option value="" disabled selected>Відділення Нової пошти</option>
@@ -318,341 +336,191 @@
                                 </label>
                             </div>
                         </form>
-
-
-
-
-
-                        <form class="checkout-form">
-
-                            <!-- Таби авторизації -->
-                            <nav class="auth-tabs" aria-label="Вибір способи оформлення">
-                                <button type="button" class="auth-tabs__button auth-tabs__button--muted">Гість</button>
-                                <button type="button"
-                                    class="auth-tabs__button auth-tabs__button--active">Реєстрація</button>
-                                <button type="button" class="auth-tabs__button">Вхід</button>
-                            </nav>
-
-                            <!-- Секція 1: Замовник -->
-                            <div class="checkout-form__block">
-                                <h2 class="checkout-form__section-title">1. Замовник</h2>
-                                <div class="field__grid">
-                                    <div class="field">
-                                        <input class="field__input" type="text" id="first-name" name="first_name"
-                                            placeholder="Ім’я" required>
-                                    </div>
-                                    <div class="field">
-
-                                        <input class="form-control__input" type="text" id="last-name" name="last_name"
-                                            placeholder="Призвіще" required>
-                                    </div>
-                                    <div class="field">
-
-                                        <input class="field__input" type="tel" id="phone" name="phone"
-                                            placeholder="Телефон" required>
-                                    </div>
-                                    <div class="field">
-                                        <input class="field__input" type="email" id="email" name="email"
-                                            placeholder="E-mail">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Секція 2: Доставка -->
-                            <section class="checkout-form__block">
-                                <h2 class="checkout-form__section-title">2. Доставка</h2>
-                                <div class="radio-group">
-
-
-                                    <label class="radio-option">
-                                        <input type="radio" name="delivery" value="np"
-                                            class="radio-option__input tgl-control" data-block="0"
-                                            data-rel="novaposhta">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Нова пошта</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="delivery" value="zone" class="radio-option__input"
-                                            data-block="0" data-rel="zone">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Доставка (по зонам)</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="delivery" value="pickup" class="radio-option__input"
-                                            checked data-block="0" data-rel="free_shipping">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Самовивіз</span>
-                                    </label>
-                                </div>
-
-                                <div class="tgl-block" data-block="0" data-rel="novaposhta">
-                                    <div class="form-block">
-                                        <select class="field__input field__input--select" id="np-city" name="np_city">
-                                            <option value="" disabled selected>Відділення нової пошти</option>
-                                            <option value="kyiv">Київ</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                                <div class="tgl-block" data-block="0" data-rel="zone">
-                                    <div class="form-block">
-                                        <select class="field__input field__input--select" id="np-city" name="np_city">
-                                            <option value="" disabled selected>Відділення нової пошти</option>
-                                            <option value="kyiv">Київ</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-grid">
-                                    <div class="field">
-                                        <label class="field__label" for="date">Дата отримання:
-                                            15-03-2026</label>
-                                        <input class="field__input" type="text" id="date" placeholder="15-03-2026">
-                                    </div>
-                                    <div class="field">
-                                        <label class="field__label" for="time">Час отримання</label>
-                                        <select class="field__input field__input--select" id="time" name="time">
-                                            <option>Оберіть час</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <p class="checkout-form__info-note">
-                                    <span class="icon-warning">⚠️</span> Доставка з 9-00 до 18-00.
-                                </p>
-                            </section>
-
-                            <!-- Секція 3: Оплата -->
-                            <section class="checkout-form__section">
-                                <h2 class="checkout-form__section-title">3. Оплата</h2>
-                                <div class="radio-group">
-                                    <label class="radio-option">
-                                        <input type="radio" name="payment" value="card" class="radio-option__input">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Банківська карта</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="payment" value="invoice" class="radio-option__input">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Безготівковий розрахунок</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="payment" value="cash" class="radio-option__input">
-                                        <span class="radio-option__custom"></span>
-                                        <span class="radio-option__text">Оплата при отриманні</span>
-                                    </label>
-                                </div>
-
-                                <div class="field field--full-width">
-
-                                    <textarea class="field__input field__input--textarea" id="comment" name="comment"
-                                        rows="5" placeholder="Коментар до замовлення"></textarea>
-                                </div>
-                            </section>
-
-                            <!-- Чекбокс підписки -->
-                            <div class="newsletter">
-                                <h3 class="newsletter__title">Підпишіться на нашу розсилку!</h3>
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="subscribe" class="checkbox-option__input">
-                                    <span class="checkbox-option__text">Новини компанії та унікальні знижки для
-                                        підписників</span>
-                                </label>
-                            </div>
-                        </form>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 column">
-                        <div class="cart-product__grid">
 
-                            <div class="product product-horiz">
-                                <div class="product__img-wrap --relative">
-                                    <a class="product__img" href="">
-                                        <img src="assets/img/pr-1.png" alt="">
+                        <div class="s-checkout__sidebar">
+                            <div class="product__wrap">
 
-                                    </a>
-                                </div>
-                                <div class="product-horiz__info">
-                                    <div>
-                                        <div class="product__title-wrap">
-                                            <div class="product__title text-bold ">
-                                                <a href="">Дорадо патраний чищений охолоджений
-                                                    300-600</a>
-                                            </div>
-                                            <div class="product__sku">
-                                                Артикул: 544
-                                            </div>
+                                <div class="product product-horiz">
+                                    <div class="product__img-wrap --relative">
+                                        <a class="product__img" href="">
+                                            <img src="assets/img/banner.jpg" alt="">
+
+                                        </a>
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__title text-bold ">
+                                            <a href="">Дорадо патраний чищений охолоджений
+                                                300-600</a>
                                         </div>
-                                    </div>
-
-
-                                    <div class="product__price-wrap text-center">
-                                        <p class="price">
-                                            <del aria-hidden="true">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 500&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </del>
-
-                                            <ins>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 200&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </ins>
-                                        </p>
-                                    </div>
-                                    <button type="button" class="product__remove">
-                                        <i class="icon-trash d-none"></i>
-                                        <img src="assets/img/trash.svg" alt="delete product">
-                                    </button>
-
-                                </div>
-                            </div>
-
-
-                            <div class="product product-horiz">
-                                <div class="product__img-wrap --relative">
-                                    <a class="product__img" href="">
-                                        <img src="assets/img/pr-1.png" alt="">
-
-                                    </a>
-                                </div>
-                                <div class="product-horiz__info">
-                                    <div>
-                                        <div class="product__title-wrap">
-                                            <div class="product__title text-bold ">
-                                                <a href="">Дорадо патраний чищений охолоджений
-                                                    300-600</a>
-                                            </div>
-                                            <div class="product__sku">
-                                                Артикул: 544
-                                            </div>
+                                        <div class="product__sku">
+                                            Артикул: 544
                                         </div>
-                                    </div>
-
-
-                                    <div class="product__price-wrap text-center">
-                                        <p class="price">
-                                            <del aria-hidden="true">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 500&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </del>
-
-                                            <ins>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 200&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </ins>
-                                        </p>
-                                    </div>
-
-                                    
-
-
-                                    <button type="button" class="product__remove">
-                                        <i class="icon-trash d-none"></i>
-                                        <img src="assets/img/trash.svg" alt="delete product">
-                                    </button>
-
-                                </div>
-                            </div>
-                            <div class="product product-horiz">
-                                <div class="product__img-wrap --relative">
-                                    <a class="product__img" href="">
-                                        <img src="assets/img/pr-1.png" alt="">
-
-                                    </a>
-                                </div>
-                                <div class="product-horiz__info">
-                                    <div>
-                                        <div class="product__title-wrap">
-                                            <div class="product__title text-bold ">
-                                                <a href="">Дорадо патраний чищений охолоджений
-                                                    300-600</a>
-                                            </div>
-                                            <div class="product__sku">
-                                                Артикул: 544
-                                            </div>
+                                        <div class="product__count">
+                                            1x
                                         </div>
+                                        <div class="product__price-wrap text-center">
+                                            <p class="price">
+                                                <del aria-hidden="true">
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 500&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </del>
+
+                                                <ins>
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 200&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </ins>
+                                            </p>
+                                        </div>
+
+                                        <button type="button" class="product__remove">
+                                            <i class="icon-trash d-none"></i>
+                                            <img src="assets/img/trash.svg" alt="delete product">
+                                        </button>
+
                                     </div>
+                                </div>
+                                <div class="product product-horiz">
+                                    <div class="product__img-wrap --relative">
+                                        <a class="product__img" href="">
+                                            <img src="assets/img/pr-1.png" alt="">
 
-
-                                    <div class="product__price-wrap text-center">
-                                        <p class="price">
-                                            <del aria-hidden="true">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 500&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </del>
-
-                                            <ins>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>1 200&nbsp;<span
-                                                            class="woocommerce-Price-currencySymbol">грн</span></bdi>
-                                                </span>
-                                            </ins>
-                                        </p>
+                                        </a>
                                     </div>
+                                    <div class="product-horiz__info">
+                                        <div class="product__title text-bold ">
+                                            <a href="">Дорадо патраний чищений охолоджений
+                                                300-600</a>
+                                        </div>
+                                        <div class="product__sku">
+                                            Артикул: 544
+                                        </div>
+                                        <div class="product__count">
+                                            1x
+                                        </div>
+                                        <div class="product__price-wrap text-center">
+                                            <p class="price">
+                                                <del aria-hidden="true">
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 500&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </del>
 
-                            
-                                    <button type="button" class="product__remove">
-                                        <i class="icon-trash d-none"></i>
-                                        <img src="assets/img/trash.svg" alt="delete product">
-                                    </button>
+                                                <ins>
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 200&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </ins>
+                                            </p>
+                                        </div>
 
+                                        <button type="button" class="product__remove">
+                                            <i class="icon-trash d-none"></i>
+                                            <img src="assets/img/trash.svg" alt="delete product">
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <div class="product product-horiz">
+                                    <div class="product__img-wrap --relative">
+                                        <a class="product__img" href="">
+                                            <img src="assets/img/pr-1.png" alt="">
+
+                                        </a>
+                                    </div>
+                                    <div class="product-horiz__info">
+                                        <div class="product__title text-bold ">
+                                            <a href="">Дорадо патраний чищений охолоджений
+                                                300-600</a>
+                                        </div>
+                                        <div class="product__sku">
+                                            Артикул: 544
+                                        </div>
+                                        <div class="product__count">
+                                            1x
+                                        </div>
+                                        <div class="product__price-wrap text-center">
+                                            <p class="price">
+                                                <del aria-hidden="true">
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 500&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </del>
+
+                                                <ins>
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>1 200&nbsp;<span
+                                                                class="woocommerce-Price-currencySymbol">грн</span></bdi>
+                                                    </span>
+                                                </ins>
+                                            </p>
+                                        </div>
+
+                                        <button type="button" class="product__remove">
+                                            <i class="icon-trash d-none"></i>
+                                            <img src="assets/img/trash.svg" alt="delete product">
+                                        </button>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="promo">
-                            <div class="promo__heading text-semibold"> Використовувати купон на знижку</div>
-                            <form>
-                                <div class="promo__field --relative">
-                                    <input type="email" value="" name="email" class="promo__input "
-                                        placeholder="Ваша пошта">
-                                    <button class="promo__btn btn  d-flex align-center align-middle" type="submit"><i
-                                            class="icon-ar-right"></i>
-                                    </button>
+                            <div class="promo">
+                                <div class="promo__heading text-semibold"> Використовувати купон на знижку</div>
+                                <form>
+                                    <div class="promo__field --relative">
+                                        <input type="email" value="" name="email" class="promo__input "
+                                            placeholder="Купон">
+                                        <button class="promo__btn btn  d-flex align-center align-middle"
+                                            type="submit"><i class="icon-ar-right"></i>
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="cart-summary">
+                                <div class="cart-summary__item">
+                                    <span class="cart-summary__label">Попередня вартість:</span>
+                                    <span class="cart-summary__val">101.82 грн</span>
                                 </div>
 
-                            </form>
-                        </div>
+                                <div class="cart-summary__item">
+                                    <span class="cart-summary__label">Самовивіз у Києві:</span>
+                                    <span class="cart-summary__val">0 грн</span>
+                                </div>
 
-                        <div class="cart-summary__group">
-                            <div class="cart-summary__item">
-                                <span class="cart-summary__label">Попередня вартість:</span>
-                                <span class="cart-summary__val">101.82 грн</span>
+                                <div class="cart-summary__item">
+                                    <span class="cart-summary__label">Знижка:</span>
+                                    <span class="cart-summary__val">0 грн</span>
+                                </div>
+                                <div class="cart-summary__item cart-summary__item--total">
+                                    <span class="cart-summary__label">Усього:</span>
+                                    <strong class="cart-summary__val">101.82 грн</strong>
+                                </div>
+
                             </div>
 
-                            <div class="cart-summary__item">
-                                <span class="cart-summary__label">Самовивіз у Києві:</span>
-                                <span class="cart-summary__val">0 грн</span>
-                            </div>
 
-                            <div class="cart-summary__item">
-                                <span class="cart-summary__label">Знижка:</span>
-                                <span class="cart-summary__val">0 грн</span>
-                            </div>
-                        </div>
 
-                        <div class="cart-summary__item cart-summary__item--total">
-                            <span class="cart-summary__label">Усього:</span>
-                            <strong class="cart-summary__val">101.82 грн</strong>
-                        </div>
-
-                        <div class="cart-summary__actions">
                             <button type="submit" class="btn btn-primary">Оформити замовлення</button>
 
-                        </div>
 
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="decor__wrap">
+                <img src="assets/img/decor.svg" alt="" class="decor">
             </div>
         </section>
     </main>

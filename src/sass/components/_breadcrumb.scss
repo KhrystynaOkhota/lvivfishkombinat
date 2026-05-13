@@ -66,3 +66,13 @@
     }
   }
 }
+
+
+.s-checkout, .s-cbn, .s-cart{
+  .kama_breadcrumbs{
+    color: rgba(49, 39, 131, 1);
+    & .kb_title{
+      color:rgba(179, 176, 216, 1);
+    }
+  }
+}

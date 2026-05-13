@@ -142,10 +142,6 @@
         <div class="h-overlay js-close-search"></div>
     </header>
 
-
-    <div class="body-padding"></div>
-
-
     <main class="main">
 
 
@@ -181,7 +177,103 @@
             </div>
         </section>
 
-       
+       <section class="s-contacts --home">
+            <div class="container overlap">
+                <div class="row m-row align-middle s-contacts__inner">
+                    <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 column">
+                        <h3 class="heading heading-accent h2 text-bold">Контакти</h3>
+                        <div class="description text-medium">Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse
+                            cillum dolore eu fugiat nulla pariatur.
+                        </div>
+
+                        <div class="contacts__wrapper">
+
+                            <div class="contacts__item">
+                                <a href="https://maps.google.com/?q=22-я+Садовая+Київ"
+                                    class="contacts__link contacts__link--location" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <img src="assets/img/place.svg" alt="" class="contacts__icon" aria-hidden="true">
+                                    <strong class="contacts__city">Київ</strong>
+                                </a>
+                                <p class="contacts__text">22-я Садовая, Київ, Київська область 02000 </p>
+                            </div>
+
+                            <div class="contacts__item">
+                                <a href="tel:080078904" class="contacts__link contacts__link--phone">
+                                    0 800 78 904
+                                </a>
+                                <p class="contacts__text">Щоденно з 8:00 до 21:00</p>
+
+                                <ul class="social d-flex social--messengers">
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-viber"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-telegram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-whatsapp"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="contacts__item">
+                                <a href="mailto:info@rybnuy-kombinat.com" class="contacts__link contacts__link--email">
+                                    <img src="assets/img/email.svg" alt="" class="contacts__icon" aria-hidden="true">
+                                    info@rybnuy-kombinat.com
+                                </a>
+                            </div>
+                            <ul class="social d-flex ">
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+                                        <i class="icon-youtube"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+                                        <i class="icon-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-xs-12 column">
+
+                        <div class="map-wrapper">
+                            <div id="map"></div>
+                            <!--<img src="assets/img/about.png" alt="">-->
+
+
+
+                            <div class="map-info">
+                                <img src="assets/img/map-pin.png" alt="location" class="map-info__icon">
+                                <div class="map-info__location --relative">22-я Садовая, Київ, Київська область 02000
+                                </div>
+                                <div id="link1"
+                                    class="map-info__more show-map text-medium text-uppercase  d-flex align-middle">
+                                    Подивитись на карті <i class="icon-ar-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -462,7 +554,9 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
 
     <script src="assets/js/app-swiper.js"></script>
+   
     <script src="src/scripts/js_app.js"></script>
+     <script src="src/scripts/app_map.js"></script>
 </body>
 
 </html>

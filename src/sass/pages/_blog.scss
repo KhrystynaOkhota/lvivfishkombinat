@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+
 .article {
   &__item {
     cursor: pointer;
@@ -95,6 +96,13 @@
   padding-top: 56px;
   padding-bottom: fluid(100, 200);
 
+  & .decor {
+    &__wrap{
+bottom: 0;
+    }
+    
+  }
+
   & .article {
     &__item {
       display: block;
@@ -106,10 +114,11 @@
   }
 }
 
-.s-post{
+.s-post {
   padding-top: 50px;
-  & .heading{
-    font-size: fluid(30,70);
+
+  & .heading {
+    font-size: fluid(30, 70);
   }
 }
 

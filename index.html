@@ -21,12 +21,18 @@
 <body>
     <style>
         * {
-            cursor: url('./assets/img/fish.png') , default;
+            cursor: url('./assets/img/fish.png'), default;
         }
 
-         html, body, a, button, input, textarea, label {
-       cursor: url('./assets/img/fish.png') , default;
-    }
+        html,
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        label {
+            cursor: url('./assets/img/fish.png'), default;
+        }
     </style>
     <header class="header js-header bg">
         <div class="container">
@@ -1956,7 +1962,7 @@
             </div>
         </section>
 
-        <section id="contacts" class="s-contacts --home">
+        <section class="s-contacts --home">
             <div class="container overlap">
                 <div class="row m-row align-middle s-contacts__inner">
                     <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 column">
@@ -2034,8 +2040,20 @@
                     <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-xs-12 column">
 
                         <div class="map-wrapper">
-                            <!--<div id="map"></div>-->
-                            <img src="assets/img/about.png" alt="">
+                            <div id="map"></div>
+                            <!--<img src="assets/img/about.png" alt="">-->
+
+
+
+                            <div class="map-info">
+                                <img src="assets/img/map-pin.png" alt="location" class="map-info__icon">
+                                <div class="map-info__location --relative">22-я Садовая, Київ, Київська область 02000
+                                </div>
+                                <div id="link1"
+                                    class="map-info__more show-map text-medium text-uppercase  d-flex align-middle">
+                                    Подивитись на карті <i class="icon-ar-right"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

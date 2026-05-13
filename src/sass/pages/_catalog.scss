@@ -48,19 +48,16 @@
   }
 
   & .decor {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-
-    @media (max-width: $breakpoint-md) {
-      display: none;
+    &__wrap {
+      bottom: 0;
     }
   }
 }
 
 .s-catalog {
   padding: 50px 0 fluid(50, 100) 0;
+
+  
 
   & .container {
     &:after {

@@ -7,7 +7,16 @@
   margin: 0 auto;
   background-color: $white-color;
 }
-
+.decor{
+  
+  width:100%;
+  &__wrap{
+    position: absolute;
+    left:0;
+    right:0;
+    width:100%;
+  }
+}
 .border-radius {
   border-radius: 10px;
   overflow: hidden;
@@ -113,10 +122,10 @@ img {
 }
 
 .body-padding {
-  height: 65px;
+  height: 165px;
 
   @media (max-width: $breakpoint-lg) {
-    height: 40px;
+    height: 136px;
   }
 }
 

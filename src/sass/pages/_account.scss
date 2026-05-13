@@ -2,8 +2,10 @@
 @use "../abstracts/mixins" as *;
 
 .s-cbn {
-
   & .cbn-menu {
+    padding: 20px 30px;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+
     @media (max-width: $breakpoint-md) {
       margin-bottom: 30px;
     }
@@ -34,6 +36,10 @@
       color: rgba(49, 39, 131, 1);
       @include transition(.4);
 
+      &--logout {
+        color: rgba(255, 60, 0, 1);
+      }
+
       &.is-active {
         color: rgba(90, 90, 90, 1);
       }
@@ -41,44 +47,6 @@
   }
 
   & .cbn {
-    &-menu {
-      padding: 20px 30px;
-      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
-
-      & ul {
-        display: grid;
-        gap: 41px;
-
-        & li {
-          position: relative;
-
-          & .cbn-item {
-            font-size: 18px;
-            color: rgba(49, 39, 131, 1);
-            @include transition(.4);
-
-            &.is-active {
-              color: rgba(90, 90, 90, 1);
-            }
-
-          }
-
-          &:not(&:last-child) {
-            &:after {
-              content: '';
-              width: 100%;
-              position: absolute;
-              bottom: -20px;
-              left: 0;
-              height: 1px;
-              background: rgba(0, 0, 0, 0.1);
-            }
-          }
-
-        }
-      }
-    }
-
     &-inner {
       padding-bottom: fluid(100, 200);
 
@@ -86,14 +54,32 @@
         margin-bottom: fluid(20, 35);
       }
 
-      & .subheading {
-        margin-bottom: fluid(15, 24);
-      }
+
 
       & .btn-primary {
         font-size: 16px;
-        margin-top: 20px;
+        margin-top: fluid(30, 50);
         min-width: 275px;
+      }
+    }
+
+    &-block {
+      &__title {
+        margin-bottom: fluid(15, 24);
+      }
+
+      &__grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+
+        @media (max-width: $breakpoint-md) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      &:not(&:last-child) {
+        margin-bottom: 50px;
       }
     }
   }
@@ -166,13 +152,17 @@
 .s-registration {
   padding: fluid(47, 60) 0 fluid(100, 200) 0;
 
+  & .decor {
+    top: 120px;
+  }
+
   & .heading {
     margin-bottom: fluid(30, 38);
   }
 
   & .btn-primary {
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: fluid(10, 20);
     min-width: 275px;
   }
 
@@ -188,10 +178,30 @@
       font-weight: bold;
     }
   }
+
+  & .field {
+    &__grid {
+      &> :last-child {
+
+        grid-column: 1 / -1;
+
+
+        width: 50%;
+        max-width: 275px;
+
+        /* 3. Центруємо всередині grid-області */
+        justify-self: center;
+      }
+    }
+  }
 }
 
 .s-login {
   padding: fluid(50, 60) 0 fluid(100, 200) 0;
+
+  & .decor {
+    top: 120px;
+  }
 
   & .heading {
     margin-bottom: 20px;
@@ -202,6 +212,12 @@
     max-width: 275px;
     margin: 0 auto;
     display: block;
+  }
+
+  & .field {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
   }
 }
 

@@ -166,91 +166,90 @@
                 </div>
                 <div class="row m-row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 column">
-                        <div class="cbn-menu">
-                            <ul>
-                                <li><a class="cbn-item is-active" href="account.html">Мій профіль</a></li>
-                                <li><a class="cbn-item" href="account-history.html">Історія замовленнь</a></li>
-                                <li><a class="cbn-item" href="account-favourites.html">Мої бажання</a></li>
-                                <li><a class="cbn-item" href="account-bonuses.html">Бонуси</a></li>
-                                <li><a class="cbn-item">Вийти</a></li>
-                            </ul>
-                        </div>
+        
+                        <aside class="cbn-sidebar">
+                            <nav class="cbn-menu">
+                                <ul class="cbn-menu__list">
+                                    <li class="cbn-menu__item">
+                                        <a href="account.html" class="cbn-menu__link is-active">Мій профіль</a>
+                                    </li>
+                                    <li class="cbn-menu__item">
+                                        <a href="account-history.html" class="cbn-menu__link">Історія замовлень</a>
+                                    </li>
+                                    <li class="cbn-menu__item">
+                                        <a href="account-favourites.html" class="cbn-menu__link">Мої бажання</a>
+                                    </li>
+                                    <li class="cbn-menu__item">
+                                        <a href="account-bonuses.html" class="cbn-menu__link">Бонуси</a>
+                                    </li>
+                                    <li class="cbn-menu__item">
+                                        <a href="/logout" class="cbn-menu__link cbn-menu__link--logout">Вийти</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 column">
                         <div class="cbn-inner">
                             <h2 class="heading heading-accent h2 text-bold">Мій профіль</h2>
-                           <form>
-                            <div class="cbn-block">
-                                <div class="h4 subheading text-bold">1. Персональні данні</div>
-                                <div class="form-block">
-                                    <div class="row m-row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" name="first_name" value=""
-                                                    placeholder="Олег" type="text">
-                                            </div>
+                            <form>
+                                <div class="cbn-block">
+                                    <div class="cbn-block__title h4 text-bold">1. Персональні данні</div>
+
+                                    <div class="cbn-block__grid">
+                                        <div class="field">
+                                            <label class="visually-hidden" for="first_name">Ім'я</label>
+                                            <input class="field__input" name="first_name" value="" placeholder="Олег"
+                                                type="text">
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" name="last_name" value=""
-                                                    placeholder="Коновалов" type="text">
-                                            </div>
+
+                                        <div class="field">
+                                            <label class="visually-hidden" for="last_name">Прізвище</label>
+                                            <input class="field__input" name="last_name" value=""
+                                                placeholder="Коновалов" type="text">
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" value=""
-                                                    placeholder="+38 (098) 897-23-10" name="phone" type="text">
-                                            </div>
+
+                                        <div class="field">
+                                            <label class="visually-hidden" for="phone">Телефон</label>
+                                            <input class="field__input" value="" placeholder="+38 (098) 897-23-10"
+                                                name="phone" type="tel" inputmode="tel">
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" value=""
-                                                    placeholder="oleg.konovalov@gmail.com" name="email" type="text">
-                                            </div>
+
+                                        <div class="field">
+                                            <input class="field__input" value="" placeholder="oleg.konovalov@gmail.com"
+                                                name="email" type="text">
                                         </div>
+
                                     </div>
+
                                 </div>
+                                <div class="cbn-block">
+                                    <div class="cbn-block__title h4 text-bold">2. Пароль</div>
+                                    <div class="cbn-block__grid">
+                                        <div class="field">
+                                            <input class="field__input" name="old_password"
+                                                placeholder="Старий пароль" type="password">
+                                        </div>
 
+                                        <div class="field">
+                                            <input class="field__input" name="new_password"
+                                                placeholder="Новій пароль" type="password">
+                                        </div>
 
-                            </div>
-                            <div class="cbn-block">
-                                <div class="h4 subheading text-bold">2. Пароль</div>
-                                <div class="form-block">
-                                    <div class="row m-row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" name="old_password"
-                                                    placeholder="Старий пароль" type="password">
-                                            </div>
+                                        <div class="field">
+                                            <input class="field__input" name="confirm_password"
+                                                placeholder="Підтвердження паролю" type="password">
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" name="new_password"
-                                                    placeholder="Новій пароль" type="password">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                            <div class="form-control">
-                                                <input class="form-control__input" name="confirm_password"
-                                                    placeholder="Підтвердження паролю" type="password">
-                                            </div>
-                                        </div>
+
                                     </div>
-
 
                                     <button type="submit" class="btn btn-primary">Зберегти</button>
                                 </div>
-                            </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
-
         </section>
 
 

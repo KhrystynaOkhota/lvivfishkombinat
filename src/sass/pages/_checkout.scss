@@ -2,11 +2,78 @@
 @use "../abstracts/mixins" as *;
 
 .s-checkout {
+  padding: 0 0 fluid(100, 200) 0;
+
+  & .decor {
+    &__wrap {
+      bottom: 0;
+    }
+  }
+
+  &__sidebar {
+    padding: 10px;
+    background-color: rgba(179, 176, 216, .2);
+
+    & .btn-primary {
+      width: 100%;
+    }
+  }
+
+  & .auth-tabs {
+
+
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+    }
+
+    &__link {
+      position: relative;
+      display: inline-flex;
+      border: 1px solid #ff3c0091;
+      padding: 10.5px 13px;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      justify-content: center;
+      text-decoration: none;
+      color: #FF3C00;
+      transition: all ease-out .4s;
+      min-width: 120px;
+
+      /* Ефект при наведенні */
+      &:hover:not(&--disabled):not(&--active) {
+        color: #312783;
+        border-color: #312783;
+      }
+
+      &--disabled {
+        color: #C8C6E5;
+        border-color: #C8C6E5;
+        cursor: not-allowed;
+        pointer-events: none;
+        /* Забороняє взаємодію */
+        user-select: none;
+      }
+    }
+  }
+
   & .heading {
     margin-block-end: 37px;
   }
 
-  .product {
+  & .product {
+    &__wrap {
+      margin-bottom: 34px;
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
     &-horiz {
       grid-template-columns: fluid(90, 94) 1fr;
       display: grid;
@@ -15,11 +82,55 @@
       padding: 18px 10px;
     }
 
+    &__info {}
+
     &__price-wrap {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-      flex: 0 0 100%;
-      max-width: 100%;
+      -ms-flex: 0 0 calc(100% - 26px);
+      flex: 0 0 calc(100% - 26px);
+      max-width: calc(100% - 26px);
+    }
+
+    &__remove {
+      position: absolute;
+      right: 10px;
+      bottom: 18px;
+    }
+  }
+
+  & .promo {
+    margin-bottom: 20px;
+  }
+
+  & .cart-summary {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27px;
+
+    &__label {
+      width: 55%;
+      display: inline-block;
+    }
+
+    &__item {
+      font-size: 20px;
+
+      &--total {
+        margin-top: 13px;
+        font-weight: bold;
+
+        & .cart-summary {
+          &__label {
+            font-size: 22px;
+
+          }
+
+          &__val {
+            font-size: 30px;
+          }
+        }
+      }
     }
   }
 }
@@ -76,7 +187,7 @@
 }
 
 // Атомарний компонент Field
-.field {
+/*.field {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -113,7 +224,7 @@
       background: url("data:image/svg+xml,...") no-repeat right 16px center / 12px;
     }
   }
-}
+}*/
 
 // Кастомний Radio Control
 .radio-control {
@@ -135,9 +246,9 @@
   }
 
   &__ui {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent-orange);
+    width: 23px;
+    height: 23px;
+    border: 1px solid rgba(192, 192, 192, 1);
     border-radius: 50%;
     margin-right: 10px;
     position: relative;
@@ -145,11 +256,11 @@
     &::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 10px;
-      height: 10px;
-      background: var(--accent-orange);
+      top: 4px;
+      left: 4px;
+      width: 13px;
+      height: 13px;
+      background: rgba(49, 39, 131, 1);
       border-radius: 50%;
       transform: scale(0);
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2);
